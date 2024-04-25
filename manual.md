@@ -1,5 +1,6 @@
-# Running NGS Pipelines: how to run NGS bioinformatics pipelines using Nextflow on the LMB compute cluster
+![alt text](lmb_logo.png)
 
+# Running NGS Pipelines: how to run NGS bioinformatics pipelines using Nextflow on the LMB compute cluster
 
 Version 2024.1 
 
@@ -71,7 +72,7 @@ Please make sure you bring a machine that can already connect to the LMB intrane
 # What is a compute (or computer) cluster?
 A compute cluster is a set of computers that work together so that they can be regarded as a single entity. These inter-connected computers (known as nodes) run software to coordinate the running of programs across the system.  The diagram below gives an overview of a compute cluster. 
 
- 
+ ![Figure 1 - Compute cluster schematic](cluster_computing_schematic.png)
 Figure 1 - Compute cluster schematic
 
 This setup enables the processing of data simultaneously across multiple nodes to speed up running times.  The LMB has a particularly powerful computing cluster comprising (at the time of writing) 130 CPU nodes with 112 hyperthreaded cores.  Each of these nodes has access to 754GB of RAM.  What this means is that the cluster may theoretically perform 130  112 = 14,560 processes simultaneously.  This is significant, for the extent to which a job may be subdivided and parallelised will greatly reduce the required processing time.  In practice, for the sake of fairness to everyone, a single user will not be able to use all the allotted nodes at once, but nevertheless taking advantage of the parallelisation capabilities of a computer cluster should substantially reduce processing times.  To put this in perspective, it is typical for a new MacBook Pro to have only 4 cores installed.
@@ -98,16 +99,17 @@ Ensure that the software Putty is installed on your computer (it can be download
 
 Once you open Putty, you should see a window similar to that displayed below.  Enter your cluster username with @hal appended in the Host Name box.  For example, if your username is jsmith, then enter jsmith@hal.  Leave the Port set to 22.  Click Open to access the cluster.
 
- 
+![Putty](putty_1.png)
 
 If you would like to view images directly from the cluster, you will need to enable X11 forwarding before connecting.  In the left-hand side pane select Connection -> SSH -> X11 and then check the Enable X11 forwarding box.
 
- 
+![Putty X11 forwarding](putty_2.png)
 
 ### Cluster access using a Mac
 Open the terminal window. Do this by double-clicking the terminal icon (a black square with the >_ symbol in the top left corner).  Alternatively, press cmd + space simultaneously and then type terminal in the Spotlight Search bar.
 
- 
+![mac_terminal_icon](mac_terminal_icon.png)
+
 Figure 2 Mac terminal icon
 
 The terminal window should now have opened.  To tell your Mac to connect to the cluster, enter the following command:
@@ -121,6 +123,7 @@ Then enter your cluster password (which should have been sent to you after you r
 ## Transferring files to and from the cluster
 It is often necessary to upload files to or download files from the LMB cluster to your local machine.  There are several ways to do this, but we recommend using the application FileZilla Client.  It is widely used, distributed as free software and has an intuitive drag and drop interface.  It can be downloaded from https://filezilla-project.org in either a Windows- or macOS-compatible format.
 
+![FileZilla](filezilla.png)
  
 On opening the software, you should enter your login credentials in the bar towards the top of the screen.  In addition to your Username and Password, you need to enter the Host - which is hal, and a Port – which is 22.
 
@@ -356,6 +359,8 @@ There are many ways to edit a file in Linux.  The operating system is shipped wi
 Simply type nano on the command line and the software will start and display a screen similar to that shown below.  You can now start writing text in this window and then to save your text simply press CTRL + O.  When using nano, option menus and prompts will appear at the bottom of the window (please note that the ^ character in a menu denotes the CRTL button).  
 
 To exit the program type CTRL + X. 
+
+![Nano text editor](nano.png)
  
 To open and view/edit a text file that already exists simply pass the name of the file you wish to open to nano:
 
@@ -472,6 +477,8 @@ It is also possible to link to multiple files in one command by specifying the c
 In a previous example which demonstrated the command ls -l, the system returned the list of files in the current directory, along with additional information.  This is known as long format.
 
 Explanation of long format:
+
+![File permissions](file_permissions.png)
  
 Column Number	Description
 1	File type (- file / d directory / l link) 
@@ -620,18 +627,21 @@ Central to this sequencing methodology is the surface of the flow cell, which ha
 
 Successive rounds of hybridisation, replication and then de-hybridisation on this oligonucleotide lawn leads to the target DNA molecules becoming amplified while, significantly, remaining in close proximity to all their clones.  This process is termed cluster generation by bridge amplification and generates millions of copies of single-stranded DNA. 
 
- 
+![Bridge Amplification](https://upload.wikimedia.org/wikipedia/en/7/75/DNA_Sequencing_Bridge_Amplification.png)
+
 Figure 3 – bridge amplification, courtesy of Abizar, Wikipedia https://en.wikipedia.org/wiki/File:DNA_Sequencing_Bridge_Amplification.png
 
 In a process called sequencing by synthesis (SBS), chemically modified nucleotides bind to the DNA template strand through base-pairing. Each of these synthetic nucleotides contains a fluorescent tag and a reversible terminator that blocks incorporation of the next base. A fluorescent emission signals when a nucleotide has been added, and the terminator is cleaved so the next base can bind.  Consequently, by recording the wavelength (colour) of the fluorescent emissions of each cluster, it is possible to deduce the sequence of the original “seeding” DNA molecule.
 
- 
+ ![Sequencing by synthesis](https://upload.wikimedia.org/wikipedia/commons/5/51/Sequence_By_Synthesis.png)
+
 Figure 4 - sequencing by synthesis, courtesy of DMLapato, Wikipedia: https://commons.wikimedia.org/wiki/File:Sequence_By_Synthesis.png#filelinks
 
 ### Single-end / paired-end sequencing
 For single-end sequencing, one read is reported for each sequenced DNA fragment.  In contrast, paired-end sequencing involves sequencing both ends of a fragment.  Paired-end sequencing aids the detection of genomic rearrangements and repetitive sequence elements, as well as gene fusions, novel transcripts and indels.
 
- 
+![Sequencing by synthesis](single_paired_end_sequencing.png)
+
 Figure 5 - comparing single-end to paired-end sequencing
 
 ### Barcodes 
@@ -731,7 +741,7 @@ The Slurm files are located on the LMB cluster at /user/bin/ where the Linux com
 `squeue`
 Earlier in the course we introduced the Linux command top which lists the job currently running on the user’s current node.  Well, squeue is similar, for it reports the jobs that have been added by Slurm to  the scheduling queue.  The command lists both running and pending jobs, as shown in the example below.
 
- 
+![Slurm queue](slurm_queue.png)
 Figure 6 - Slurm scheduling queue
 
 The table below explains the different columns.
@@ -877,7 +887,8 @@ For the past decade Next Generation Sequencing (NGS) has been used ever more fre
 
 In addition to these demands, processing NGS datasets typically entails multiple steps, such as quality control (QC), mapping reads to a specified reference genome, followed by preliminary analysis of the alignments and then collating the headline results for the user.  This is not usually performed by one multi-purpose program, but rather a series of software tools – often developed independently of one another at separate academic institutions.  Such a series of steps is what we term a bioinformatics pipeline.
 
- 
+![Generalised NGS pipelin](generalised_ngs_pipeline.svg)
+
 Figure 7 - overview of a generalised NGS bioinformatics pipeline
 
 ## Introducing Nextflow
@@ -886,6 +897,8 @@ Until recently it was common to see computer scientists and bioinformaticians wr
 We have set up Nextflow on the LMB cluster and it is run using the command line where it provides an interface between the user and Slurm.  In practical term this means that, you don’t need to submit Nextflow jobs as sbatch commands, just run them from a head node and Nextflow will manage everything for you.  Since Nextflow is a versatile and complex tool, there are many Nextflow commands and options that can be executed.  The Nextflow documentation is found at: https://nextflow.io
 
 It is worth pointing out that since Nextflow is essentially a language to enable programmers to write bioinformatics pipelines, the documentation webpages may look heavy on technical jargon.  But not to worry, because the vast majority of this knowledge is not required for actually running a pipeline.
+
+![Nextflow logo](nextflow_logo.png)
  
 ## Introducing nf-core
 After establishing a syntax for describing bioinformatics workflows, the next goal for this community was to create pipelines for a range of NGS applications.  This endeavour is what became nf-core, essentially a repository of curated Nextflow pipelines.  These pipelines have pooled the opinions and efforts of experts on what constitutes best-practice in NGS processing.  The default settings should suit most standard protocols, but the pipelines have a wide range of options to accommodate different experimental procedures.
@@ -895,7 +908,9 @@ https://nf-co.re
 
 We have made a selection of pipelines available on the LMB’s computer cluster.  Although not all the pipelines listed at nf-core are currently available here, we are willing to add more pipelines should there be demand from researchers.  Also, we may write and make available bespoke pipelines should the necessity arise.
 
- 
+![nf-core logo](nf_core_logo.png)
+
+
 ## Setting up Nextflow / nf-core
 Nextflow takes a little bit of setting up but we have tried to simplify this process by writing a Bash script that does this for you.  To download and run the bash script, execute the following one-line command (more experienced users may prefer to download the script and use it as a setup guide):
 
