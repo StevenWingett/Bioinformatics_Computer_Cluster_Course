@@ -149,18 +149,11 @@ Check which shell you are currently using:
     
     echo $SHELL
 
-If the output ends with the word bash then you do not need to change the shell.  However, if something else is reported instead (probably “tcsh”), then follow Step 2 below.
+If the output ends with the word bash then you do not need to change the shell.  However, if something else is reported instead (probably “tcsh”), then you will need to contact Scientific Computing to change your default shell.  However, you can temporarily run a bash shell inside your current shell by typing:
 
-To set the bash shell permanently, type the following into the command line (remember to press Enter at the end of each line):
+    bash
 
-    cp ~admin/{.bashrc,.profile} $HOME
-    ypchsh
-
-Then, follow the on-screen prompts to enter your password.  Choose /bin/bash as your new shell.  Then logout of that head node (type exit) and then login again.
-
-On your screen the command line will look similar to the text below (notice the $ at the end of the command prompt):
-
-    [username@hal ~]$
+This will expire when you next logout.
 
 ### Introducing the Linux commands (ls)
 When a valid command is interpreted by the shell it will execute a program.  For example, the command ls will launch software that lists files and folders (the latter are also known as directories).  The action of a command may be modified by what are termed flags, options and arguments.  Below summarises the general structure of a command.
