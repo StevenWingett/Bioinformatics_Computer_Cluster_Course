@@ -573,5 +573,234 @@ table {
 
 *(Image courtesy of courtesy of DMLapato, Wikipedia)*
 
+---
+
+## Other NGS terms
+
+* Paired-end / single end
+  <br>
+![width:900px](assets/single_paired_end_sequencing.png)
 
 ---
+
+## Other NGS terms (2)
+
+* Barcodes
+  * multiplexing
+  * short nucleotide sequences
+  
+<br>
+
+* Unique molecular identifiers (UMIs)
+  * longer nucleotide sequences
+  * filter PCR duplicates
+
+---
+
+## Illumina Sequencing Adapters
+
+![width:900px](assets/illumina_sequencing_adapters.png)
+
+---
+
+## File formats – FASTQ
+
+* Standard sequencer output
+
+* Text files, but normally gzipped
+
+<br>
+  
+      @SRR071233.197343 NRTG514-16_0001:3:2:6067:17258 length=40
+      TGGGTAGTATTTGGTTACATGAGTAAGTTCTTTAATGGTG
+      +
+      CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCDC
+
+---
+
+## File formats – FASTQ 2
+
+* Explanation of quality scores – higher score better quality
+
+        Character: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI
+                  |                                       |
+        Quality:   0                                       40
+
+
+* Quality defined as:
+  $$-10log_{10} \dfrac{p}{1-p}$$
+
+(in which p is the probability the base call is incorrect)
+
+---
+
+## File Formats – SAM / BAM
+
+* Sequence Alignment / Map – SAM
+
+* Compressed version – BAM
+
+* Reading BAM files needs samtools
+
+* Header lines (information on mapping parameters):
+
+<br>
+
+      @HD	VN:1.6	SO:coordinate
+      @SQ	SN:1	LN:248956422
+      @SQ	SN:10	LN:133797422
+      @SQ	SN:11	LN:135086622
+
+---
+
+## File Formats – SAM / BAM (2)
+
+* Read alignments (1 read shown below):
+
+
+![width:1000px](assets/sam_format.png)
+
+*  SAM format specification described here:
+    https://samtools.github.io/hts-specs/SAMv1.pdf
+
+---
+
+## Data storage
+* There are public data repositories for uploading data (e.g. GEO)
+
+* Most journals require the original FASTQ files to be submitted
+
+---
+## Data storage (2)
+* **WARNING! : No FASTQ files, no publication!**
+
+* **Download promptly from the sequencing facility and store in a secure, clearly labelled and backed-up location**
+
+* **Check file sizes and md5sum before and after transfer to check for corruption during transfer – which can occur!**
+
+---
+
+## Exercise 6
+### Let’s look at sequencing data
+
+---
+
+## Using the power of the cluster
+### How to submit jobs to compute nodes
+
+---
+
+## Using Slurm
+
+* Clusters require job management and scheduling system
+
+* Keeps the nodes all in contact with one another etc.
+
+* LMB cluster uses Slurm (updated recently)
+
+---
+
+## Using Slurm (2)
+
+* Slurm is open-source software for large and small Linux clusters
+
+* Uses the command line
+
+* `man` pages are available
+
+<img align="right" height="200" src="assets/slurm_logo.png">
+
+---
+
+## Slurm – checking status
+
+* `squeue`
+
+* `squeue -u $USER`
+
+<br>
+
+![width:1000px](assets/slurm_queue.png)
+
+---
+
+## Slurm – checking status (2)
+* `sqsummary` – CPU node state
+
+* `sinfo` – partition node information
+
+* `qinfo` – interactive webpage: http://nagios2/qinfo/
+
+---
+
+## Interactive vs submitted jobs
+* Interactive jobs: run short operations that complete quickly while you wait, then check the results and perform another calculation if required
+
+* Submitted jobs: long-running jobs that do not require user intervention
+
+---
+
+## Interactive jobs
+* Move to a compute node 
+  
+* `srun --pty bash`
+  
+* Prompt change: `username@fmb376`
+
+* There are options: `srun -c 8 --pty bash`
+
+---
+
+## Submitted jobs
+
+* Job runs without further user input
+
+* Write Bash script:
+  
+      #!/bin/bash
+      echo Hello World!
+
+* Execute script:
+  
+      bash test.sh
+      Hello World!
+
+* Submit script to queue:
+  `sbatch test.sh`
+
+---
+
+## Submitted jobs 2
+
+* More options:
+
+      sbatch -J test_job -c 2 --mail-type=ALL --mail-user=$USER@mrc-lmb.cam.ac.uk --mem=2G test.sh
+
+ <br>
+
+<style scoped>
+table {
+  font-size: 20px;
+}
+</style>
+
+| Command                             | Function                                                      |
+|-------------------------------------|---------------------------------------------------------------|
+| -J [jobname]                        | Specify an easily identifiable jobname                        |
+| -c [number of cores]                | Number of cores on a node to reserve for the job [default: 1] |
+| --mem=[RAM]G                        | GB of RAM to reserve for the job [default: 5]                 |
+| --mail-type=ALL                     | Send email updates on job progress                            |
+| --mail-user=$USER@mrc-lmb.cam.ac.uk | Recipient’s email address                                     |
+
+---
+
+## Submitted jobs 3
+
+* `sacct -j [job id]`
+
+* To get the maximum memory usage:
+  
+      sacct --format=jobID%20,CPUTime,MaxRSS -j [job id]
+
+* `scancel [job id]`
+
