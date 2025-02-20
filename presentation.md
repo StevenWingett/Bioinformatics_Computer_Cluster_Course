@@ -804,3 +804,222 @@ table {
 
 * `scancel [job id]`
 
+---
+
+## Modules
+
+* Import specific software versions
+
+* To list available module:
+
+  `module avail`
+
+* To use a module:
+  `module load [module name]`
+
+---
+
+# Additional points
+
+* Exit codes – 0 means success!
+
+* View images requires XQuartz (Mac) or VcXsrv (Windows)
+
+* Not so responsive – maybe transfer to local machine first?
+
+* More details:
+   https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=computer-cluster 
+
+---
+
+## Exercise 7
+### Using the cluster “as a cluster”
+
+---
+
+## Part 3
+### Running bioinformatics pipelines on the cluster (hours 9 – 12)
+
+---
+
+## What are bioinformatics pipelines?
+* NGS datasets require multiple software applications to evaluate the data
+
+* Not usually performed by one multi-purpose program 
+
+* Series of independently developed software tools
+
+
+
+![bg right 50%](assets/generalised_ngs_pipeline.svg)
+
+---
+
+## Introducing Nextflow
+
+* Bioinformaticians join software with custom scripts
+
+* Movement to standardise pipelines with Nextflow (and Snakemake)
+
+* But, you don’t need to program to be able to run Nextflow
+You have to learn Nextflow concepts, but then it is managed for you
+
+---
+
+## Introducing Nextflow (2)
+
+* You don’t need to submit Nextflow jobs as `sbatch` commands, just run them from the headnode
+
+* https://nextflow.io 
+
+<br>
+
+<br>
+
+![width:400px](assets/nextflow_logo.png)
+
+---
+
+## Introducing nf-core
+
+* Contributions of a community of developers
+
+* Over 50 pipelines (although multiple options)
+
+* Large community of users – support, code re-use
+
+* Well documented
+
+<br>
+
+![width:400px](assets/nf_core_logo.png)
+
+---
+
+## Introducing nf-core (2)
+
+* Events – tutorials, seminars, hackathons
+
+* Used at other institutions
+
+*  https://nf-co.re
+
+<br>
+
+![width:650px](assets/nf_core_community.png)
+
+---
+
+## Installed pipelines
+
+* Currently available:
+  * Downloading FASTQ files + metadata
+  * NGS QC
+  * RNA-seq
+  * ChIP-seq
+  * ATAC-seq
+  * Cut and Tag / Run
+  * 10x Single Cell RNA-seq
+  * Parse Evercode Single Cell RNA-seq
+  * Taxonomy Profiling
+
+---
+
+## Setting-up Nextflow & nf-core
+
+* We’ve tried to simplify this with a single command to run from a head node:
+  
+      curl -s https://raw.githubusercontent.com/StevenWingett/lmb-nextflow/main/nextflow_setup_cluster.sh | bash
+
+* Downloads and runs a Bash script
+
+* Bash command edits your `~/.bashrc` file and installs Python modules
+
+---
+
+## Tips on running pipelines
+
+* All pipelines are different: read the documentation at nf-core
+
+* Run pipelines in the `/cephfs2/ngs` partition (create a folder named after your username here)
+
+* Background your pipelines `-bg`
+
+* Every job is assigned a name e.g. clever_brenner
+
+
+
+---
+
+## Tips on running pipelines (2)
+
+* You will get an email
+  
+* Check the MultiQC report
+  
+* Your aligned files with be BAM format
+
+---
+
+## Pipeline help: GUIde-Piper
+
+* Nextflow commands are reasonably complex:
+  
+  `nextflow run nf-core/rnaseq -r 3.6 --input design_file.txt --genome homo_sapiens.GRCh38.release_102 -config /public/singularity/containers/nextflow/lmb-nextflow/lmb.config --outdir results -bg`
+
+---  
+
+## Pipeline help: GUIde-Piper (2)
+
+* But most follow the same basic template
+
+* Online resource to generate Nextflow command
+
+* http://guidepiper
+
+<img align="right" height="200" src="assets/guide_piper_logo.png">
+
+---
+
+## Troubleshooting
+
+* More than 90% full – Nextflow will fail!
+
+* `df -H | grep [partition name]`
+
+* Maybe use home directory?
+
+* Checkpoints
+
+* `-resume`
+
+---
+
+## Exercise 8
+
+---
+
+## Other tips
+
+* Microsoft Visual Studio Code
+  * Text editor
+  * Windows / Mac / Linux
+  * Edit remote files (even via atg)
+  * Built-in terminal
+  * View webpages
+  * Transfer files
+  * Free
+  * https://code.visualstudio.com
+
+---
+
+## Summary
+
+* Linux / Bash
+* Compute cluster architecture
+* Slurm
+* NGS overview
+* Nextflow / nf-core
+* Running pipelines
+* Find a reason to have a go in the coming weeks
+* Thanks for listening!!!
