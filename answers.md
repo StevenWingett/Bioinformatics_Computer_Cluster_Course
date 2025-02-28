@@ -101,7 +101,14 @@ Then copy to local machine
 
 ## Slurm
 ### Exercise 7
-#### b
+#### a
+`module avail`
+
+`module load R/4.2.1`
+
+`R –version`
+
+#### c
 1.     
         #!/bin/bash
         sleep 60
@@ -116,20 +123,14 @@ Then copy to local machine
 
 `sbatch -J pause_job --mail-type=ALL --mail-user=$USER@mrc-lmb.cam.ac.uk pause.sh`
 
-#### c
-Read FastQC help
-
-    #!/bin/bash
-    fastqc -t 6 combined.fastq.gz
-
-`sbatch -J fastqc_job -c 6 --mail-type=ALL --mail-user=$USER@mrc-lmb.cam.ac.uk --mem=2G fastqc.sh`
-
 #### d
-`module avail`
+Google about how to R scripts outside of R
 
-`module load R/4.2.1`
+#!/bin/bash
+Rscript norm_dist_1_billion.R
 
-`R –version`
+`sbatch -J Rscript_job -c 1 --mail-type=ALL --mail-user=$USER@mrc-lmb.cam.ac.uk --mem=30G norm_dist.sh`
+
 
 ## Nextflow and nf-core
 ### Exercise 8

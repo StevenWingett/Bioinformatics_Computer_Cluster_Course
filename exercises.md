@@ -229,29 +229,28 @@ Try this for FastQC.
 # Slurm
 ## Exercise 7
 ### a.
+Look at the available modules for the latest version of R.  Import this latest version of R as a cluster module.  Check this version of R is indeed now running on your system.
+
+### b.
 1. Look at all the currently running jobs submitted to the cluster.  Can you see any long-running jobs?  Are CPU / GPU nodes being used?  Who has most jobs running on the cluster?
 
-2. Look at the sqsummary command.  What percentage of CPUs are currently available?
+2. Look at the `sqsummary` command.  What percentage of CPUs are currently available?
 
-3. Look at the sinfo command.
+3. Look at the `sinfo` command.
 
-4. Look at qinfo webpage: http://nagios2/qinfo/
+4. Look at `qinfo` webpage: http://nagios2/qinfo/
 
 Are most of the CPU nodes in use?  Are any nodes listed as “down”?  Which user is using the most CPU nodes?
 
-### b.
-1. Create a Bash script that creates a 60 second pause.
+### c.
+1. Create a Bash script that creates a 60-second pause.
 
 2. Run the script as an interactive job on a compute node.  
 
 3. Exit the compute node and submit the Bash script as a non-interactive job. Check it is in the cluster queue.
 
-### c.
-Run FastQC as before, but this time submit as a non-interactive job.  Make sure the cluster emails you about the job’s progress.  Specify what seems an appropriate number of CPUs and memory.
-
 ### d.
-Look at the available modules for the latest version of R.  Import this latest version of R as a cluster module.  Check this version of R is indeed now running on your system.
-
+Run the R script `norm_dist_1_billion.R` by submitting as a non-interactive job.  Make sure the cluster emails you about the job’s progress.  Specify what seems an appropriate number of CPUs and memory.  How much RAM was actually used?
 
 # Nextflow and nf-core
 ## Exercise 8
