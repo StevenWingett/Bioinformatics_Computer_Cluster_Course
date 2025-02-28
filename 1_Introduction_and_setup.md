@@ -1,6 +1,6 @@
 ![alt text](assets/lmb_logo.png)
 
-# Running NGS Pipelines: how to run NGS bioinformatics pipelines using Nextflow on the LMB compute cluster
+# Course: Running Bioinformatics Software on a Linux Computer Cluster
 
 ## Licence
 This manual is © 2025, Steven Wingett
@@ -30,7 +30,7 @@ Full details of this licence can be found at
 http://creativecommons.org/licenses/by-nc-sa/2.0/uk/legalcode
 
 <hr>
- 
+
 # Introduction
 ## Aims
 This course is intended for people who are starting bioinformatic analysis on Linux systems.  The course teaches what Linux systems are and how to run bioinformatics tools in such environments.  The course also gives an overview of running software on computer clusters.

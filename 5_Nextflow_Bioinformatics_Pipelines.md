@@ -1,6 +1,6 @@
 ![alt text](assets/lmb_logo.png)
 
-# Running NGS Pipelines: how to run NGS bioinformatics pipelines using Nextflow on the LMB compute cluster
+# Course: Running Bioinformatics Software on a Linux Computer Cluster
 
 ## Licence
 This manual is © 2025, Steven Wingett
