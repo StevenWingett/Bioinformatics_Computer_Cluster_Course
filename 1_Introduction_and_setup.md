@@ -116,7 +116,9 @@ The terminal window should now have opened.  To tell your Mac to connect to the 
 
 (The `-Y` is not strictly necessary, but it enables the transfer of images.) 
 
-Then enter your cluster password (which should have been sent to you after you registered for cluster access). When you successfully login, a message will be displayed in the terminal window – usually informing you when you last logged in.
+Then enter your cluster password (which should have been sent to you after you registered for cluster access). When you successfully login, a message will be displayed in the terminal window – usually informing you when you last logged in:
+
+![Command_line_view](assets/command_line.png)
 
 ## Transferring files to and from the cluster
 It is often necessary to upload files to or download files from the LMB cluster to your local machine.  There are several ways to do this, but we recommend using the application FileZilla Client.  It is widely used, distributed as free software and has an intuitive drag and drop interface.  It can be downloaded from https://filezilla-project.org in either a Windows- or macOS-compatible format.
