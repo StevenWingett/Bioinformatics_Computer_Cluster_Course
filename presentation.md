@@ -5,20 +5,15 @@ theme: uncover
 ---
 
 ![width:500px](assets/lmb_logo.png)
-# LMB Bioinformatics:Running NGS Pipelines
-### How to run NGS bioinformatics pipelines using Nextflow on the LMB compute cluster
-
----
-
-# Part I
-## Getting started on the cluster (hours 1-4)
+# Running Bioinformatics Software on a Linux Computer Cluster
 
 ---
 
 ## Course aims
+* Introducing Linux
 * Learn to use the LMB compute cluster
-* Introduction to analysing next-generation sequencing (NGS) data
-* Learn about bioinformatics pipelines
+* Introduction to analysing next-generation sequencing (NGS) data
+* Learn about bioinformatics pipelines
 * Run Nextflow & nf-core
 
 ---
@@ -33,6 +28,11 @@ theme: uncover
 * macOS software:
     * FileZilla Client - https://filezilla-project.org
   
+---
+
+# Part I
+## Getting started on the cluster (hours 1-4)
+
 ---
 
 # Cluster Computing
@@ -127,12 +127,11 @@ theme: uncover
  
  * We recommend using Bash - arguably the best known
  
- * This is not the LMB cluster default – so let’s change it now:
-  `cp ~admin/{.bashrc,.profile} $HOME`
-  `ypchsh`
- * Specify the bash shell: /bin/bash
- * Log out (exit) and then log in again
- * You only need to do this once
+ * This is not the LMB cluster default
+
+ * Ask scientific computing to make it your default
+  
+ * Otherwise, temporarily specify the bash shell with: `bash`
  
 ---
 
@@ -385,7 +384,7 @@ Can use redirects with other command (i.e. not just `cat`)
 
 ## Getting help
 
-* Simple description: whatis
+* Simple description: `whatis`
 
 * Detailed manual: man
 

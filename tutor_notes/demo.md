@@ -11,7 +11,7 @@
 
 **Demo reading and writing to files**
 * cat
-* head  (dracula.txt, demo numeric flags)
+* head  (wonderland.txt, demo numeric flags)
 * tail
 * more
 * nano  (demo with / without filename)

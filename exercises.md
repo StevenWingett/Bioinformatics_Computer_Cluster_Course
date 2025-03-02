@@ -48,6 +48,8 @@ Note: your home directory will be your username (e.g. `/lmb/home/jsmith`).
 
 3. Copy the data files given to you at the start of this course into the directory on the cluster you just created.
    
+<hr>
+
 # Getting to grips with Linux
 ## Exercise 2
 ### a.
@@ -93,7 +95,7 @@ Has anything happened?
 **Only perform this step if you were given the data files in the form of `tar` archive.**
 
 If you did not extract the files before copying to the cluster, then let’s open the archive file we copied from your local machine to the cluster:
-`tar xvfp course_data_for_participants.tar`
+`tar xvzfp [course_title].tar.gz`
 
 (The `tar` command is useful, as it allows multiple files and the associated file hierarchy to be stored within a single archive file.  You don’t need to understand this command at the moment.)
 
@@ -169,6 +171,7 @@ The links should be generate outside the file_list folder, in separate folders n
 
 6. Try the sleep command once again, but this time background the job.
 
+<hr>
 
 # Next-generation sequencing
 ## Exercise 6
@@ -180,7 +183,9 @@ You have received 3 FASTQ files named sample1.fastq.gz, sample2.fastq.gz and sam
 2.  Let’s check the file transfer was successful.  The file sizes (bytes) should be:
 
 sample1.fastq.gz : 3444
+
 sample2.fastq.gz : 3477
+
 sample3.fastq.gz : 3761
 
 Is this what you see?
@@ -226,6 +231,8 @@ Try this for FastQC.
 
 3. Run samtools flagstat on the file.  How many mapped reads are there?
 
+<hr>
+
 # Slurm
 ## Exercise 7
 ### a.
@@ -251,6 +258,8 @@ Are most of the CPU nodes in use?  Are any nodes listed as “down”?  Which us
 
 ### d.
 Run the R script `norm_dist_1_billion.R` by submitting as a non-interactive job.  Make sure the cluster emails you about the job’s progress.  Specify what seems an appropriate number of CPUs and memory.  How much RAM was actually used?
+
+<hr>
 
 # Nextflow and nf-core
 ## Exercise 8
@@ -281,7 +290,6 @@ Create a text file with each of these accessions listed on a separate line (make
 Now use GUIde Piper to create a Nextflow command to download these files.  
 
 Go to the internal GUIde Piper website (http://nextflow.lmb.internal/) and select the “Download Data” option.  Input the name of your file (to_download.txt) and use GUIde Piper to generate a Nextflow command.  Now run this command on a head node.
-
 
 2. Did the job complete successfully?  Did you receive an email?  Can you see the downloaded FASTQ files (look inside any folders generated)?
 
