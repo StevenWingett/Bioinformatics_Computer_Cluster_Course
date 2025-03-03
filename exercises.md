@@ -155,7 +155,7 @@ The links should be generate outside the file_list folder, in separate folders n
 1. Write a single-line Bash command that takes the contents of the file letters.txt, sorts them alphabetically and then writes them to a new file named `sorted.txt`.
 
 ### c. 
-1. Write a Bash command to download the file: https://raw.githubusercontent.com/StevenWingett/lmb-nextflow/main/docs/README.md
+1. Write a Bash command to download the file: https://raw.githubusercontent.com/StevenWingett/Bioinformatics_Computer_Cluster_Course/refs/heads/main/README.md
 (Hint: `curl` can name the downloaded file the same as the file on the remote server – look in the Linux man pages to find the relevant `curl` flag.)
 
 ### d.

@@ -8,6 +8,6 @@ This course is intended to teach the basics of using a compute cluster.  Althoug
 4.	[Cluster computing – how to submit jobs to a compute cluster](4_Cluster_Computing.md)
 5.	[Nextflow Bioinformatics Pipelines – running complex bioinformatics pipelines, such as those available from nf-core](5_Nextflow_Bioinformatics_Pipelines.md)
 
-The course slides (presentation.md), exercises and answers are also available here.
+The course slides (presentation.md), exercises and answers are also available here.  The slides are rendered using MARP (https://marp.app).
 
 The individual sections of the course may be run separately, depending on the requirements of the course participants.

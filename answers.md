@@ -15,10 +15,14 @@ Version
 
 3.    `head -39 uk_counties.csv | tail -13`
 
-#### c
-1.    `ln -s ../files_list/*.txt .`
-   
-2.    `ln -s ../files_list/[BC]*.txt .`
+#### c 
+`mkdir TSV_links TXT_links`
+
+1.    `cd TSV_links`
+      `ln -s ../files_list/*.tsv .`
+       
+2.    `cd ../TXT_links`
+      `ln -s ../files_list/[BC]*.txt .`
 
 
 ### Exercise 5
@@ -35,7 +39,7 @@ Version
 `cat letters.txt | sort > sorted.txt`
 
 #### c
-`curl -O https://raw.githubusercontent.com/StevenWingett/lmb-nextflow/main/docs/README.md`
+`curl -O https://raw.githubusercontent.com/StevenWingett/Bioinformatics_Computer_Cluster_Course/refs/heads/main/README.md`
 
 #### d
 1.    `echo $USER`
