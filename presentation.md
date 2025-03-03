@@ -103,6 +103,24 @@ theme: uncover
 
 ---
 
+## Cell Biology Workstation
+
+* Analogous to a single cluster node
+  
+* 21TB of data storage, 80CPUs and 97GB RAM  
+
+* Maintained by the Cell Biology Division
+
+* Software can be installed as per users' requirements
+
+* Let us know if you would like an account
+
+*  `sean-pc-10.lmb.internal` 
+
+*  **NOT BACKED UP!!!**
+
+---
+
 ## Exercise 1
 
 ---

@@ -53,19 +53,17 @@ Figure 6 - Slurm scheduling queue
 
 The table below explains the different columns.
 
-Column Name	Description
-JOBID 	Incrementing numerical IDs for cluster jobs
-PARTITION	A partition is a logical division of a hard disk that is treated as a separate unit by operating systems and file systems.  On the LMB Cluster there are cpu, gpu and ml partitions.  The cpu partition is the default and what we shall be using.  The gpu partition is optimised for graphics applications and the ml partition is optimised for machine learning.
 
-| Header   | Description                                |
-|----------|--------------------------------------------|       
+| Header    | Description                                |
+|-----------|--------------------------------------------|  
+| JOBID     | Incrementing numerical IDs for cluster jobs |
+| PARTITION | A partition is a logical division of a hard disk that is treated as a separate unit by operating systems and file systems.  On the LMB Cluster there are cpu, gpu and ml partitions.  The cpu partition is the default and what we shall be using.  The gpu partition is optimised for graphics applications and the ml partition is optimised for machine learning.
 | NAME     | The name of a submitted job.               |
 | USER     | User who submitted the job.                | 
 | ST       | Status of the job i.e. how the job is progressing. Common status reports include: PD -job pending and waiting for resource allocation; R - job allocated to a node and running.|
 | TIME     | Length of time a job has been running      |
 | NODES	   | Number of nodes used for a job             |
 | NODELIST | The name of the nodes being used for a job. LMB compute cluster nodes begin with the letters fmg, followed by a numerical value.                                        |
-
 
 You may wish to view all the jobs running on the cluster, but more frequently you will want to view just your jobs.  To do that, enter on the command line:
 
@@ -165,6 +163,7 @@ The sacct command provides information on the resources used when running a job.
     sacct -j [job id]
 
 To get the maximum memory usage:
+
     sacct --format=jobID%20,CPUTime,MaxRSS -j [job id]
 
 #### `scancel`

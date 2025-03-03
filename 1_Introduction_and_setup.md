@@ -104,7 +104,7 @@ If you would like to view images directly from the cluster, you will need to ena
 ![Putty X11 forwarding](assets/putty_2.png)
 
 ### Cluster access using a Mac
-Open the terminal window. Do this by double-clicking the terminal icon (a black square with the >_ symbol in the top left corner).  Alternatively, press cmd + space simultaneously and then type terminal in the Spotlight Search bar.
+Open the terminal window. Do this by double-clicking the terminal icon (a black square with the >_ symbol in the top left corner).  Alternatively, press <kbd>cmd</kbd> + <kbd>space</kbd> simultaneously and then type terminal in the Spotlight Search bar.
 
 ![mac_terminal_icon](assets/mac_terminal_icon.png)
 
@@ -128,3 +128,12 @@ It is often necessary to upload files to or download files from the LMB cluster 
 On opening the software, you should enter your login credentials in the bar towards the top of the screen.  In addition to your Username and Password, you need to enter the Host - which is hal, and a Port – which is 22.
 
 When you have logged-in you should see your local machine’s filesystem in the left-hand pane and the remote machine’s (i.e. the cluster’s) filesystem in the right-hand pane.  Simply drag and drop icons between the two to move files and folders from one machine to another.
+
+## Note: Cell Biology Workstation
+Although this course is aimed at those wanting to run jobs on the cluster, it is worth mentioning that the Cell Biology Division has its own workstation for carrying out computational tasks, especially those requiring more system resources than available on a typical laptop.  The workstation is equipped with 21TB of data storage, 80CPUs and 97GB RAM.  
+
+While it is clearly much smaller than the Cluster - indeed, it could be thought of as more analogous to a single node on the cluster - the system is maintained by the Cell Division and software can be installed as per users' requirements.
+
+Please let us know if you would like to have an account on the Cell Biology Workstation.  The workstation can be accessed in a similar fashion to accessing the cluster, but using the intranet address: `sean-pc-10.lmb.internal`.
+
+Please note that data stored on the workstation is <u>**NOT BACKED UP**</u>.  If you accidentally delete your data, or if one of the workstation administrators deletes your data, or if the drive malfunctions, your <u>**DATA WILL BE PERMANENTLY LOST**</u>.  Please ensure that your data us backed-up elsewhere.

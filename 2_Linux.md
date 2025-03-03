@@ -57,7 +57,7 @@ If the output ends with the word bash then you do not need to change the shell. 
 This will expire when you next logout.
 
 ### Introducing the Linux commands (ls)
-When a valid command is interpreted by the shell it will execute a program.  For example, the command `ls` will launch software that lists files and folders (the latter are also known as directories).  The action of a command may be modified by what are termed **flags**, options and arguments.  Below summarises the general structure of a command.
+When a valid command is interpreted by the shell it will execute a program.  For example, the command `ls` will launch software that lists files and folders (the latter are also known as directories).  The action of a command may be modified by what are termed **flags**, **options** and **arguments**.  Below summarises the general structure of a command.
 
     command [-flag(s)] [-option(s) [value]] [argument(s)]
 
@@ -111,15 +111,14 @@ This might seem a little esoteric at the moment, but the take-home message is th
 #### Introducing the Linux filesystem
 You no doubt are already familiar with the concept of filesystems when using Macs or PCs: computer files typically sit within a directory or within a series of nested directories.  This also applies to Linux systems, where the directory structure is represented using a line of plain text and in which each folder name has a forward slash (`/`) appended.
 
-In the example below, file1.txt resides in a folder named `jsmith`, which in turn is located in a folder named `home`, which is found in a folder named `lmb`.  These nested folder structures can be complex and much longer than this, but the same concept applies.  Also, you should note that at the start of the line of text is a forward slash.  This denotes the root directory, which is the top-most directory in the Linux filesystem hierarchy i.e. all files and folders ultimately sit within the root directory.
+In the example below, file1.txt resides in a folder named `jsmith`, which in turn is located in a folder named `home`, which is found in a folder named `lmb`.  These nested folder structures can be complex and much longer than this, but the same concept applies.  Also, you should note that at the start of the line of text is a forward slash (`/`).  This denotes the root directory, which is the top-most directory in the Linux filesystem hierarchy i.e. all files and folders ultimately sit within the root directory.
 
     /lmb/home/jsmith/file1.txt
 
 #### Relative vs absolute paths
 The path listed above is what is termed as an absolute path, which means it contains the complete file hierarchy listing.  There is in contrast what is known as a relative path that lists the position of a file or folder relative to the current working directory.
 
-Suppose your current working directory was `/lmb/home/jsmith`, and you wished to reference a file at location `/lmb/home/pjones/file2.txt`.  You could use the previous absolute path, but another way would be to use the relative path: `../pjones/file2.txt`.  The 
-double dots (`..`) mean go "up one level" in the file system hierarchy. 
+Suppose your current working directory was `/lmb/home/jsmith`, and you wished to reference a file at location `/lmb/home/pjones/file2.txt`.  You could use the previous absolute path, but another way would be to use the relative path: `../pjones/file2.txt`.  The double dots (`..`) mean go "up one level" in the file system hierarchy. 
 
 Similarly, the single dot (`.`) refers to the current working directory.  Consequently, the path `./file4.txt` references a file in the current working directory.
 
@@ -160,10 +159,10 @@ This changes the user’s current working directory. Specify the directory you w
 
     cd /lmb/data1
 
-There are several useful shortcuts when moving between directories
-Move to previous directory: `cd –`
-Move to your home directory: `cd` or `cd ~`
-Move “up” a level in the file structure hierarchy `cd ..`
+There are several useful shortcuts when moving between directories:
+move to previous directory: `cd –`
+move to your home directory: `cd` or `cd ~`
+move “up” a level in the file structure hierarchy `cd ..`
 
 `cp` copy
 This command enables the user to copy a file from one location to another.  Below is a simple copy command that copies `file.txt` to a new file named `file_copy.txt`.  (Note that two files sitting in the same folder can’t have the same name, and so the new file needs a different name from the input file.)
@@ -252,7 +251,7 @@ There are many ways to edit a file in Linux.  The operating system is shipped wi
 
 Simply type nano on the command line and the software will start and display a screen similar to that shown below.  You can now start writing text in this window and then to save your text simply press <kbd>CTRL</kbd> + <kbd>O</kbd>.  When using `nano`, option menus and prompts will appear at the bottom of the window (please note that the `^` character in a menu denotes the <kbd>CRTL</kbd> button).  
 
-To exit the program type CTRL + X. 
+To exit the program type <kbd>CTRL</kbd> + <kbd>X</kbd>. 
 
 ![Nano text editor](assets/nano.png)
  
@@ -289,7 +288,7 @@ By default, command output is written to the screen (which is known technically 
 
     cat file1.txt > file1_copy.txt
 
-Here the contents of file1.txt is read and written to `file1_copy.txt` (which therefore is a copy of the input file).  This might not seem useful at first, since this is essentially the same as running the copy command we encountered earlier.  However, multiple input files may be passed simultaneously to the `cat` command, and thus the contents of these files will be combined in one output file. 
+Here the contents of `file1.txt` is read and written to `file1_copy.txt` (which therefore is a copy of the input file).  This might not seem useful at first, since this is essentially the same as running the copy command we encountered earlier.  However, multiple input files may be passed simultaneously to the `cat` command, and thus the contents of these files will be combined in one output file. 
 
     cat file1.txt file2.txt file3.txt > combined.txt
 
@@ -440,7 +439,7 @@ The command will also report if the software is not found in the `$PATH`.  It is
 This commands displays information about your current active processes.  This is a good way to see the jobs you have running
 
 ##### `top`
-This command is similar to ps in that it provides information on running processes, however unlike `ps`, it produces a continually updated display. To exit the display press the key <kbd>q</kbd>.  Also, this command will display all processes currently running, but to display just your jobs type your username:
+This command is similar to ps in that it provides information on running processes, however unlike `ps`, it produces a continually updated display. To exit the display press the key <kbd>Q</kbd>.  Also, this command will display all processes currently running, but to display just your jobs type your username:
 
     top -u $USER
 
@@ -454,7 +453,7 @@ You may have noticed that once you start a job, you cannot enter anything in the
 
     nohup cp -r /path/to/data/ . &
 
-Alternatively, currently running jobs can be stopped with <kbd>CTRL</kbd> + <kbd>Z</kbd>.  The command bg can then be used to background the job.  In contrast, the command fg will move a job from the background to the foreground.
+Alternatively, currently running jobs can be stopped with <kbd>CTRL</kbd> + <kbd>Z</kbd>.  The command `bg` can then be used to background the job.  In contrast, the command `fg` will move a job from the background to the foreground.
 
 ##### `kill`
 Suppose you have started a long-running process, but realise you made a mistake and want the process to end.  To do that, look up the process "id" (PID) using `ps` or `top`.  Then end the process (or multiple processes) with the kill command.  The example below ends processes 3101 and 3102:
