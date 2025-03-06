@@ -392,6 +392,10 @@ Can use redirects with other command (i.e. not just `cat`)
 * Link to a single file:
 `ln -s /target_folder/target_file_of_interest.txt`
 
+---
+
+## Links to files 2
+
 * Link to a single file, except link has a different name:
 `ln -s /target_folder/target_file_of_interest.txt link.txt`
 
@@ -404,7 +408,7 @@ Can use redirects with other command (i.e. not just `cat`)
 
 * Simple description: `whatis`
 
-* Detailed manual: man
+* Detailed manual: `man`
 
 * Google, ChatGPT
 
@@ -508,7 +512,7 @@ table {
 * Downloading
 * Variables
 * Running programs
-* Checking running programs (ps, top)
+* Checking running programs (`ps`, `top`)
 * `$PATH`
 * Running in the background (`&`, `bg`, `nohup`)
 * Where to get help
