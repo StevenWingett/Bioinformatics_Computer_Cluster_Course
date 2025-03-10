@@ -183,24 +183,9 @@ Although drives on the cluster have massive storage capacities, they can fill up
 
 If this partition is full, you could try running pipelines in your home directory, however the storage quota is limited to 100GB, which may not be enough for many NGS processing runs.
 
-Your current usage can be checked at:
-https://bb8.mrc-lmb.cam.ac.uk/userdash/userdash.cgi
 
-For more details on storage locations, please refer to:
-https://www.mrc-lmb.cam.ac.uk/scicomp-new/index.php?id=data-storage
-
-Checkpoints and resume
+### Checkpoints and resume
 Occasionally pipelines do fail and on a complex cluster with multiple nodes and users it is not uncommon for things to go wrong: for example a node goes into a non-responsive state or a data partition becomes full.  A way around this is to wait for the problem to be resolved and then re-launch the pipeline.  However, this can be quite frustrating if a pipeline has run for many hours and then you have to start again from the beginning.  Fortunately, Nextflow has a checkpointing system in which a failed pipeline can be relaunched with the additional flag -resume.  This will cause the job to clear-up any issues and then restart at the last checkpoint, potentially saving many hours of processing time.  (If this does not work, you may unfortunately need to start at the beginning.)
-
-###### Extra tips
-Visual Studio Code
-If you find yourself using the cluster more and more, it may be worth your while to take some time to become familiar with versatile text editors, such as Visual Studio Code (commonly referred to as VS Code).  This piece of software is produced by Microsoft but is distributed for Windows, Mac and Linux systems for free. 
-
-Visual Studio Code allows users to connect to the cluster (even from outside the intranet via atg) to edit and view files.  It can also be used to transfer files between the cluster and your local machine.  It also has its own terminal window, for executing commands.
-
-The software can be downloaded from:
-https://code.visualstudio.com/
-
 
 # Concluding remarks
 So, that is the end of the Running NGS Pipelines course.  We have covered a lot of ground, for you should now be familiar with Linux and the Bash shell and you can write powerful Bash commands for a range of tasks and know where to get further information for tasks you can’t yet complete.  We explained what a compute cluster is and why researchers turn to this type of architecture to perform complex tasks.  We also introduced Slurm, the software used to manage job submissions on our setup at the LMB.  You also now know how to access a compute node and run interactive tasks, or alternatively write a Bash script and submit it to the Slurm queueing system.

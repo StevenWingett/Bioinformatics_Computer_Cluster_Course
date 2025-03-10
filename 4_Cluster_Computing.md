@@ -171,7 +171,7 @@ To kill running jobs use scancel:
 
     scancel [job id]
 
-### Loading modules
+## Loading modules
 It is quite common for a user to require a particular version of an application for performing analysis.  Selecting the version of the software you require has been made simple with the `module` command.
 
 To list available modules:
@@ -182,10 +182,52 @@ To use install a module:
 
     module load [module name]
 
-### Viewing images
+## Viewing images
 It is possible to share graphics between the cluster and your local machine.  On a Mac you will need to have the program XQuartz (https://www.xquartz.org/) running.  On a Windows system you should install and run Windows X-server software e.g. VcXsrv (https://sourceforge.net/projects/vcxsrv/).  
 
 While it is nice to visualise images on your local computer in this way, you will probably notice that interacting with such images is not as smooth as you would typically expect.  An alternative approach is to transfer files (e.g. using FileZilla) from the cluster to your local machine for viewing purposes.
 
+## Where to store data
+There are 5 main areas where people can store files on the cluster
+
+1. `~` (home directory) - your data allocation here is relatively small.  We recommend only storing configuration files and scripts here.
+
+2. `/cephfs` - very large data storage (2.9PB - for all users). A suitable location for processing data.
+
+3. `/cephfs2` - very large data storage (5.7PB - for all users). A suitable location for processing data.
+
+4. `/scratch` - very large data storage (1.1PB - for all users). A suitable location for processing data.  Please note: **FILES ARE AUTOMATICALLY DELETED FROM HERE AFTER A SET PERIOD OF TIME - DON'T STORE FILES HERE!**  Process data here and then copy the results to another location.
+
+5. `/istore` or `/isilon` - a place to store data
+
+**PLEASE REFER TO IT/SCIENTIFIC COMPUTING FOR GUIDANCE ON WHERE TO SAFELY STORE DATA.**
+
+*Do you have sequencing data?  The Cell Biology Division has a dedicated storage location for FASTQ sequencing files.  Please let us know if you wish to deposit data here.*
+
+### Checking current storage
+Although drives on the cluster have massive storage capacities, they can fill up!  When approaching capacity (>90% full) some software may fail when running.  To check how full a partition is, run the command:
+
+    df -H | grep [drive name]
+
+**Your current usage can be checked at:**
+**https://bb8.mrc-lmb.cam.ac.uk/userdash/userdash.cgi**
+
+For more details on storage locations, please refer to Scientific Computing:
+https://www.mrc-lmb.cam.ac.uk/scicomp-new/index.php?id=data-storage
+
+The Scientific Computing webpages also provides instructions on how to create a folder for yourself in `/cephs` etc.
+
+## Visual Studio Code
+If you find yourself using the cluster more and more, it may be worth your while to take some time to become familiar with versatile text editors, such as Visual Studio Code (commonly referred to as VS Code).  This piece of software is produced by Microsoft but is distributed for Windows, Mac and Linux systems for free. 
+
+Visual Studio Code allows users to connect to the cluster (even from outside the intranet via atg) to edit and view files.  It can also be used to transfer files between the cluster and your local machine.  It also has its own terminal window, for executing commands.
+
+The software can be downloaded from:
+https://code.visualstudio.com/
+
+
+## Further assistance
 This section introduced the key concepts of using Slurm on the LMB cluster, but for more details please view the Scientific Computing page at: 
-https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=computer-cluster 
+https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=computer-cluster
+
+

@@ -103,7 +103,7 @@ theme: uncover
 
 ---
 
-## Cell Biology Workstation
+## Cell Biology Workstation (Xeon)
 
 * Analogous to a single cluster node
   
@@ -863,6 +863,20 @@ table {
 
 ---
 
+## Where to put data
+
+* `~` (home directory) -  config files and scripts
+
+* `/cephfs` & `/cepfs2` - very large data storage / suitable location for processing data.
+
+* `/scratch` - suitable location for processing data, **BUT FILES ARE AUTOMATICALLY DELETED - DON'T STORE FILES HERE!**  
+
+* `/istore` or `/isilon` - a place to store data
+
+**Refer to Scientific Computing for further information**
+
+---
+
 ## Part 3
 ### Running bioinformatics pipelines on the cluster (hours 9 – 12)
 
@@ -871,13 +885,15 @@ table {
 ## What are bioinformatics pipelines?
 * NGS datasets require multiple software applications to evaluate the data
 
+![bg right 50%](assets/generalised_ngs_pipeline.svg)
+
+---
+
+## What are bioinformatics pipelines? (2)
+
 * Not usually performed by one multi-purpose program 
 
 * Series of independently developed software tools
-
-
-
-![bg right 50%](assets/generalised_ngs_pipeline.svg)
 
 ---
 

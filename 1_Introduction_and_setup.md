@@ -129,7 +129,7 @@ On opening the software, you should enter your login credentials in the bar towa
 
 When you have logged-in you should see your local machine’s filesystem in the left-hand pane and the remote machine’s (i.e. the cluster’s) filesystem in the right-hand pane.  Simply drag and drop icons between the two to move files and folders from one machine to another.
 
-## Note: Cell Biology Workstation
+## Note: Cell Biology Workstation (Xeon)
 Although this course is aimed at those wanting to run jobs on the cluster, it is worth mentioning that the Cell Biology Division has its own workstation for carrying out computational tasks, especially those requiring more system resources than available on a typical laptop.  The workstation is equipped with 21TB of data storage, 80CPUs and 97GB RAM.  
 
 While it is clearly much smaller than the Cluster - indeed, it could be thought of as more analogous to a single node on the cluster - the system is maintained by the Cell Division and software can be installed as per users' requirements.
