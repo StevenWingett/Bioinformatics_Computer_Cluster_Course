@@ -876,6 +876,28 @@ table {
 **Refer to Scientific Computing for further information**
 
 ---
+## Transferring Files (FTP/SFTP)
+
+---
+
+## Visual Studio Code [demo] 
+  * Microsoft Text editor
+  * Windows / Mac / Linux
+  * Edit remote files (even via atg)
+  * Built-in terminal
+  * View webpages
+  * Transfer files
+  * Free
+  
+---
+
+## Visual Studio Code (2) [demo]
+
+* https://code.visualstudio.com
+
+<img src="assets/vscode_screenshot.png" alt="VS Code Screenshot" height="450">
+  
+---  
 
 ## Part 3
 ### Running bioinformatics pipelines on the cluster (hours 9 – 12)

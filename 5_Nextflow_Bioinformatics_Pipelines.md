@@ -38,7 +38,7 @@ For the past decade Next Generation Sequencing (NGS) has been used ever more fre
 
 In addition to these demands, processing NGS datasets typically entails multiple steps, such as quality control (QC), mapping reads to a specified reference genome, followed by preliminary analysis of the alignments and then collating the headline results for the user.  This is not usually performed by one multi-purpose program, but rather a series of software tools – often developed independently of one another at separate academic institutions.  Such a series of steps is what we term a bioinformatics pipeline.
 
-![Generalised NGS pipelin](assets/generalised_ngs_pipeline.svg)
+![Generalised NGS pipeline](assets/generalised_ngs_pipeline.svg)
 
 Figure 7 - overview of a generalised NGS bioinformatics pipeline
 

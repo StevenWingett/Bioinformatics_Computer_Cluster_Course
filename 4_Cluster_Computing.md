@@ -217,17 +217,111 @@ https://www.mrc-lmb.cam.ac.uk/scicomp-new/index.php?id=data-storage
 
 The Scientific Computing webpages also provides instructions on how to create a folder for yourself in `/cephs` etc.
 
+## Transferring files to and from the cluster
+This section could have been included in the part of the course that introduces Linux.  However, we decided to included it here, after first discussing where files should be stored on the cluster.  The commands discussed here are applicable to the Cell Biology Workstation and other Linux set-ups.
+
+You may remember that in the Linux part of this course we introduced `curl` and `wget` as way to download files from remote web pages.  Well there are also ways to copy files from one system to another specialist commands.
+
+### Copying files between systems on the intranet
+The best way to copy a file from the cluster to another machine (or vice versa) is by using the `scp` (Secure Copy Protocol) command. 
+
+Download a copy a from a remote machine to a local machine:
+        
+    scp user@host:[target_to_download] [destination_path]  
+
+Upload a copy from a local machine to a remote machine:
+    
+    scp [target_to_upload] user@host:[destination_path]
+
+Perform a **recursive copy** if you need to copy folders and the contents of folder:
+
+    scp -r user@host:[target_to_download] [destination_path]
+
+    scp -r [target_to_upload] user@host:[destination_path]
+
+### Copying files between systems outside the intranet
+#### SFTP
+To copy files to and from external locations we suggest you use **SFTP** (Secure File Transfer Protocol).  If that is not possible, then use the less secure **FTP** (File Transfer Protocol).  [As you may have noticed, we introduced FTP/SFTP previously in the course when discussing FileZilla.  Indeed, FileZilla what is known as an FTP client - specialist software for performing such file transfers.  Well, Linux has its own command line equivalents, which are summarised below.]
+
+To connect to a remote SFTP server, enter the command:
+
+    sftp [hostname]
+
+Then, when prompted, provide your password.  When connected you can view files on the remote server with `ls` command, and change directories with the `cd` command.
+
+To download files/folders recursively:
+
+    mget -r [files_to_download]
+
+To upload files/folders recursively:
+
+    mput -r [files_to_download]
+
+
+https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=anonymous-ftp
+
+
+#### FTP
+To copy files using FTP is much the same process:
+
+    ftp [hostname]
+
+Before starting the transfer we **strongly recommend** that you ensure that the transfer is taking place in **binary** mode - otherwise the file will appear to be copied, but the data may be corrupted!  To do this, enter the command `bin`.  Also, we recommend turning off the FTP prompts with the command `prompt`.  If this is not turned off, the FTP client will seek confirmation for every file transfer - which could become annoying!
+
+#### LMB FTP
+If you wish to share files outside the LMB via FTP, then create a folder in `/ftp/pub/` - you may need to contact Scientific Computing to do that.  Then copy your files to that location.  Users outside the LMB will then be able to download the files using FTP.
+
+The address you need is: `ftp.mrc-lmb.cam.ac.uk`, and use a login of 'anonymous', and no password is required. The user will see a file structure that begins with `/pub`, within which are the LMB staff directories.
+
+**Remember that anyone can access data you place on the LMB's FTP server**
+
+For more details, go to:
+https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=anonymous-ftp
+
+
+### Perform long-running jobs using `screen`
+We discussed previously in the course how to run command after disconnecting from the terminal using `nohup` or `sbatch`.  Sometimes however, these options are not applicable, if additional user input is required.  This is the case when performing FTP/SFTP commands.
+
+To achieve this, run the `screen` command.  A screen is akin to creating a separate Linux session that will remain running even when you disconnect.  You may create multiple concurrent screen sessions and consequently we recommend that you give an easy-to-remember name to each one.
+
+To create a new, named screen session:
+
+    screen -S [screen_name]
+
+Then you will enter the screen session.  To leave a screen session, but keep it running in the background, type <kbd>CTRL</kbd> + <kbd>A</kbd> ant then press <kbd>D</kbd>.
+
+To return to session, firstly list all your existing screens sessions:
+
+    screen -ls
+
+Identify the ID number of your session, and then enter:
+
+    screen -r [ID_number]
+
+To leave and close a screen, type `exit` from within the screen session.
+
 ## Visual Studio Code
 If you find yourself using the cluster more and more, it may be worth your while to take some time to become familiar with versatile text editors, such as Visual Studio Code (commonly referred to as VS Code).  This piece of software is produced by Microsoft but is distributed for Windows, Mac and Linux systems for free. 
 
 Visual Studio Code allows users to connect to the cluster (even from outside the intranet via atg) to edit and view files.  It can also be used to transfer files between the cluster and your local machine.  It also has its own terminal window, for executing commands.
 
+![VS_Code](assets/vscode_screenshot.png)
+
 The software can be downloaded from:
 https://code.visualstudio.com/
 
+## R Studio Server
+It is possible to run R Studio on the cluster via a web interface.  Open your internet browser (e.g. Google Chrome) and then go to one of the following:
+
+    http://hal:8788
+
+Alternatively, it is possible to run R Studio on the Cell Biology Workstation (Xeon) by navigating to:
+
+    http://sean-pc-10.lmb.internal:8787
+
+![VS_Code](assets/r_studio_server_screenshot.png)
 
 ## Further assistance
 This section introduced the key concepts of using Slurm on the LMB cluster, but for more details please view the Scientific Computing page at: 
 https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=computer-cluster
-
 
