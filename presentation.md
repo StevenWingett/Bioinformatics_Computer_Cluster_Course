@@ -876,8 +876,62 @@ table {
 **Refer to Scientific Computing for further information**
 
 ---
-## Transferring Files (FTP/SFTP)
+## Transferring Files (SCP)
 
+* To/From the cluster To/From another machine via the **intranet**
+        
+* `scp user@host:[target_to_download] [destination_path]`  
+  
+* `scp [target_to_upload] user@host:[destination_path]`
+
+* Perform a **recursive copy** for folders: `-r`
+
+
+---
+## Transferring Files (SFTP/FTP)
+
+* To/From the cluster To/From another machine via the *internet*
+
+* Linux command line equivalent of FileZilla
+
+* `sftp [hostname]`
+
+* `mget -r [files_to_download]`
+
+* `mput -r [files_to_download]`
+
+---
+
+## Transferring Files (SFTP/FTP) (2)
+
+* `ftp [hostname]`
+
+* `bin`
+
+* `prompt`
+
+* LMB FTP: `/ftp/pub/`
+  
+* LMB FTP: `ftp.mrc-lmb.cam.ac.uk`
+
+* 'anonymous' with no password
+
+---
+
+## Screen
+
+* Interactive, but run in background (needed for SFTP)
+
+* `screen -S [screen_name]`
+
+* <kbd>CTRL</kbd> + <kbd>A</kbd> and then press <kbd>D</kbd>
+
+* `screen -ls`
+
+* `screen -r [ID_number]`
+
+* `exit`
+  
 ---
 
 ## Visual Studio Code [demo] 
@@ -898,6 +952,18 @@ table {
 <img src="assets/vscode_screenshot.png" alt="VS Code Screenshot" height="450">
   
 ---  
+
+## R Studio Server
+
+* Web interface
+
+* http://hal:8788
+
+* http://sean-pc-10.lmb.internal:8787
+
+![width:1300px](assets/r_studio_server_screenshot.png)
+
+---
 
 ## Part 3
 ### Running bioinformatics pipelines on the cluster (hours 9 – 12)

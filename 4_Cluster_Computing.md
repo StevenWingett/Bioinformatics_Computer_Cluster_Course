@@ -192,15 +192,15 @@ There are 5 main areas where people can store files on the cluster
 
 1. `~` (home directory) - your data allocation here is relatively small.  We recommend only storing configuration files and scripts here.
 
-2. `/cephfs` - very large data storage (2.9PB - for all users). A suitable location for processing data.
+2. `/cephfs` - very large data storage (2.9PB - total for all users). A suitable location for processing data.
 
-3. `/cephfs2` - very large data storage (5.7PB - for all users). A suitable location for processing data.
+3. `/cephfs2` - very large data storage (5.7PB - total for all users). A suitable location for processing data.
 
-4. `/scratch` - very large data storage (1.1PB - for all users). A suitable location for processing data.  Please note: **FILES ARE AUTOMATICALLY DELETED FROM HERE AFTER A SET PERIOD OF TIME - DON'T STORE FILES HERE!**  Process data here and then copy the results to another location.
+4. `/scratch` - very large data storage (1.1PB - total for all users). A suitable location for processing data.  Please note: **FILES ARE AUTOMATICALLY DELETED FROM HERE AFTER A SET PERIOD OF TIME - DON'T STORE FILES HERE!**  Process data here and then copy the results to another location.
 
 5. `/istore` or `/isilon` - a place to store data
 
-**PLEASE REFER TO IT/SCIENTIFIC COMPUTING FOR GUIDANCE ON WHERE TO SAFELY STORE DATA.**
+**PLEASE REFER TO IT/SCIENTIFIC COMPUTING FOR GUIDANCE ON WHERE TO STORE DATA SAFELY.**
 
 *Do you have sequencing data?  The Cell Biology Division has a dedicated storage location for FASTQ sequencing files.  Please let us know if you wish to deposit data here.*
 
@@ -215,12 +215,12 @@ Although drives on the cluster have massive storage capacities, they can fill up
 For more details on storage locations, please refer to Scientific Computing:
 https://www.mrc-lmb.cam.ac.uk/scicomp-new/index.php?id=data-storage
 
-The Scientific Computing webpages also provides instructions on how to create a folder for yourself in `/cephs` etc.
+The Scientific Computing webpages also provide instructions on how to create a folder for yourself in `/cephs` etc.
 
 ## Transferring files to and from the cluster
-This section could have been included in the part of the course that introduces Linux.  However, we decided to included it here, after first discussing where files should be stored on the cluster.  The commands discussed here are applicable to the Cell Biology Workstation and other Linux set-ups.
+This section could have been included in the part of the course that introduces Linux.  However, we decided to include it here, after first discussing where files should be stored on the cluster.  The commands mentioned here are applicable to the Cell Biology Workstation and other Linux set-ups.
 
-You may remember that in the Linux part of this course we introduced `curl` and `wget` as way to download files from remote web pages.  Well there are also ways to copy files from one system to another specialist commands.
+You may remember that in the Linux part of this course we introduced `curl` and `wget` as ways to download files from remote web pages.  Well there are also ways to copy files from one system to another using specialist commands.
 
 ### Copying files between systems on the intranet
 The best way to copy a file from the cluster to another machine (or vice versa) is by using the `scp` (Secure Copy Protocol) command. 
@@ -258,9 +258,6 @@ To upload files/folders recursively:
     mput -r [files_to_download]
 
 
-https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=anonymous-ftp
-
-
 #### FTP
 To copy files using FTP is much the same process:
 
@@ -282,13 +279,13 @@ https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=anonymous-ftp
 ### Perform long-running jobs using `screen`
 We discussed previously in the course how to run command after disconnecting from the terminal using `nohup` or `sbatch`.  Sometimes however, these options are not applicable, if additional user input is required.  This is the case when performing FTP/SFTP commands.
 
-To achieve this, run the `screen` command.  A screen is akin to creating a separate Linux session that will remain running even when you disconnect.  You may create multiple concurrent screen sessions and consequently we recommend that you give an easy-to-remember name to each one.
+To overcome this obstacle, run the `screen` command.  A screen is akin to creating a separate Linux session that will remain running even when you disconnect.  You may create multiple concurrent screen sessions and consequently we recommend that you give an easy-to-remember name to each one.
 
 To create a new, named screen session:
 
     screen -S [screen_name]
 
-Then you will enter the screen session.  To leave a screen session, but keep it running in the background, type <kbd>CTRL</kbd> + <kbd>A</kbd> ant then press <kbd>D</kbd>.
+Then you will enter the screen session.  To leave a screen session, but keep it running in the background, type <kbd>CTRL</kbd> + <kbd>A</kbd> and then press <kbd>D</kbd>.
 
 To return to session, firstly list all your existing screens sessions:
 
@@ -311,13 +308,17 @@ The software can be downloaded from:
 https://code.visualstudio.com/
 
 ## R Studio Server
-It is possible to run R Studio on the cluster via a web interface.  Open your internet browser (e.g. Google Chrome) and then go to one of the following:
+It is possible to run R Studio on the cluster via a web interface.  Open your internet browser (e.g. Google Chrome) and then go to:
 
     http://hal:8788
+
+Log-in using your cluster credentials.
 
 Alternatively, it is possible to run R Studio on the Cell Biology Workstation (Xeon) by navigating to:
 
     http://sean-pc-10.lmb.internal:8787
+
+Log-in using your Cell Biology Xeon credentials.
 
 ![VS_Code](assets/r_studio_server_screenshot.png)
 
