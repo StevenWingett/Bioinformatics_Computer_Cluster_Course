@@ -167,9 +167,11 @@ The links should be generate outside the file_list folder, in separate folders n
 
 4. Use the `sleep` command to suspend execution on your system for 10 seconds.
 
-5. Try the sleep command again, but stop the job once it has started and then `kill` it.
+5. Try the sleep command again, but stop the job once it has started.
 
-6. Try the sleep command once again, but this time background the job.
+6. Execute the sleep command for 60s, but this time background the job.  Can you see the running sleep command with `ps` and `top`? 
+
+7. Try again, but set the sleep to 100s.  Suspend the command.  Can you see the suspended command with `ps`?  Now `kill` the sleep command. 
 
 <hr>
 
@@ -236,7 +238,7 @@ Try this for FastQC.
 # Slurm
 ## Exercise 7
 ### a.
-Look at the available modules for the latest version of R.  Import this latest version of R as a cluster module.  Check this version of R is indeed now running on your system.
+Look at the available modules for the latest version of R.  Import this latest version of R as a cluster module.  Check this version of R is indeed now running on your system using the command: `Rscript --version`. [Note: to run R code already saved to a file, you need to execute the `Rscript` command.]
 
 ### b.
 1. Look at all the currently running jobs submitted to the cluster.  Can you see any long-running jobs?  Are CPU / GPU nodes being used?  Who has most jobs running on the cluster?
@@ -250,14 +252,25 @@ Look at the available modules for the latest version of R.  Import this latest v
 Are most of the CPU nodes in use?  Are any nodes listed as “down”?  Which user is using the most CPU nodes?
 
 ### c.
-1. Create a Bash script that creates a 60-second pause.
+1. Log in to a compute node, try some commands and then exit the compute node.
 
-2. Run the script as an interactive job on a compute node.  
-
-3. Exit the compute node and submit the Bash script as a non-interactive job. Check it is in the cluster queue.
+2.  Log in to a compute node, but this time reserve 4 cores and 5GB RAM.
 
 ### d.
-Run the R script `norm_dist_1_billion.R` by submitting as a non-interactive job.  Make sure the cluster emails you about the job’s progress.  Specify what seems an appropriate number of CPUs and memory.  How much RAM was actually used?
+Let's run the R script `norm_dist_1_billion.R` by submitting the job to the cluster as a non-interactive job.
+
+This R script randomly generates 1 billion data values from a Normal Distribution.  The results are then plotted as a histogram.
+
+Firstly, make a bash script named `norm_dist.sh` which contains the command:
+`Rscript norm_dist_1_billion.R`.
+
+(Don't forget the link to the Bash Shell at the top of the file!)
+
+Now run the job, allocating 1 core and 1GB RAM.  Make sure the cluster emails you about the job’s progress.
+
+Did the job succeed?  If not, try again but increase the RAM allocation to 30Gb.
+
+Check how much RAM was actually used by this job.
 
 <hr>
 

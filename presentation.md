@@ -733,7 +733,7 @@ table {
 
 ---
 
-## Slurm – checking status
+## Slurm – checking status [demo]
 
 * `squeue`
 
@@ -745,7 +745,7 @@ table {
 
 ---
 
-## Slurm – checking status (2)
+## Slurm – checking status (2) [demo]
 * `sqsummary` – CPU node state
 
 * `sinfo` – partition node information
@@ -761,7 +761,7 @@ table {
 
 ---
 
-## Interactive jobs
+## Interactive jobs [demo]
 * Move to a compute node 
   
 * `srun --pty bash`
@@ -772,26 +772,31 @@ table {
 
 ---
 
-## Submitted jobs
+
 
 * Job runs without further user input
 
 * Write Bash script:
   
       #!/bin/bash
-      echo Hello World!
+      echo Sleeping!
+      sleep 100
 
 * Execute script:
   
       bash test.sh
-      Hello World!
+      Sleeping
+
+---
+
+## Submitted jobs 2 [demo]
 
 * Submit script to queue:
   `sbatch test.sh`
 
 ---
 
-## Submitted jobs 2
+## Submitted jobs 3
 
 * More options:
 
@@ -815,7 +820,7 @@ table {
 
 ---
 
-## Submitted jobs 3
+## Submitted jobs 4 [demo]
 
 * `sacct -j [job id]`
 
@@ -827,7 +832,7 @@ table {
 
 ---
 
-## Modules
+## Modules [demo]
 
 * Import specific software versions
 

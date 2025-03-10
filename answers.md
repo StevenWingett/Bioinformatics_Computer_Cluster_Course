@@ -36,7 +36,7 @@ Version
 3.    `groups`
 
 #### b
-`cat letters.txt | sort > sorted.txt`
+`sort letters.txt > sorted.txt`
 
 #### c
 `curl -O https://raw.githubusercontent.com/StevenWingett/Bioinformatics_Computer_Cluster_Course/refs/heads/main/README.md`
@@ -108,32 +108,30 @@ Then copy to local machine
 #### a
 `module avail`
 
-`module load R/4.2.1`
+`module load R`
 
-`R –version`
+`Rscript --version`
 
 #### c
-1.     
-        #!/bin/bash
-        sleep 60
 
-2.    
+1.    
 `srun --pty bash`
-
-`bash pause.sh`
-
-3.    
 `exit`
 
-`sbatch -J pause_job --mail-type=ALL --mail-user=$USER@mrc-lmb.cam.ac.uk pause.sh`
+2.
+`srun -c 4 --mem=5G --pty bash`
+`exit` 
 
 #### d
-Google about how to R scripts outside of R
 
-#!/bin/bash
-Rscript norm_dist_1_billion.R
+      #!/bin/bash
+      Rscript norm_dist_1_billion.R
+
+`sbatch -J Rscript_job -c 1 --mail-type=ALL --mail-user=$USER@mrc-lmb.cam.ac.uk --mem=3G norm_dist.sh`
 
 `sbatch -J Rscript_job -c 1 --mail-type=ALL --mail-user=$USER@mrc-lmb.cam.ac.uk --mem=30G norm_dist.sh`
+
+`sacct --format=jobID%20,CPUTime,MaxRSS -j [job id]`
 
 
 ## Nextflow and nf-core
