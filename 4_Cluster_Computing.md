@@ -322,11 +322,10 @@ Log-in using your Cell Biology Xeon credentials.
 
 ![VS_Code](assets/r_studio_server_screenshot.png)
 
-
 ## Jupyter Hub Server
 The **Jupyter Notebook** is an intuitive web-based application that scores in the area of research science, for it allows programmers to create and share documents that contain live code, equations, plots and formatted descriptive text.
 
-At present there is not support for Jupyter on the LMB Cluster, but JupyterHub server is installed on the Cell Biology Workstation (Xeon).  Please let us know if you wish to use JupyterHub on the workstation and we will set you up with an account.
+At present there is no support for Jupyter on the LMB Cluster, but JupyterHub server is installed on the Cell Biology Workstation (Xeon).  Please let us know if you wish to use JupyterHub on the workstation and we will set you up with an account.
 
 We run a course, which is free to all LMB staff and researchers, teaching how to use JupyterHub.  If you would like to know more about this software then we suggest you sign up at the next opportunity, but in the meantime please feel free to look at the course materials, which are available online at: https://github.com/StevenWingett/data-analysis-with-python-course
 
@@ -336,7 +335,7 @@ We run a course, which is free to all LMB staff and researchers, teaching how to
 Numerous bioinformatics executable files have been deposited at:
 `/public/genomics/soft/bin`.  Please take a look here to see if the bioinformatics software you need is already installed.  It might be worth your time to add this location to your `PATH` by editing your `.bashrc` configuration file.  
 
-While anyone is free to run software stored here, you need to be a member of the software group to place files in this folder.
+While anyone is free to run software stored here, you need to be a member of the `software` group to place files in this folder.
 
 ## Singularity containers
 [Singularity](https://apptainer.org) containers enable software and its dependencies to be bundled into one file.  Containers have gained popularity in recent years as they are arguably the most effective way to distribute versioned bioinformatics software that will run on multiple systems with minimal set up required for the end-user.

@@ -965,6 +965,46 @@ table {
 
 ---
 
+## Jupyter Hub Server
+* Jupyter Notebook - create and share documents that contain live code, equations, plots and descriptive text
+
+![width:800px](assets/jupyter_lab_screenshot.png)
+
+---
+
+## Jupyter Hub Server (2)
+* Not supported on the Cluster
+
+* Installed on the Cell Biology Workstation (Xeon)
+
+* We can set you up with an account
+
+* Course: https://github.com/StevenWingett/data-analysis-with-python-course
+
+---
+
+## Software locations 
+* `/public/genomics/soft/bin`
+  
+* Add to PATH?
+
+* `software` group 
+  
+---
+
+## Singularity containers
+* Enable software and dependencies to be bundled into one file  
+  
+*  most effective way to distribute versioned bioinformatics software 
+
+* On the cluster, containers can only be run from:  `/public/singularity/`.
+
+* Add files to that folder: `singularity` group 
+
+* Also installed on Xeon, where containers can be run from any location
+
+---
+
 ## Part 3
 ### Running bioinformatics pipelines on the cluster (hours 9 – 12)
 
