@@ -519,195 +519,8 @@ table {
 
 ---
 
-## Part 2
-### Introducing Next Generation Sequencing and SLURM (hours 5 – 8)
-
----
-
-## Next generation sequencing
-### What it is, its applications and data types
-
----
-
-## Next generation sequencing
-
-* Next-generation sequencing (NGS) is a massively parallel sequencing technology
-
-* Illumina platform most commonly used – very high throughput
-
-* PacBio or Oxford Nanopore – longer reads but less throughput
-
----
-
-## Common types of analysis
-* whole-genome sequencing
-* exome sequencing
-* targeted gene sequencing
-* single-cell profiling
-* RNA-seq
-* ChIP-seq
-* ATAC-seq
-* methylation sequencing 	  	
-* metagenomic profiling	 	
-* chromosome capture sequencing (e.g. HiC)
-
----
-
-## Equipment
-
-<style scoped>
-table {
-  font-size: 20px;
-}
-</style>
-
-|                          | iSeq 100 | MiniSeq | MiSeq Series | NextSeq 550 Series | NextSeq 1000 & 2000 | NovaSeq 6000 |
-|--------------------------|----------|---------|--------------|--------------------|---------------------|--------------|
-| Run Time (hours)         | 9.5–19   | 4–24    | 4–55	       | 12–30	            | 11-48	              | 13-44        |
-| Maximum Output (Gb)	     | 1.2	    | 7.5	    | 15	         | 120	              | 330	                | 6000         |
-| Maximum Reads	           | 4M       | 25M     | 25M	         | 400M		            | 1.1B                |	20B          |
-| Maximum Read Length	(bp) | 2×150	  | 2×150   | 2×300        | 2×150              | 2×150               | 2 x 250      |
-
----
-
-![bg right 100%](https://upload.wikimedia.org/wikipedia/en/7/75/DNA_Sequencing_Bridge_Amplification.png)  
-
-##### Illumina sequencing process - cluster generation
-* Flowcell
-* Lanes
-* Oligo lawn
-* Bridge amplification
-  
- *(Image courtesy of Abizar, Wikipedia)* 
-  
----
-
-##### Illumina sequencing process - sequencing by synthesis
-
- ![bg right 100%](https://upload.wikimedia.org/wikipedia/commons/5/51/Sequence_By_Synthesis.png)
-
-* Fluorescent tag 
-
-* Reversible terminator
-
-* Record colour of fluorescent emissions 
-
-*(Image courtesy of courtesy of DMLapato, Wikipedia)*
-
----
-
-## Other NGS terms
-
-* Paired-end / single end
-  <br>
-![width:900px](assets/single_paired_end_sequencing.png)
-
----
-
-## Other NGS terms (2)
-
-* Barcodes
-  * multiplexing
-  * short nucleotide sequences
-  
-<br>
-
-* Unique molecular identifiers (UMIs)
-  * longer nucleotide sequences
-  * filter PCR duplicates
-
----
-
-## Illumina Sequencing Adapters
-
-![width:900px](assets/illumina_sequencing_adapters.png)
-
----
-
-## File formats – FASTQ
-
-* Standard sequencer output
-
-* Text files, but normally gzipped
-
-<br>
-  
-      @SRR071233.197343 NRTG514-16_0001:3:2:6067:17258 length=40
-      TGGGTAGTATTTGGTTACATGAGTAAGTTCTTTAATGGTG
-      +
-      CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCDC
-
----
-
-## File formats – FASTQ 2
-
-* Explanation of quality scores – higher score better quality
-
-        Character: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI
-                  |                                       |
-        Quality:   0                                       40
-
-
-* Quality defined as:
-  $$-10log_{10} \dfrac{p}{1-p}$$
-
-(in which p is the probability the base call is incorrect)
-
----
-
-## File Formats – SAM / BAM
-
-* Sequence Alignment / Map – SAM
-
-* Compressed version – BAM
-
-* Reading BAM files needs samtools
-
-* Header lines (information on mapping parameters):
-
-<br>
-
-      @HD	VN:1.6	SO:coordinate
-      @SQ	SN:1	LN:248956422
-      @SQ	SN:10	LN:133797422
-      @SQ	SN:11	LN:135086622
-
----
-
-## File Formats – SAM / BAM (2)
-
-* Read alignments (1 read shown below):
-
-
-![width:1000px](assets/sam_format.png)
-
-*  SAM format specification described here:
-    https://samtools.github.io/hts-specs/SAMv1.pdf
-
----
-
-## Data storage
-* There are public data repositories for uploading data (e.g. GEO)
-
-* Most journals require the original FASTQ files to be submitted
-
----
-## Data storage (2)
-* **WARNING! : No FASTQ files, no publication!**
-
-* **Download promptly from the sequencing facility and store in a secure, clearly labelled and backed-up location**
-
-* **Check file sizes and md5sum before and after transfer to check for corruption during transfer – which can occur!**
-
----
-
-## Exercise 6
-### Let’s look at sequencing data
-
----
-
-## Using the power of the cluster
-### How to submit jobs to compute nodes
+# Part II
+## Using the Cluter Compute Nodes (hours 4-8)
 
 ---
 
@@ -771,8 +584,6 @@ table {
 * There are options: `srun -c 8 --pty bash`
 
 ---
-
-
 
 * Job runs without further user input
 
@@ -858,12 +669,12 @@ table {
 
 ---
 
-## Exercise 7
+## Exercise 6
 ### Using the cluster “as a cluster”
 
 ---
 
-## Where to put data
+## Where to put data (Cluster)
 
 * `~` (home directory) -  config files and scripts
 
@@ -876,6 +687,16 @@ table {
 **Refer to Scientific Computing for further information**
 
 ---
+
+## Where to put data (Cell Biology Xeon)
+
+* `~` (home directory) -  config files and scripts
+
+* Create a named folder in `/data1`, `/data2` or `/data3/scratch` to store data files
+
+* Much smaller storage compacity as compared to the Cluster (terrabytes)
+
+---
 ## Transferring Files (SCP)
 
 * To/From the cluster To/From another machine via the **intranet**
@@ -885,7 +706,6 @@ table {
 * `scp [target_to_upload] user@host:[destination_path]`
 
 * Perform a **recursive copy** for folders: `-r`
-
 
 ---
 ## Transferring Files (SFTP/FTP)
@@ -1005,191 +825,18 @@ table {
 
 ---
 
-## Part 3
-### Running bioinformatics pipelines on the cluster (hours 9 – 12)
-
----
-
-## What are bioinformatics pipelines?
-* NGS datasets require multiple software applications to evaluate the data
-
-![bg right 50%](assets/generalised_ngs_pipeline.svg)
-
----
-
-## What are bioinformatics pipelines? (2)
-
-* Not usually performed by one multi-purpose program 
-
-* Series of independently developed software tools
-
----
-
-## Introducing Nextflow
-
-* Bioinformaticians join software with custom scripts
-
-* Movement to standardise pipelines with Nextflow (and Snakemake)
-
-* But, you don’t need to program to be able to run Nextflow
-You have to learn Nextflow concepts, but then it is managed for you
-
----
-
-## Introducing Nextflow (2)
-
-* You don’t need to submit Nextflow jobs as `sbatch` commands, just run them from the headnode
-
-* https://nextflow.io 
-
-<br>
-
-<br>
-
-![width:400px](assets/nextflow_logo.png)
-
----
-
-## Introducing nf-core
-
-* Contributions of a community of developers
-
-* Over 50 pipelines (although multiple options)
-
-* Large community of users – support, code re-use
-
-* Well documented
-
-<br>
-
-![width:400px](assets/nf_core_logo.png)
-
----
-
-## Introducing nf-core (2)
-
-* Events – tutorials, seminars, hackathons
-
-* Used at other institutions
-
-*  https://nf-co.re
-
-<br>
-
-![width:650px](assets/nf_core_community.png)
-
----
-
-## Installed pipelines
-
-* Currently available:
-  * Downloading FASTQ files + metadata
-  * NGS QC
-  * RNA-seq
-  * ChIP-seq
-  * ATAC-seq
-  * Cut and Tag / Run
-  * 10x Single Cell RNA-seq
-  * Parse Evercode Single Cell RNA-seq
-  * Taxonomy Profiling
-
----
-
-## Setting-up Nextflow & nf-core
-
-* We’ve tried to simplify this with a single command to run from a head node:
-  
-      curl -s https://raw.githubusercontent.com/StevenWingett/lmb-nextflow/main/nextflow_setup_cluster.sh | bash
-
-* Downloads and runs a Bash script
-
-* Bash command edits your `~/.bashrc` file and installs Python modules
-
----
-
-## Tips on running pipelines
-
-* All pipelines are different: read the documentation at nf-core
-
-* Run pipelines in the `/cephfs2/ngs` partition (create a folder named after your username here)
-
-* Background your pipelines `-bg`
-
-* Every job is assigned a name e.g. clever_brenner
-
-
-
----
-
-## Tips on running pipelines (2)
-
-* You will get an email
-  
-* Check the MultiQC report
-  
-* Your aligned files with be BAM format
-
----
-
-## Pipeline help: GUIde-Piper
-
-* Nextflow commands are reasonably complex:
-  
-  `nextflow run nf-core/rnaseq -r 3.6 --input design_file.txt --genome homo_sapiens.GRCh38.release_102 -config /public/singularity/containers/nextflow/lmb-nextflow/lmb.config --outdir results -bg`
-
----  
-
-## Pipeline help: GUIde-Piper (2)
-
-* But most follow the same basic template
-
-* Online resource to generate Nextflow command
-
-* http://guidepiper
-
-<img align="right" height="200" src="assets/guide_piper_logo.png">
-
----
-
-## Troubleshooting
-
-* More than 90% full – Nextflow will fail!
-
-* `df -H | grep [partition name]`
-
-* Maybe use home directory?
-
-* Checkpoints
-
-* `-resume`
-
----
-
-## Exercise 8
-
----
-
-## Other tips
-
-* Microsoft Visual Studio Code
-  * Text editor
-  * Windows / Mac / Linux
-  * Edit remote files (even via atg)
-  * Built-in terminal
-  * View webpages
-  * Transfer files
-  * Free
-  * https://code.visualstudio.com
-
----
-
 ## Summary
 
 * Linux / Bash
-* Compute cluster architecture
+
+* Cell Biolgy Xeon Workstation
+
+* Compute cluster and its architecture
+
 * Slurm
-* NGS overview
-* Nextflow / nf-core
-* Running pipelines
+
+* R Studio Server / JupyterHub / Visual Studio Code
+
 * Find a reason to have a go in the coming weeks
+
 * Thanks for listening!!!
