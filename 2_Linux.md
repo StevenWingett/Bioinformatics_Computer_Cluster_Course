@@ -40,28 +40,28 @@ This operating system may seem unfamiliar at first, since it does not receive in
 ### Shells
 When a user enters a command, it is read by a **command line interpreter**, a type of program known as a **shell**.  A shell therefore allows a user to launch software, but it also provides additional functionality such as keeping a history of commands executed, enabling customised settings to be set up permanently using start-up scripts, as well as providing a simple programming language to automate jobs.  
 
-To quickly check your shell is working, type `date` in the command line and then press Enter.  The current date time should then be displayed.
+To quickly check your shell is working, type `date` in the command line and then press <kbd>Enter</kbd>.  The current date and time should then be displayed.
 
 ![command_line_date](assets/command_line_date.png)
 
-There are many different shells available, of which **Bash** is arguably the best known.  Unfortunately this is not the default shell used by the cluster and so we advise changing this setting the first time you log in to the cluster.  Once this is set up, you shouldn’t need to change anything again.  Follow the instructions below to set Bash as your default shell.
+There are many different shells available, of which **Bash** is arguably the best known.  Unfortunately this is not the default shell used by the cluster and so we advise changing this setting. 
 
-Check which shell you are currently using:
+To check which shell you are currently using, type:
     
     echo $SHELL
 
-If the output ends with the word bash then you do not need to change the shell.  However, if something else is reported instead (probably “tcsh”), then you will need to **contact Scientific Computing to change your default shell**.  However, you can temporarily run a bash shell inside your current shell by typing:
+If the output ends with the word "bash" then you do not need to change the shell.  However, if something else is reported instead (probably “tcsh”), then you will need to **contact Scientific Computing to change your default shell**.  However, you can temporarily run a bash shell inside your current shell by typing:
 
     bash
 
-This will expire when you next logout.
+This will expire when you next log out.
 
 ### Introducing the Linux commands (ls)
 When a valid command is interpreted by the shell it will execute a program.  For example, the command `ls` will launch software that lists files and folders (the latter are also known as directories).  The action of a command may be modified by what are termed **flags**, **options** and **arguments**.  Below summarises the general structure of a command.
 
     command [-flag(s)] [-option(s) [value]] [argument(s)]
 
-So, the command ls displays the files and folders in the current working directory (this term will be described in more detail later).
+So, the command `ls` displays the files and folders in the current working directory (this term will be described in more detail later).
 
     ls
     directory1  file1.txt  file2.txt  file3.txt
@@ -111,7 +111,7 @@ This might seem a little esoteric at the moment, but the take-home message is th
 #### Introducing the Linux filesystem
 You no doubt are already familiar with the concept of filesystems when using Macs or PCs: computer files typically sit within a directory or within a series of nested directories.  This also applies to Linux systems, where the directory structure is represented using a line of plain text and in which each folder name has a forward slash (`/`) appended.
 
-In the example below, file1.txt resides in a folder named `jsmith`, which in turn is located in a folder named `home`, which is found in a folder named `lmb`.  These nested folder structures can be complex and much longer than this, but the same concept applies.  Also, you should note that at the start of the line of text is a forward slash (`/`).  This denotes the root directory, which is the top-most directory in the Linux filesystem hierarchy i.e. all files and folders ultimately sit within the root directory.
+In the example below, the `file1.txt` resides in a folder named `jsmith`, which in turn is located in a folder named `home`, which is found in a folder named `lmb`.  These nested folder structures can be complex and much longer than this, but the same concept applies.  Also, you should note that at the start of the line of text is a forward slash (`/`).  This denotes the **root directory**, which is the top-most directory in the Linux filesystem hierarchy i.e. all files and folders ultimately sit within the root directory.
 
     /lmb/home/jsmith/file1.txt
 
@@ -124,14 +124,14 @@ Similarly, the single dot (`.`) refers to the current working directory.  Conseq
 
 The symbol tilde (`~`) references the home directory, so `~/folderA/file5.txt` refers to a file which is in `folderA`, which itself is in your Home directory.
 
-You might be wondering why you would choose to use a relative path.  There are two main reasons: firstly, relative pathnames are shorter which saves on typing and reduces the risk of introducing errors.  Secondly, you may not always know the absolute link to a file.  To illustrate the point, suppose you deployed software for public use.  Your software comprises multiple files and those files need to communicate with one another.  But how would this be possible if the software is running on someone else’s computer?  You won’t know in advance the file structure of that device and the location to which your deployed code will be copied.  To get around this you can make use of relative path, in which only a file’s position relative to another is required and not the absolute path.
+You might be wondering why you would choose to use a relative path.  There are two main reasons: firstly, relative pathnames are shorter which saves on typing and reduces the risk of introducing errors.  Secondly, you may not always know the absolute link to a file.  To illustrate the point, suppose you deployed software for public use.  Your software comprises multiple files and those files need to communicate with one another.  But how would this be possible if the software is running on someone else’s computer?  You won’t know in advance the file structure of that device and the location to which your deployed code will be copied.  To get around this you can make use of a relative path, in which only a file’s position relative to another is required and not the absolute path.
 
 #### Naming files
 The best way to name files is to use only alphanumeric characters, the underscore symbol and the dot. The following filename contains all of these and is acceptable: 
 
     my_file1.txt
 
-Also, it is **best practice not to use spaces in filenames**, even though people quite happily do this when using Windows and macOS.
+Also, it is **best practice to not use spaces in filenames**, even though people quite happily do this when using Windows and macOS.
 
 By convention, it is also common to give an indication of filetype in the **file extension** – the final dot and following characters.  In the above example the extension is `.txt` which by convention denotes a text file.
 
@@ -144,10 +144,10 @@ These are typically configuration files or log files.  If you run the `ls` comma
 ### Using commands to navigate and manipulate the file system
 Now that we have introduced Linux commands and the filesystem, we can put them together and navigate around the computer and start making directories and moving files (analogous to what can be achieved with a mouse and pointer when using PCs or Macs).  
 
-We’ve already introduced the `ls` command to list file and folders, but here is a list of some of the other most commonly used commands to move around the filesystem.
+We’ve already introduced the `ls` command to list files and folders, but here is a list of some of the other most commonly used commands to move around the filesystem.
 
 `pwd` (print working directory)
-This command prints the current working directory of the user.  This might sound a strange concept, but the user can be viewed as having a “location” in the system file structure.  pwd reports back the user’s position.
+This command prints the current working directory of the user.  This might sound a strange concept, but the user can be viewed as having a “location” in the system file structure.  `pwd` reports back the user’s position.
 
     pwd
     /lmb/home/swingett
@@ -169,9 +169,10 @@ This command enables the user to copy a file from one location to another.  Belo
 
     cp file.txt file_copy.txt
 
-In the example below, `file1.txt` is copied to a new folder:
+In the examples below, `file1.txt` is copied to a new folder (note that the filename is optional as the destination location):
 
     cp file1.txt /data_folder/file1.txt
+    cp file1.txt /data_folder
 
 It is also possible to copy directories and their contents.  This requires a **recursive** copy using the `-r` flag:
 
@@ -205,19 +206,19 @@ Do this recursively to delete directories that are not empty (along with all of 
 
     rm -r directory1 directory2 /data/directory3 
 
-Most Linux systems will delete files immediately following a user’s request.  However, to prevent people accidentally deleting files, the cluster has been set up to require keyboard confirmation for every individual file to be deleted.  This can be a time consuming process if many files need to be removed simultaneously.  To stop the system requiring the additional confirmation, append the `-f` flag to the remove command. 
+Most Linux systems will delete files immediately following a user’s request.  However, to prevent people accidentally deleting files, the cluster has been set up to require keyboard confirmation for every individual file that is to be deleted.  This can be a time consuming process if many files need to be removed simultaneously.  To stop the system requiring the additional confirmation, append the `-f` flag to the remove command. 
 
 **<u>Warning!</u>
 Unlike Windows and MacOS, the command line version of Linux on the cluster does not have a Recycle Bin, which means that once a file has been deleted it is gone forever! So be extra careful when deleting files as it is easy to specify the wrong location and potentially lose many hours of valuable work.**
 
 ### Linux tries to help you!
-It’s easy to lose track of what you have been doing when typing successive rounds of text into the command line.  However, by typing history you can see a list of the recent commands executed. Alternatively, press the &uarr; or &darr; arrows to navigate through your recent history.
+It’s easy to lose track of what you have been doing when typing successive rounds of text into the command line.  However, by typing `history` you can see a list of the recent commands executed. Alternatively, press the &uarr; or &darr; arrows to navigate through your recent history.
 
 Furthermore, by typing <kbd>CTRL</kbd> + <kbd>R</kbd> and then typing a command of interest, the Bash shell will report the closest matching command from your history.
 
 Also, typing long commands and filenames and file structures can be quite difficult.  Fortunately, the Bash shell comes with a very useful **autocomplete** function which we strongly recommend using, as this is easier for the user, saves time and reduces the risk of typos.  
 
-To use autocomplete, start typing your command and then pressing <kbd>TAB<kbd> or double-pressing <kbd>TAB<kbd> to autocomplete/display suggestions.  This may take a bit of getting used to, so it is worth spending time practising with this feature to get it working optimally.
+To use autocomplete, start typing your command and then pressing <kbd>TAB</kbd> or double-pressing <kbd>TAB</kbd> to autocomplete/display suggestions.  This may take a bit of getting used to, so it is worth spending time practising with this feature to get it working optimally.
 
 #### Reading and writing files
 In this context we are talking exclusively about text files, or compressed text files.  Linux has a number of simple programs to allow the user to view, write to and edit files.
@@ -242,14 +243,14 @@ Prints out the last 10 lines of a file:
 
     more my_file.txt
 
-Once the file is displayed to the screen, press enter to move through the file one line at a time.  Use the space bar to scroll one page at a time.  Press <kbd>Q</kbd> to exit the more viewer.
+Once the file is displayed to the screen, press <kbd>Enter</kbd> to move through the file one line at a time.  Use the space bar to scroll one page at a time.  Press <kbd>Q</kbd> to exit the more viewer.
 
-Again, there are many flags and options that can be applied to give additional functionality to `more`.  There is also a related program named less which has additional functionality when reading text files.  See which text viewer most suits your needs.
+Again, there are many flags and options that can be applied to give additional functionality to `more`.  There is also a related program named `less` which has additional functionality when reading text files.  See which text viewer most suits your needs.
 
 #### The nano text editor
-There are many ways to edit a file in Linux.  The operating system is shipped with a text editor called `Vi`, but it is not the most intuitive software for novices and so we recommend using `nano` – already installed on the cluster – which marks a good compromise between wide-ranging functionality, yet is still relatively lightweight and can be run in a terminal window.
+There are many ways to edit a file in Linux.  The operating system is shipped with a text editor called "Vi", but it is not the most intuitive software for novices and so we recommend using **"nano"** – already installed on the cluster – which marks a good compromise between wide-ranging functionality, yet is still relatively lightweight and can be run in a terminal window.
 
-Simply type nano on the command line and the software will start and display a screen similar to that shown below.  You can now start writing text in this window and then to save your text simply press <kbd>CTRL</kbd> + <kbd>O</kbd>.  When using `nano`, option menus and prompts will appear at the bottom of the window (please note that the `^` character in a menu denotes the <kbd>CRTL</kbd> button).  
+Simply type `nano` on the command line and the software will start and display a screen similar to that shown below.  You can now start writing text in this window and then to save your text simply press <kbd>CTRL</kbd> + <kbd>O</kbd>.  When using `nano`, option menus and prompts will appear at the bottom of the window (please note that the `^` character in a menu denotes the <kbd>CRTL</kbd> button).  
 
 To exit the program type <kbd>CTRL</kbd> + <kbd>X</kbd>. 
 
@@ -264,7 +265,7 @@ If you want to create a new, empty file then simply specify the name of this new
     nano new_file.txt
 
 #### Compressing and uncompressing files
-Much of the NGS data that you will process and generate will be in text format.  However, storing data in this way is not very efficient in terms of memory.  When reasonably possible, all large text files should be compressed.  This is most commonly achieved on Linux using gzip:
+Much of the NGS data that you will process and generate will be in text format.  However, storing data in this way is not very efficient in terms of memory.  When reasonably possible, all large text files should be compressed.  This is most commonly achieved on Linux using `gzip`:
 
     gzip file1.txt file2.txt file3.txt
  
@@ -284,7 +285,7 @@ As before, this is not ideal for large files, since all the data will be written
 `Redirects (> >>)`
 Before moving on, we need to introduce pipes and redirects, for these allow commands to be linked together and thus become more versatile.
 
-By default, command output is written to the screen (which is known technically as standard out).  It is possible however to redirect this output to a file.  For example:
+By default, command output is written to the screen (which is known technically as **standard out**).  It is possible however to redirect this output to a file.  For example:
 
     cat file1.txt > file1_copy.txt
 
@@ -299,16 +300,16 @@ It is also possible to append contents to a file using the double arrow redirect
     cat file4.txt >> combined.txt
 
 `Pipe (|)`
-The pipe `|` is a way of taking the output from one command and passing it directly to another command.  For example, by piping `zcat` output to the more command, it is possible read directly a gzipped file without decompressing it first
+The pipe `|` is a way of taking the output from one command and passing it directly to another command.  For example, by piping `zcat` output to the `more` command, it is possible read directly a gzipped file without decompressing it first
 
     zcat file.txt.gz | more
 
 This is particularly useful since decompressing a large file can take a considerable amount of time.  If you wanted to just view the first few pages of text then piping `zcat` output to more is a much better alternative.
 
 #### Searching files with `grep`
-You are no doubt aware that it is possible to find user-specified words and phrases in text editors (such as Notepad).  Well, it is also possible in Linux using the grep command.  Simply pass your search term and the name of the text file you wish to search to the grep command.  All the lines containing that search term will be returned.
+You are no doubt aware that it is possible to find user-specified words and phrases in text editors (such as Notepad).  Well, it is also possible in Linux using the `grep` command.  Simply pass your search term and the name of the text file you wish to search to the `grep` command.  All the lines containing that search term will be returned.
 
-For example, the following will return all the lines of text containing the word “organoid” in the text file thesis.txt.
+For example, the following will return all the lines of text containing the word “organoid” in the text file `thesis.txt`.
 
     grep organoid thesis.txt
 
@@ -375,7 +376,7 @@ Explanation of long format:
  
 Column Number	Description
 1	File type (- file / d directory / l link) 
-2	Permission string (user / group /everyone)
+2	Permission string (user / group / everyone)
 3	Number of hard links
 4	Owner name
 5	Owner group
@@ -416,7 +417,7 @@ This command sorts lines of text.
 This command is used for transferring data to and from a server.
 
 ##### `dos2unix` / `mac2unix`
-This is a useful piece of software to install on a Linux system for there is, unfortunately, an incompatibility between Linux and Windows / Mac systems with regard to how textfile line endings are interpreted.  Consequently, text files generated on Windows / Mac machines may not be processed correctly when running on Linux.  The dos2unix / mac2unix commands correct this discrepancy by modifying such line-endings.  Note: this command edits the input file.
+This is a useful piece of software to install on a Linux system for there is, unfortunately, an incompatibility between Linux and Windows / Mac systems with regard to how textfile line endings are interpreted.  Consequently, text files generated on Windows / Mac machines may not be processed correctly when running on Linux.  The dos2unix / mac2unix commands correct this discrepancy by modifying such line-endings.  Note: this command edits and overwrites the original the input file.
 
 #### Running Jobs
 This next section introduces commands that are useful for long-running jobs and gives guidance on how to monitor commands that are running.

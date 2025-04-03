@@ -10,11 +10,10 @@ theme: uncover
 ---
 
 ## Course aims
-* Introducing Linux
-* Learn to use the LMB compute cluster
-* Introduction to analysing next-generation sequencing (NGS) data
-* Learn about bioinformatics pipelines
-* Run Nextflow & nf-core
+* Understanding the Computer Cluster setup
+* Learning command line Linux
+* Navigating the cluster
+* Submitting cluster jobs
 
 ---
 
@@ -103,7 +102,7 @@ theme: uncover
 
 ---
 
-## Cell Biology Workstation (Xeon)
+## Cell Biology Bioinformatics Machine - Xeon
 
 * Analogous to a single cluster node
   
@@ -113,7 +112,11 @@ theme: uncover
 
 * Software can be installed as per users' requirements
 
-* Let us know if you would like an account
+---
+
+## Cell Biology Bioinformatics Machine - Xeon (2)
+
+* Let us know if you would like an account (and you are a memember of the Cell Biology Division)
 
 *  `sean-pc-10.lmb.internal` 
 

@@ -33,11 +33,11 @@ http://creativecommons.org/licenses/by-nc-sa/2.0/uk/legalcode
 
 # Slurm
 ## Introduction
-By this point in the course, you have logged in to a head node and then executed simple commands – essentially you have been treating the compute cluster as one might treat a simple desktop system.  That is fine for demonstration purposes, but the compute cluster architecture is not designed to be used in this fashion, and in by doing so we are not making use of the cluster’s considerable processing power.  The correct way to use a cluster is to log in to a head node and from there pass jobs to compute nodes, where intensive number crunching can be performed.  
+By this point in the course, you have logged in to a head node and then executed simple commands – essentially you have been treating the compute cluster as one might treat a simple desktop system.  That is fine for demonstration purposes, but the compute cluster architecture is not designed to be used in this fashion, and in by doing so we are not making full use of the cluster’s considerable processing power.  The correct way to use a cluster is to log in to a head node and from there pass jobs to compute nodes, where intensive number crunching can be performed.  
 
 Enabling head nodes to communicate with compute nodes and ensuring all these nodes can communicate with storage arrays, while simultaneously allowing different users to interact with the system while keeping track of all the users' jobs as they are passed from node to node is far from trivial.  Fortunately, there are specialist software tools for managing these tasks on computer clusters.  The LMB cluster uses one such workload manager known as **Slurm**.  In this section we shall introduce Slurm and give an overview of how to execute jobs on compute nodes.  
 
-[Bioinformatic pipelines that link software tools in sequential workflows will not be described here, but instead are detailed in the next section that discuses Nextflow and nf-core.]
+[Bioinformatic pipelines that link software tools in sequential workflows will not be described here, but instead are detailed in another course that discusses Nextflow and nf-core - see https://stevenwingett.github.io/lmb_pipelines_course/]
 
 ## Using Slurm
 The Slurm files are located on the LMB cluster at `/user/bin/` where the Linux command line programs are also kept.  This means that Slurm commands should already be in your PATH and be ready to use.  We shall now cover the main Slurm commands you will need.
@@ -76,7 +76,7 @@ This is another useful command that gives a summary of the CPU node state.  It s
 is used to view partition and node information for a system running Slurm.
 
 `qinfo`
-When connected to the LMB intranet, go to the page listed below to view an overview of the current state of the cluster.  The webpage runs the qinfo command and gives a breakdown of all the nodes being used, what jobs are running and which users are running them.
+When connected to the LMB intranet, go to the page listed below to view an overview of the current state of the cluster.  The webpage runs the `qinfo` command and gives a breakdown of all the nodes being used, what jobs are running and which users are running them.
 http://nagios2/qinfo/
 
 ## Running jobs
@@ -148,14 +148,14 @@ So, you could re-submit the command with these options:
 
 This will submit the job as before but request 2 cores and 2G of RAM and send status update emails to the user as the job progresses.
 
-This command is long, but it is possible to set up an alias in your `~/.bashrc` configuration file so you don’t need to type it out in full every time.  We shan’t discuss this here in more detail, but please let us know if you would like more assistance with this.
+[This command is long, but it is possible to set up an alias in your `~/.bashrc` configuration file so you don’t need to type it out in full every time.  We shan’t discuss this here in more detail, but please let us know if you would like more assistance with this.]
 
 This leads to the question: what are appropriate amounts of memory and CPUs to request?  Well, this is not a straight-forward question to answer.  Some jobs are clearly more memory intensive that others, but quantifying that in advance is not easy to do.  Under reserve the memory allocation or CPUs and the job may crash or take an inordinate amount of time to finish.  In contrast: request too much and you will be denying other users valuable compute resources.  Moreover, the workload management on the cluster is such that a job requiring a large amount of compute resources may wait much longer in the queue before processing even starts.  So, paradoxically, requesting a large amount of resources can lead to a job taking longer to complete!
 
 Perhaps the simplest and most convenient way to make these calculations is to check the resources used by already completed jobs and use that as a benchmark for the future.  Obtaining these metrics on already completed jobs can be achieved with the `sacct` command.
 
 ### A note on exit codes
-At various points when using the cluster, you may see the term exit code reported.  What does this mean?  Well, when a job finishes it will be assigned an exit code which reports whether a job completed successfully or whether there was some kind of error.  To assist with debugging, different classes of errors are usually assigned different exit codes.  But all you need to know is that an exit code of 0 means the job completed successfully, while any other exit code denotes some kind of error. 
+At various points when using the cluster, you may see the term "exit code" reported.  What does this mean?  Well, when a job finishes it will be assigned an exit code which reports whether a job completed successfully or whether there was some kind of error.  To assist with debugging, different classes of errors are usually assigned different exit codes.  But all you need to know is that an exit code of 0 means the job completed successfully, while any other exit code denotes some kind of error. 
 
 #### `sacct`
 The sacct command provides information on the resources used when running a job.  It takes as input the job id (which is included in the the Slurm `*.out` filename).  
@@ -325,7 +325,7 @@ Log-in using your Cell Biology Xeon credentials.
 ## Jupyter Hub Server
 The **Jupyter Notebook** is an intuitive web-based application that scores in the area of research science, for it allows programmers to create and share documents that contain live code, equations, plots and formatted descriptive text.
 
-At present there is no support for Jupyter on the LMB Cluster, but JupyterHub server is installed on the Cell Biology Workstation (Xeon).  Please let us know if you wish to use JupyterHub on the workstation and we will set you up with an account.
+At present there is no support for Jupyter on the LMB Cluster, but JupyterHub server is installed on the Cell Biology Bioinformatics Machine (Xeon).  Please let us know if you wish to use JupyterHub on the workstation and we will set you up with an account.
 
 We run a course, which is free to all LMB staff and researchers, teaching how to use JupyterHub.  If you would like to know more about this software then we suggest you sign up at the next opportunity, but in the meantime please feel free to look at the course materials, which are available online at: https://github.com/StevenWingett/data-analysis-with-python-course
 
@@ -344,7 +344,7 @@ On the cluster, containers can only be run if stored in the following folder (or
 
 You need to be a member of the `singularity` group to place files in that folder.
 
-Singularity is also installed on the Cell Biology Workstation.  Containers can be run from any location on that system.
+Singularity is also installed on the Cell Biology Bioinformatics Machine.  Containers can be run from any location on that system.
 
 ## Further assistance
 This section introduced the key concepts of using Slurm on the LMB cluster, but for more details please view the Scientific Computing page at: https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=computer-cluster
