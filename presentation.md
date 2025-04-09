@@ -450,6 +450,20 @@ table {
 
 ---
 
+## File permissions (2)
+
+* Add execute privileges for user: `chmod u+x [files]`
+  
+* Add write privileges for group: `chmod g+w [files]`
+
+* Remove read privileges for others: `chmod o-r [files]`
+
+* Add read privileges for everyone: `chmod a+r [files]`
+
+* There is also a "numerical" system to do this
+
+---
+
 ## Other useful points
 
 * Variables (e.g. `$USER`) – built-in and user-defined

@@ -47,12 +47,13 @@ The course has three parts.  The first introduces the concept of a “compute cl
 
 * **Obtain a cluster account**
 
-    * You will need to be registered to gain access to the cluster, so please make sure you have an account.  
+    * You will need to be registered to gain access to the cluster, so please make sure you have an account.  To do this, please go to:
+ 
+      https://bb8.mrc-lmb.cam.ac.uk/userdash
+ 
+      Log in with your LMB credentials, then click the "slurm" link in the "Additional" section and click the confirmation button.
 
-    * To do this, complete the online form, which is found on the intranet at:
-    https://bb8.mrc-lmb.cam.ac.uk/userdash/slurm.cgi
-
-    * Please fill out this form in plenty of time **before** the course.
+  * Also, we advise that you make Bash your default shell.  Please **email unixadmin@mrc-lmb.cam.ac.uk and ask for "Bash to be your default cluster shell".**
 
 * **Software**
   

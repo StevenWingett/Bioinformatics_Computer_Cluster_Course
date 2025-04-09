@@ -58,7 +58,7 @@ Version
 
 5.    `sleep 10`  CTRL + C
 
-6.    `sleep 10 &`
+6.    `sleep 60 &`
 
 
 ## Slurm

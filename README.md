@@ -5,7 +5,8 @@ This course is intended to teach the basics of using a compute cluster.  Althoug
 1.	[Introduction and setup](1_Introduction_and_setup.md)
 2.	[Linux – using the Linux operating system and the command line](2_Linux.md)
 3.	[Cluster computing – how to submit jobs to a compute cluster](3_Cluster_Computing.md)
+4.  [Course Exercises](exercises.md)
 
-The course slides (presentation.md), exercises and answers are also available here.  The slides are rendered using MARP (https://marp.app).
+The course slides (presentation.md) and other materials are available in the GitHub repository.  [The slides were rendered using MARP (https://marp.app).]
 
 The individual sections of the course may be run separately, depending on the requirements of the course participants.

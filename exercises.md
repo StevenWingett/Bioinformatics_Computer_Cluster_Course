@@ -94,8 +94,15 @@ Has anything happened?
 ### a.
 **Only perform this step if you were given the data files in the form of `tar` archive.**
 
-If you did not extract the files before copying to the cluster, then let’s open the archive file we copied from your local machine to the cluster:
+Let’s open the archive file we copied from your local machine to the cluster:
+
 `tar xvzfp [course_title].tar.gz`
+
+(Use the **actual filename** when running this command i.e. not "[course_title]".)
+
+Apparently, certain web browser setting cause the archive to unzipped upon downloading.  If your archive on the cluster ends with the file extension `.tar` instead of `.tar.gz`, then execute the following command:
+
+`tar xvfp [course_title].tar`
 
 (The `tar` command is useful, as it allows multiple files and the associated file hierarchy to be stored within a single archive file.  You don’t need to understand this command at the moment.)
 
@@ -167,7 +174,7 @@ The links should be generate outside the file_list folder, in separate folders n
 
 4. Use the `sleep` command to suspend execution on your system for 10 seconds.
 
-5. Try the `sleep` command again, but cancel the job once it has started.
+5. Try the `sleep` command again, but end the job once it has started.
 
 6. Execute the sleep command for 60s, but this time background the job.  Can you see the running sleep command with `ps` and `top`? 
 

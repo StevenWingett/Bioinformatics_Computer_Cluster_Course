@@ -454,7 +454,7 @@ You may have noticed that once you start a job, you cannot enter anything in the
 
     nohup cp -r /path/to/data/ . &
 
-Alternatively, currently running jobs can be stopped with <kbd>CTRL</kbd> + <kbd>Z</kbd>.  The command `bg` can then be used to background the job.  In contrast, the command `fg` will move a job from the background to the foreground.
+Alternatively, currently running jobs can be stopped (or effectively suspended) with <kbd>CTRL</kbd> + <kbd>Z</kbd>.  The command `bg` can then be used to background the job.  In contrast, the command `fg` will move a job from the background to the foreground.
 
 ##### `kill`
 Suppose you have started a long-running process, but realise you made a mistake and want the process to end.  To do that, look up the process "id" (PID) using `ps` or `top`.  Then end the process (or multiple processes) with the kill command.  The example below ends processes 3101 and 3102:
@@ -466,6 +466,8 @@ Should that fail, you can force a process to terminate by adding the `-9` flag:
     kill -9 3101 3102
 
 The `-9` flag should only be used if the command `kill` fails to terminate the selected processes.  Although the name suggests otherwise, the `kill` command terminates a process gracefully (e.g. ensures data has finished saving etc.).  However, should that not work, the command `kill -9` will close running processes immediately.  (The former is similar to closing a program using the "Close" button on a Windows system, the latter is akin to forcing a program to close with the Windows Task Manager.)
+
+It is also possible to `kill` a job running in the foreground with <kbd>CTRL</kbd> + <kbd>C</kbd>.
 
 ##### `exit`
 The exit command is used to end a Linux session.
