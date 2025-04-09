@@ -149,7 +149,7 @@ The links should be generate outside the file_list folder, in separate folders n
 
 2. Repeat 1., but this time edit the file `/usr/bin/who`.  Where you able to do this?  If not, why not?  Maybe checking the file permissions will clarify the situation?
 
-3. To what `groups` do you belong?
+3. To what groups do you belong (the name of the required Linux command is quite intuitive)?  To what groups does the person who is running the course belong?  If you can't work out how to do this, then look in the `man` pages.
 
 ### b. 
 1. Write a single-line Bash command that takes the contents of the file letters.txt, sorts them alphabetically and then writes them to a new file named `sorted.txt`.
@@ -161,13 +161,13 @@ The links should be generate outside the file_list folder, in separate folders n
 ### d.
 1. Print the contents of the `$USER` variable to the screen.  Look familiar?
 
-2. List your running processes with `ps`.  Then look at all jobs running on your current node with `top`.  Then look at ONLY YOUR jobs running on your current node using `top`.
+2. List your running processes with `ps`.  Then look at all jobs running on your current node with `top`.  Then look at ONLY YOUR jobs running on your current node using `top` (look in the `man` pages for `top`, there is a flag that enables users to do this).
 
 3. Where is the `curl` program found on your system?  Check this location is indeed in the `$PATH` variable.
 
 4. Use the `sleep` command to suspend execution on your system for 10 seconds.
 
-5. Try the sleep command again, but stop the job once it has started.
+5. Try the `sleep` command again, but cancel the job once it has started.
 
 6. Execute the sleep command for 60s, but this time background the job.  Can you see the running sleep command with `ps` and `top`? 
 
