@@ -154,6 +154,8 @@ This leads to the question: what are appropriate amounts of memory and CPUs to r
 
 Perhaps the simplest and most convenient way to make these calculations is to check the resources used by already completed jobs and use that as a benchmark for the future.  Obtaining these metrics on already completed jobs can be achieved with the `sacct` command.
 
+It is also possible to specify what type of node you wish to use for a job.  For example, to use the GPU nodes: `--partition=gpu`.
+
 ### A note on exit codes
 At various points when using the cluster, you may see the term "exit code" reported.  What does this mean?  Well, when a job finishes it will be assigned an exit code which reports whether a job completed successfully or whether there was some kind of error.  To assist with debugging, different classes of errors are usually assigned different exit codes.  But all you need to know is that an exit code of 0 means the job completed successfully, while any other exit code denotes some kind of error. 
 
@@ -167,7 +169,7 @@ To get the maximum memory usage:
     sacct --format=jobID%20,CPUTime,MaxRSS -j [job id]
 
 #### `scancel`
-To kill running jobs use scancel:
+To kill running jobs use `scancel`:
 
     scancel [job id]
 
@@ -345,6 +347,25 @@ On the cluster, containers can only be run if stored in the following folder (or
 You need to be a member of the `singularity` group to place files in that folder.
 
 Singularity is also installed on the Cell Biology Bioinformatics Machine.  Containers can be run from any location on that system.
+
+## Next-Generation Sequencing bioinformatics pipelines
+We have installed a variety of NGS bioinformatics pipelines on the cluster.  Some of these we have built in-house at the LMB, while the others have been made available by [nf-core](https://nf-co.re).
+
+We currently have the following pipelines installed for:
+
+* NGS QC - initial quality control on FASTQ files
+* ATAC-seq - assesses genome-wide chromatin accessibility
+* ChIP-seq - identify DNA-protein interactions
+* Cut and Run/Tag - identify DNA-protein interactions
+* RNA-seq - detection and quantitative analysis of RNA
+* Single Cell RNA-seq (10x) - detection and quantitative analysis of RNA at single cell resolution using 10x technology
+* Single Cell RNA-seq (Parse) - detection and quantitative analysis of RNA at single cell resolution using Parse Evercode technology
+* Taxonomy Profiling - taxonomic classification of the origin of FASTQ reads
+* Download Data - download NGS datasets (FASTQ files and metadata) from online repositories
+
+For more details on these pipelines, please go to the following intranet link: http://intranet.lmb.internal/scientific-facilities/high-throughput-sequencing
+
+We have tried to make the running of the pipelines easier by creating the intranet site [Guide-Piper](http://guidepiper), which helps you build the cluter command you need to process your datasets.
 
 ## Further assistance
 This section introduced the key concepts of using Slurm on the LMB cluster, but for more details please view the Scientific Computing page at: https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=computer-cluster

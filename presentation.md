@@ -850,6 +850,20 @@ table {
 
 ---
 
+## NGS Bionformatics Pipelines
+
+* NGS QC 
+* ATAC-seq 
+* ChIP-seq 
+* Cut and Run/Tag 
+* RNA-seq 
+* Single Cell RNA-seq (10x)
+* Single Cell RNA-seq (Parse)
+* Taxonomy Profiling
+* NGS data downloading Data
+
+---
+
 ## Summary
 
 * Linux / Bash
