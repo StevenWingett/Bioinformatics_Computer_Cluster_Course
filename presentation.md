@@ -54,7 +54,7 @@ theme: uncover
 ---
 
 ## LMB compute cluster specifications
-* Huge data storage (cephf2: 7.1PB)
+* Huge data storage (`/cephfs2`: 7.1PB)
 * (Almost) never turned off
 * Specialist software manages long-running jobs
 * Compute cluster needed for modern life sciences datasets
@@ -527,7 +527,12 @@ table {
 
 ---
 
-## Using Slurm
+## Let's use compute nodes
+![width:900px](assets/cluster_computing_schematic.png)
+
+---
+
+## Slurm
 
 * Clusters require job management and scheduling system
 
@@ -588,6 +593,8 @@ table {
 
 ---
 
+## Submitted jobs [demo]
+
 * Job runs without further user input
 
 * Write Bash script:
@@ -603,14 +610,14 @@ table {
 
 ---
 
-## Submitted jobs 2 [demo]
+## Submitted jobs (2) [demo]
 
 * Submit script to queue:
   `sbatch test.sh`
 
 ---
 
-## Submitted jobs 3
+## Submitted jobs (3)
 
 * More options:
 
@@ -634,7 +641,7 @@ table {
 
 ---
 
-## Submitted jobs 4 [demo]
+## Submitted jobs (4) [demo]
 
 * `sacct -j [job id]`
 
@@ -681,7 +688,7 @@ table {
 
 * `~` (home directory) -  config files and scripts
 
-* `/cephfs` & `/cepfs2` - very large data storage / suitable location for processing data.
+* `/cephfs` & `/cephfs2` - very large data storage / suitable location for processing data.
 
 * `/scratch` - suitable location for processing data, **BUT FILES ARE AUTOMATICALLY DELETED - DON'T STORE FILES HERE!**  
 
