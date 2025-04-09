@@ -18,3 +18,9 @@
 * gzip
 * zcat
 * gunzip
+
+**Demo VS Code**
+* File browser
+* Text editor
+* Terminal
+* FTP
