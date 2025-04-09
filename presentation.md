@@ -58,6 +58,7 @@ theme: uncover
 * (Almost) never turned off
 * Specialist software manages long-running jobs
 * Compute cluster needed for modern life sciences datasets
+* Maintained by **Scientific Computing**
 
 ---
 
@@ -675,7 +676,7 @@ table {
 * Not so responsive – maybe transfer to local machine first?
 
 * More details:
-   https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=computer-cluster 
+   https://www.mrc-lmb.cam.ac.uk/scicomp
 
 ---
 
