@@ -53,7 +53,7 @@ The course has three parts.  The first introduces the concept of a “compute cl
  
       Log in with your LMB credentials, then click the "slurm" link in the "Additional" section and click the confirmation button.
 
-  * Also, we advise that you make Bash your default shell.  Please **email unixadmin@mrc-lmb.cam.ac.uk and ask for "Bash to be your default cluster shell".**
+  * Also, we advise that you make Bash your default shell.  From around the beginning of 2025, new users will have Bash set up as their default shell.  **Users who created an account before that date should email unixadmin@mrc-lmb.cam.ac.uk and ask for "Bash to be your default cluster shell".**
 
 * **Software**
   

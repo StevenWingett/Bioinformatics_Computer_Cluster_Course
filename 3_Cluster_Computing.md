@@ -40,7 +40,7 @@ Enabling head nodes to communicate with compute nodes and ensuring all these nod
 [Bioinformatic pipelines that link software tools in sequential workflows will not be described here, but instead are detailed in another course that discusses Nextflow and nf-core - see https://stevenwingett.github.io/lmb_pipelines_course/]
 
 ## Using Slurm
-The Slurm files are located on the LMB cluster at `/user/bin/` where the Linux command line programs are also kept.  This means that Slurm commands should already be in your PATH and be ready to use.  We shall now cover the main Slurm commands you will need.
+The Slurm files are located on the LMB cluster at `/usr/bin/` where the Linux command line programs are also kept.  This means that Slurm commands should already be in your PATH and be ready to use.  We shall now cover the main Slurm commands you will need.
 
 (Further help regarding these commands can be obtained from the Linux manual – `man`.)
 
