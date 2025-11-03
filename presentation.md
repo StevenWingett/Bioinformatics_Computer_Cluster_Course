@@ -536,6 +536,13 @@ table {
 * Where to get help
 
 ---
+## Homework! 
+* Download and install Visual Studio Code: https://code.visualstudio.com
+* Access the cluster via Visual Studio Code
+* Create and edit files using Visual Studio Code
+* Try accessing the cluster from outside the LMB via **atg**: https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=ssh-x2go
+;-)
+---
 
 # Part II
 ## Using the Cluter Compute Nodes (hours 4-8)
@@ -787,7 +794,6 @@ table {
   * View webpages
   * Transfer files
   * Free
-  
 ---
 
 ## Visual Studio Code (2) [demo]
@@ -879,3 +885,10 @@ table {
 * Find a reason to have a go in the coming weeks
 
 * Thanks for listening!!!
+
+---
+## Course Online
+
+![width:400px](assets/qr-code.png)
+
+`https://stevenwingett.github.io/Bioinformatics_Computer_Cluster_Course`
