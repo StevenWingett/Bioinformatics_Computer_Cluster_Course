@@ -675,6 +675,35 @@ table {
 
 ---
 
+## Submitted jobs (5) [demo]
+Slurm scripts:
+
+    #!/bin/bash
+    #SBATCH --job-name=test_job
+    #SBATCH --cpus-per-task=c
+    #SBATCH --mem=2G
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=$USER@mrc-lmb.cam.ac.uk
+    
+    # Bash commands
+    echo Hello World!
+
+Run as:
+`sbatch test.slurm`
+
+---
+## Job arrays
+
+* Process many related tasks simultaneously
+
+* Specify the job array in a Slurm script 
+
+* Submit using  `sbatch`
+
+* https://slurm.schedmd.com/job_array.html
+
+---
+
 ## Modules [demo]
 
 * Import specific software versions

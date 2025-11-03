@@ -102,6 +102,7 @@ By default, when you logon to a compute node, you will be allocated 1 CPU core. 
 Type exit to leave the compute node and return to the head node.
 
 ### Submitting jobs
+#### Using a bash script
 Non-interactive jobs are submitted from the head node to the Slurm scheduler using the `sbatch` command.  `sbatch` takes as an argument a script that contains the Bash commands you wish to run.  Shown below is the contents of a simple bash script named test.sh:
 
     #!/bin/bash
@@ -156,6 +157,23 @@ Perhaps the simplest and most convenient way to make these calculations is to ch
 
 It is also possible to specify what type of node you wish to use for a job.  For example, to use the GPU nodes: `--partition=gpu`.
 
+#### Using a Slurm script
+Passing a bash script to `sbatch` is one way to run a non-interactive job on the cluster, however users still typically need to specify additional parameters on the pipeline.  A Slurm script is like an extended bash script in which the bash command can be added along with command line parameters:
+
+    #!/bin/bash
+    #SBATCH --job-name=test_job
+    #SBATCH --cpus-per-task=c
+    #SBATCH --mem=2G
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=$USER@mrc-lmb.cam.ac.uk
+    
+    # Bash commands
+    echo Hello World!
+
+The first line of the script tells the cluster to use the bash shell.  The lines prefixed with `#SBATCH` are not comments, but are the syntax to pass parameters to the sbatch command. The line `# Bash commands` is a comment, and below that is that we used in the original bash script.  So, in the slurm script, which we shall name `test.slurm`, we list: 1) the shell we wish to use, 2) the sbatch parameters and 3) the contents of the bash script.  To run the slurm script enter:
+
+    sbatch test.slurm
+
 ### A note on exit codes
 At various points when using the cluster, you may see the term "exit code" reported.  What does this mean?  Well, when a job finishes it will be assigned an exit code which reports whether a job completed successfully or whether there was some kind of error.  To assist with debugging, different classes of errors are usually assigned different exit codes.  But all you need to know is that an exit code of 0 means the job completed successfully, while any other exit code denotes some kind of error. 
 
@@ -172,6 +190,14 @@ To get the maximum memory usage:
 To kill running jobs use `scancel`:
 
     scancel [job id]
+
+
+#### Job arrays
+Let us suppose you have a several or many related task that you wish to perform for example process numerous different files with the same software tool.
+
+A convenient way to do this would be to use a Slurm job array.  To do this, you need to specify the terms of your job array in a Slurm script and submit this script to the cluster via `sbatch`.  We shan't cover this in the course, but for more details on this go to:
+
+https://slurm.schedmd.com/job_array.html
 
 ## Loading modules
 It is quite common for a user to require a particular version of an application for performing analysis.  Selecting the version of the software you require has been made simple with the `module` command.

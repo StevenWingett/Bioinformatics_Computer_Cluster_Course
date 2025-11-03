@@ -218,3 +218,6 @@ Now run the job, allocating 1 core and 1GB RAM.  Make sure the cluster emails yo
 Did the job succeed?  If not, try again but increase the RAM allocation to 30Gb.
 
 Check how much RAM was actually used by this job.
+
+#### e.
+Let's run the R script `norm_dist_1_billion.R` once again as a non-interactive job using a Slurm script.  Also, in the R script, import R version 4.5.1 module prior to running the R script.

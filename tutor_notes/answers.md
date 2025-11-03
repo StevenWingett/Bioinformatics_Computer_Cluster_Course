@@ -91,3 +91,19 @@ Version
 
 `sacct --format=jobID%20,CPUTime,MaxRSS -j [job id]`
 
+#### e
+
+    #!/bin/bash
+    #SBATCH --job-name=Rscript_job
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=$USER@mrc-lmb.cam.ac.uk
+    #SBATCH --mem=30G
+
+    # Bash command
+    module load R/4.5.1
+    Rscript norm_dist_1_billion.R
+
+
+`sbatch norm_dist.slurm`
+
