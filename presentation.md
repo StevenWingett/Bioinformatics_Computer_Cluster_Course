@@ -875,7 +875,7 @@ Run as:
 ## Singularity containers
 * Enable software and dependencies to be bundled into one file  
   
-*  most effective way to distribute versioned bioinformatics software 
+*  Most effective way to distribute versioned bioinformatics software 
 
 * On the cluster, containers can only be run from:  `/public/singularity/`.
 

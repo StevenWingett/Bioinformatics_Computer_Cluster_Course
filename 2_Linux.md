@@ -44,7 +44,7 @@ To quickly check your shell is working, type `date` in the command line and then
 
 ![command_line_date](assets/command_line_date.png)
 
-There are many different shells available, of which **Bash** is arguably the best known.  Unfortunately this is not the default shell used by the cluster and so we advise changing this setting. 
+There are many different shells available, of which **Bash** is arguably the best known.  
 
 To check which shell you are currently using, type:
     
@@ -87,10 +87,10 @@ It is also possible to combine multiple flags.  The additional flag `--human-rea
     -rw-rw-r-- 1 swingett swingett   17 Jul 15 16:35 file2.txt
     -rw-rw-r-- 1 swingett swingett   37 Jul 15 16:34 file3.txt
 
-It is possible to abbreviate some flags (when the abbreviation does not create ambiguity). For example, the flag `--human-readable` can be abbreviated to `-h`.  Furthermore, such single-character flags can be combined to reduce typing: `ls -l -h` is equivalent to ls -lh
+It is possible to abbreviate some flags (when the abbreviation does not create ambiguity). For example, the flag `--human-readable` can be abbreviated to `-h`.  Furthermore, such single-character flags can be combined to reduce typing: `ls -l -h` is equivalent to `ls -lh`.
 
 #### Options 
-In contrast, Linux commands may take options which are similar to flags, but take values.
+In contrast, Linux commands may take options, which are similar to flags, but take values.
 
     ls -l --sort=size
     total 12
@@ -250,7 +250,7 @@ Again, there are many flags and options that can be applied to give additional f
 #### The nano text editor
 There are many ways to edit a file in Linux.  The operating system is shipped with a text editor called "Vi", but it is not the most intuitive software for novices and so we recommend using **"nano"** – already installed on the cluster – which marks a good compromise between wide-ranging functionality, yet is still relatively lightweight and can be run in a terminal window.
 
-Simply type `nano` on the command line and the software will start and display a screen similar to that shown below.  You can now start writing text in this window and then to save your text simply press <kbd>CTRL</kbd> + <kbd>O</kbd>.  When using `nano`, option menus and prompts will appear at the bottom of the window (please note that the `^` character in a menu denotes the <kbd>CRTL</kbd> button).  
+Simply type `nano` on the command line and the software will start and display a screen similar to that shown below.  You can now start writing text in this window and then to save your text simply press <kbd>CTRL</kbd> + <kbd>O</kbd>.  When using `nano`, option menus and prompts will appear at the bottom of the window (please note that the `^` character in a menu denotes the <kbd>CTRL</kbd> button).  
 
 To exit the program type <kbd>CTRL</kbd> + <kbd>X</kbd>. 
 
@@ -260,12 +260,12 @@ To open and view/edit a text file that already exists simply pass the name of th
 
     nano file.txt
 
-If you want to create a new, empty file then simply specify the name of this new file when starting nano:
+If you want to create a new, empty file, then simply specify the name of this new file when starting nano:
 
     nano new_file.txt
 
 #### Compressing and uncompressing files
-Much of the NGS data that you will process and generate will be in text format.  However, storing data in this way is not very efficient in terms of memory.  When reasonably possible, all large text files should be compressed.  This is most commonly achieved on Linux using `gzip`:
+Much of the NGS data that you will process and generate will be in text format.  However, storing data in this way requires an unnecessary amount of memory.  When reasonably possible, all large text files should be compressed.  This is most commonly achieved on Linux using `gzip`:
 
     gzip file1.txt file2.txt file3.txt
  
@@ -282,7 +282,8 @@ It is possible to read the contents of gzipped file without decompressing first.
 
 As before, this is not ideal for large files, since all the data will be written to the screen in one batch.
 
-`Redirects (> >>)`
+**Redirects (`> >>`)**
+
 Before moving on, we need to introduce pipes and redirects, for these allow commands to be linked together and thus become more versatile.
 
 By default, command output is written to the screen (which is known technically as **standard out**).  It is possible however to redirect this output to a file.  For example:
@@ -293,13 +294,14 @@ Here the contents of `file1.txt` is read and written to `file1_copy.txt` (which 
 
     cat file1.txt file2.txt file3.txt > combined.txt
 
-This process is known as concatenation, which is why this command is named `cat`.
+This process is known as **concatenation**, which is why this command is named `cat`.
 
 It is also possible to append contents to a file using the double arrow redirect.  The contents of `file4.txt` could therefore be appended to the end of `combined.txt`:
 
     cat file4.txt >> combined.txt
 
-`Pipe (|)`
+**Pipe (`|`)**
+
 The pipe `|` is a way of taking the output from one command and passing it directly to another command.  For example, by piping `zcat` output to the `more` command, it is possible read directly a gzipped file without decompressing it first
 
     zcat file.txt.gz | more
@@ -313,7 +315,7 @@ For example, the following will return all the lines of text containing the word
 
     grep organoid thesis.txt
 
-As with other Linux commands, the mode of action of grep can be modified using flags, to refine your searching.
+As with other Linux commands, the mode of action of `grep` can be modified using flags, to refine your searching.
 
 #### Getting Help
 The command line might feel quite alien to the complete novice, but there are built-in features to help you get to grips with these commands.
@@ -326,7 +328,7 @@ The command line might feel quite alien to the complete novice, but there are bu
 
     man gzip
 
-3) The built-in manual is complete and authoritative but can be overly technical for the novice.  There are however plenty of discussion groups online where Linux commands are explained.  Just Google to find one you like.
+3) The built-in manual is complete and authoritative but can be overly technical for the novice.  There are however plenty of discussion groups online where Linux commands are explained.  Just Google to find one you like.  And of course ChatGPT etc. are usually very helpful.
 
 4) Always have your trusty cheat sheet to hand!
 
@@ -374,15 +376,16 @@ Explanation of long format:
 
 ![File permissions](assets/file_permissions.png)
  
-Column Number	Description
-1	File type (- file / d directory / l link) 
-2	Permission string (user / group / everyone)
-3	Number of hard links
-4	Owner name
-5	Owner group
-6	File size in bytes
-7	Modification time
-8	File name
+| Column Number	| Description |
+| ------------- | ----------- |
+| 1	            | File type (- file / d directory / l link) 
+| 2	            | Permission string (user / group / everyone) |
+| 3	            | Number of hard links |
+| 4	            | Owner name |
+| 5	            | Owner group |
+| 6	            | File size in bytes |
+| 7	            | Modification time |
+| 8	            | File name |
 
 This means that the owner of the file is `zeus`.  The file belongs to the group `gods`.
 
@@ -404,7 +407,7 @@ Similar to programming languages such as Python and R, the Bash shell allows use
 
 #### Other useful commands
 ##### `echo`
-The command echo takes text and prints it to the terminal, or this output can be redirected to files or other commands.  It will also interpret variables.  For example, try:
+The command `echo` takes text and prints it to the terminal, or this output can be redirected to files or other commands.  It will also interpret variables.  For example, try:
 
     echo Hello $USER
 
@@ -417,7 +420,7 @@ This command sorts lines of text.
 This command is used for transferring data to and from a server.
 
 ##### `dos2unix` / `mac2unix`
-This is a useful piece of software to install on a Linux system for there is, unfortunately, an incompatibility between Linux and Windows / Mac systems with regard to how textfile line endings are interpreted.  Consequently, text files generated on Windows / Mac machines may not be processed correctly when running on Linux.  The dos2unix / mac2unix commands correct this discrepancy by modifying such line-endings.  Note: this command edits and overwrites the original the input file.
+This is a useful piece of software to install on a Linux system for there is, unfortunately, an inconsistency between Linux and Windows / Mac systems with regard to how textfile line endings are interpreted.  Consequently, text files generated on Windows / Mac machines may not be processed correctly when running on Linux.  The dos2unix / mac2unix commands correct this discrepancy by modifying such line-endings.  Note: this command edits and overwrites the original the input file.
 
 #### Running Jobs
 This next section introduces commands that are useful for long-running jobs and gives guidance on how to monitor commands that are running.
@@ -429,7 +432,7 @@ Why is this?  Well, the folder that contains these programs is specified in the 
 
     echo $PATH
 
-Use the which command to find the location of a piece of software found in a PATH folder
+Use the `which` command to find the location of a piece of software found in a PATH folder
 
     which ls
     /bin/ls
@@ -440,17 +443,17 @@ The command will also report if the software is not found in the `$PATH`.  It is
 This commands displays information about your current active processes.  This is a good way to see the jobs you have running
 
 ##### `top`
-This command is similar to ps in that it provides information on running processes, however unlike `ps`, it produces a continually updated display. To exit the display press the key <kbd>Q</kbd>.  Also, this command will display all processes currently running, but to display just your jobs type your username:
+This command is similar to `ps` in that it provides information on running processes, however unlike `ps`, it produces a continually updated display. To exit the display press the key <kbd>Q</kbd>.  Also, this command will display all processes currently running, but to display just your jobs type your username:
 
     top -u $USER
 
 ##### `nohup`
 Suppose you have started an important and long-running command on your system but then you need to log off which would cause your job to terminate.  This problem can be overcome with `nohup` (meaning no hang-up), which allows your job to keep running, even if you logout.  For example, to apply no hang-up to a copying job:
 
-    `nohup cp -r /path/to/data/ .` 
+    nohup cp -r /path/to/data/ . 
 
 ##### Backgrounding
-You may have noticed that once you start a job, you cannot enter anything in the command line until it completes.  This can be overcome by backgrounding the process by appending an ampersand (&) to the command:
+You may have noticed that once you start a job, you cannot enter anything in the command line until it completes.  This can be overcome by backgrounding the process by appending an ampersand (`&`) to the command:
 
     nohup cp -r /path/to/data/ . &
 
@@ -475,4 +478,4 @@ The exit command is used to end a Linux session.
 #### Additional tips
 Make use of Linux cheat sheets such as the one distributed with this course.  They are useful to have to hand and serve as an excellent aide-memoire when writing Linux commands.  An example of an introductory Linux cheat sheet can be downloaded from [here](https://github.com/santosh373/Linux-Basics/blob/master/linux%20cheat%20sheet.pdf). 
 
-  If that doesn’t help with a specific task, then searching around on Linux discussion groups or using Google is a good way to find out what you need to know.
+  If that doesn’t help with a specific task, then searching around on Linux discussion groups or using Google/ChatGTP etc. are effective way to find out what you need to know.  But do make sure that you validate online sources with canonical documentation.

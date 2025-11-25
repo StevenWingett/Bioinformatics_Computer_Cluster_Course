@@ -69,7 +69,7 @@ The course has three parts.  The first introduces the concept of a “compute cl
 
 * **Network Access**
     * Please make sure you bring a machine that can already connect to the LMB intranet via wi-fi (not the Guest network). 
-    * If you can view the following page using wi-fi then you have access: https://bb8.mrc-lmb.cam.ac.uk/userdash/slurm.cgi
+    * If you can view the following page using wi-fi then you have access: https://bb8.mrc-lmb.cam.ac.uk/userdash
 
 
 # Cluster Computing
@@ -85,7 +85,7 @@ Each of these compute nodes is connected to a data storage array.  The key clust
 
 In addition to possessing considerable processing and storage capabilities, compute clusters are preferable to standard setups in that they are not usually turned off and have specialist software for managing the jobs of multiple users and how those jobs are distributed between the compute nodes.
 
-When logging in to the cluster, users will connect to one of the three head nodes (hal, hex or max).  The user will then instruct the head node that a job is to be performed.  Intensive computational tasks should not be carried out on a head node itself, but instead the job or jobs will be farmed out to one or more compute nodes.  Such job requests are often placed in a queue until system resources become available.
+When logging in to the cluster, users will connect to one of the three **head nodes (hal, hex or max)**.  The user will then instruct a head node that a job is to be performed.  Intensive computational tasks should not be carried out on a head node itself, but instead the job or jobs will be farmed out to one or more compute nodes.  Such job requests are often placed in a queue until system resources become available.
 
 (There are types of compute nodes other than CPU nodes installed on the cluster, but we shall not be using them on this course.)
 
@@ -94,7 +94,7 @@ As mentioned previously, the first thing you need to do is get an account on the
 
 https://bb8.mrc-lmb.cam.ac.uk/userdash/slurm.cgi
 
-The descriptions below describe how to access the compute cluster when working physically on-site, at the LMB.  For remote access (outside the LMB intranet), you will first need to connect to the atg server – look at the Scientific Computing intranet pages for details on this.
+The descriptions below describe how to access the compute cluster when working physically on-site, at the LMB.  For remote access (outside the LMB intranet), you will first need to connect to the **atg server** – look at the Scientific Computing intranet pages for details on this.
 
 Generally, people will be using PCs running Windows or Macs running macOS.  These different setups require different methods to access the cluster (we assume people running Linux already know how to connect).
 

@@ -148,7 +148,7 @@ Using a single wildcard, create symbolic links to files in the `files_list` fold
 1. end with the file extension `.tsv`.
 2. start with `B` or `C` and end with the file extension `.txt`.
 
-The links should be generate outside the file_list folder, in separate folders named `TSV_links` and `TXT_links`.
+The links should be generated outside the file_list folder, in separate folders named `TSV_links` and `TXT_links`.
 
 ## Exercise 5
 ### a.

@@ -80,7 +80,7 @@ When connected to the LMB intranet, go to the page listed below to view an overv
 http://nagios2/qinfo/
 
 ## Running jobs
-We have already stressed that jobs should not be run on a head node directly, since these nodes provide an interface between users and the whole cluster.  If the head nodes become overloaded with intensive tasks, people will no longer be able to interact with the cluster smoothly, or even at all.  
+We have already stressed that **jobs should NOT be run on a head node directly**, since these nodes provide an interface between users and the whole cluster.  If the head nodes become overloaded with intensive tasks, people will no longer be able to interact with the cluster smoothly, or even at all.  
 
 But suppose we want to perform a resource-intensive computation – where would be do this?  Well, it depends on the type of job we want to perform, but generally speaking there are two options open to us:
 
@@ -158,7 +158,7 @@ Perhaps the simplest and most convenient way to make these calculations is to ch
 It is also possible to specify what type of node you wish to use for a job.  For example, to use the GPU nodes: `--partition=gpu`.
 
 #### Using a Slurm script
-Passing a bash script to `sbatch` is one way to run a non-interactive job on the cluster, however users still typically need to specify additional parameters on the pipeline.  A Slurm script is like an extended bash script in which the bash command can be added along with command line parameters:
+Passing a bash script to `sbatch` is one way to run a non-interactive job on the cluster, however users still typically need to specify additional parameters on the command line.  A Slurm script is like an extended bash script in which contains both the bash command and command line parameters:
 
     #!/bin/bash
     #SBATCH --job-name=test_job
@@ -170,15 +170,25 @@ Passing a bash script to `sbatch` is one way to run a non-interactive job on the
     # Bash commands
     echo Hello World!
 
-The first line of the script tells the cluster to use the bash shell.  The lines prefixed with `#SBATCH` are not comments, but are the syntax to pass parameters to the sbatch command. The line `# Bash commands` is a comment, and below that is that we used in the original bash script.  So, in the slurm script, which we shall name `test.slurm`, we list: 1) the shell we wish to use, 2) the sbatch parameters and 3) the contents of the bash script.  To run the slurm script enter:
+The first line of the script tells the cluster to use the bash shell.  The lines prefixed with `#SBATCH` are not comments, but are the syntax to pass parameters to the sbatch command. The line `# Bash commands` is a comment, and below that is that we used in the original bash script.  So, in the slurm script, which we shall name `test.slurm`, we list: 
+
+1. the shell we wish to use
+ 
+2. the sbatch parameters  
+ 
+2) the contents of the bash script.  
+   
+To run the slurm script, enter:
 
     sbatch test.slurm
 
 ### A note on exit codes
-At various points when using the cluster, you may see the term "exit code" reported.  What does this mean?  Well, when a job finishes it will be assigned an exit code which reports whether a job completed successfully or whether there was some kind of error.  To assist with debugging, different classes of errors are usually assigned different exit codes.  But all you need to know is that an exit code of 0 means the job completed successfully, while any other exit code denotes some kind of error. 
+At various points when using the cluster, you may see the term "exit code" reported.  What does this mean?  
+
+Well, when a job finishes it will be assigned an exit code which reports whether a job completed successfully or whether there was some kind of error.  To assist with debugging, different classes of errors are usually assigned different exit codes.  But all you need to know for now is that an exit code of 0 means the job completed successfully, while any other exit code denotes some kind of error. 
 
 #### `sacct`
-The sacct command provides information on the resources used when running a job.  It takes as input the job id (which is included in the the Slurm `*.out` filename).  
+The `sacct` command provides information on the resources used when running a job.  It takes as input the job id (which is included in the the Slurm `*.out` filename).  
 
     sacct -j [job id]
 
@@ -193,7 +203,7 @@ To kill running jobs use `scancel`:
 
 
 #### Job arrays
-Let us suppose you have a several or many related task that you wish to perform for example process numerous different files with the same software tool.
+Let us suppose you have a several or many related tasks that you wish to perform: for example, process numerous different files with the same software tool.
 
 A convenient way to do this would be to use a Slurm job array.  To do this, you need to specify the terms of your job array in a Slurm script and submit this script to the cluster via `sbatch`.  We shan't cover this in the course, but for more details on this go to:
 
@@ -230,7 +240,7 @@ There are 5 main areas where people can store files on the cluster
 
 **PLEASE REFER TO IT/SCIENTIFIC COMPUTING FOR GUIDANCE ON WHERE TO STORE DATA SAFELY.**
 
-*Do you have sequencing data?  The Cell Biology Division has a dedicated storage location for FASTQ sequencing files.  Please let us know if you wish to deposit data here.*
+**<span style="color:green">Do you have sequencing data?  The Cell Biology Division has a dedicated storage location for FASTQ sequencing files.  Please let us know if you wish to deposit data here.<span style="color:green">**
 
 ### Checking current storage
 Although drives on the cluster have massive storage capacities, they can fill up!  When approaching capacity (>90% full) some software may fail when running.  To check how full a partition is, run the command:
@@ -305,7 +315,7 @@ https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=anonymous-ftp
 
 
 ### Perform long-running jobs using `screen`
-We discussed previously in the course how to run command after disconnecting from the terminal using `nohup` or `sbatch`.  Sometimes however, these options are not applicable, if additional user input is required.  This is the case when performing FTP/SFTP commands.
+We discussed previously in the course how to ensure that commands keep running after you disconnect from the terminal, by using `nohup` or `sbatch`.  Sometimes however, these options are not applicable, for example if additional user input is required after executing a command.  This may be the case when performing FTP/SFTP commands, since the program client will prompt the user for login credentials and the identity of the files that need transferring.
 
 To overcome this obstacle, run the `screen` command.  A screen is akin to creating a separate Linux session that will remain running even when you disconnect.  You may create multiple concurrent screen sessions and consequently we recommend that you give an easy-to-remember name to each one.
 
@@ -326,9 +336,9 @@ Identify the ID number of your session, and then enter:
 To leave and close a screen, type `exit` from within the screen session.
 
 ## Visual Studio Code
-If you find yourself using the cluster more and more, it may be worth your while to take some time to become familiar with versatile text editors, such as Visual Studio Code (commonly referred to as VS Code).  This piece of software is produced by Microsoft but is distributed for Windows, Mac and Linux systems for free. 
+If you find yourself using the cluster more and more, it may be worth your while to take some time to become familiar with versatile text editors, such as Visual Studio Code (commonly referred to as VS Code).  This free software is produced by Microsoft and is compatible with Windows, Mac and Linux systems.
 
-Visual Studio Code allows users to connect to the cluster (even from outside the intranet via atg) to edit and view files.  It can also be used to transfer files between the cluster and your local machine.  It also has its own terminal window, for executing commands.
+Visual Studio Code allows users to connect to the cluster (even from outside the intranet via `atg`) to edit and view files.  It can also be used to transfer files between the cluster and your local machine.  It also has its own terminal window, for executing commands.
 
 ![VS_Code](assets/vscode_screenshot.png)
 
@@ -361,7 +371,9 @@ We run a course, which is free to all LMB staff and researchers, teaching how to
 
 ## Software locations 
 Numerous bioinformatics executable files have been deposited at:
-`/public/genomics/soft/bin`.  Please take a look here to see if the bioinformatics software you need is already installed.  It might be worth your time to add this location to your `PATH` by editing your `.bashrc` configuration file.  
+`/public/genomics/soft/bin`.  
+
+Please take a look here to see if the bioinformatics software you need is already installed.  It might be worth your time to add this location to your `PATH` by editing your `.bashrc` configuration file.  
 
 While anyone is free to run software stored here, you need to be a member of the `software` group to place files in this folder.
 
