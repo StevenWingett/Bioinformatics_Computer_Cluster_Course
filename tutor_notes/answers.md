@@ -107,3 +107,17 @@ Version
 
 `sbatch norm_dist.slurm`
 
+#### *f
+
+Create script `array_job.slurm`, containing:
+
+      #!/bin/bash
+      #SBATCH --job-name=arrayjob_calc_gc
+      #SBATCH --ntasks=1
+      #SBATCH --cpus-per-task=1
+      #SBATCH --array=1-10
+
+      SAMPLE_ID=$((SLURM_ARRAY_TASK_ID))
+      echo $SAMPLE_ID
+      python3 calc_gc.py sample.$SAMPLE_ID.fa.gz
+

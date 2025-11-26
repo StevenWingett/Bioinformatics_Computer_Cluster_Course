@@ -219,5 +219,17 @@ Did the job succeed?  If not, try again but increase the RAM allocation to 30Gb.
 
 Check how much RAM was actually used by this job.
 
-#### e.
+### e.
 Let's run the R script `norm_dist_1_billion.R` once again as a non-interactive job using a Slurm script.  Also, in the R script, import R version 4.5.1 module prior to running the R script.
+
+### *f (optional challenge question).
+
+*This question is intended to introduce you to the concept of **SLURM arrays** and involves searching online to work out the answer.*  
+
+You have been given 10 DNA FASTA files.  Since these are human samples, the GC content should be around 41%.  However, a sample swap has occurred, meaning that one of the samples actually conatains E. coli DNA, which has a GC content of around 51%.
+
+You have also been given a Python script that calculates the GC content of a FASTA file.  You could run this file sequentially on the all 10 files, but instead you should try to process all the FASTA files simultaneously by making use of a SLURM array.
+
+Firstly, we need to make the data.  To do this, run the python script `make_fasta_files.py`.
+
+That should have generated 10 FASTA files.  Now use the script `calc_gc.py` **in a SLURM array** to determine the GC content of each sample.
