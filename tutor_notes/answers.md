@@ -34,6 +34,8 @@ Version
       `ls -l /usr/bin/who`
 
 3.    `groups`
+   
+`groups [username]`
 
 #### b
 `sort letters.txt > sorted.txt`

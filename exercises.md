@@ -107,7 +107,7 @@ Apparently, certain web browser setting cause the archive to unzipped upon downl
 (The `tar` command is useful, as it allows multiple files and the associated file hierarchy to be stored within a single archive file.  You don’t need to understand this command at the moment.)
 
 ### b.
-Explore the `MAZE` folder.  Use `cd` to move around the maze and `ls` to check what is in each room.  Can you find the treasure?
+Go to the `Exercise_3` folder and then explore the `MAZE` folder.  Use `cd` to move around the maze and `ls` to check what is in each room.  Can you find the treasure?
 
 ### c.
 1. In the folder `Exercise_3` you will find a file entitled `poem.txt`.  Write out the contents to the screen using the command `cat`.

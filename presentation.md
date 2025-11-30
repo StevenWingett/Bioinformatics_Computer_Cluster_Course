@@ -149,7 +149,7 @@ theme: uncover
  
  * We recommend using Bash - arguably the best known
  
- * This is not the LMB cluster default
+ * This is now the LMB cluster default (but didn't used to be)
 
  * Ask scientific computing to make it your default
   
@@ -271,6 +271,19 @@ theme: uncover
 
 ---
 
+## Introducing the Linux filesystem
+* Locations represented as a line of text
+
+* Each folder ends with a forward slash:
+  `/lmb/home/jsmith/file1.txt`
+
+* Relative links:
+  `../pjones/file2.txt`
+  `./file4.txt` 
+  `~/folderA/file5.txt`
+
+---
+
 ## Demo Linux commands and the filesystem
 
     ls
@@ -282,19 +295,6 @@ theme: uncover
     rmdir
     rm
     history
-
----
-
-## Introducing the Linux filesystem
-* Locations represented as a line of text
-
-* Each folder ends with a forward slash:
-  `/lmb/home/jsmith/file1.txt`
-
-* Relative links:
-  `../pjones/file2.txt`
-  `./file4.txt` 
-  `~/folderA/file5.txt`
 
 ---
 
