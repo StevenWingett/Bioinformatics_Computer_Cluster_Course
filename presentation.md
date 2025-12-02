@@ -585,11 +585,11 @@ table {
 
 * Keeps the nodes all in contact with one another etc.
 
-* LMB cluster uses Slurm (updated recently)
+* LMB cluster uses **Slurm**
 
 ---
 
-## Using Slurm (2)
+## Slurm (2)
 
 * Slurm is open-source software for large and small Linux clusters
 
@@ -705,7 +705,7 @@ Slurm scripts:
 
     #!/bin/bash
     #SBATCH --job-name=test_job
-    #SBATCH --cpus-per-task=c
+    #SBATCH --cpus-per-task=1
     #SBATCH --mem=2G
     #SBATCH --mail-type=ALL
     #SBATCH --mail-user=$USER@mrc-lmb.cam.ac.uk
@@ -760,7 +760,7 @@ Run as:
 
 ---
 
-## Where to put data (Cluster)
+## Where to put data - Cluster
 
 * `~` (home directory) -  config files and scripts
 
@@ -770,11 +770,21 @@ Run as:
 
 * `/istore` or `/isilon` - a place to store data
 
-**Refer to Scientific Computing for further information**
+
 
 ---
 
-## Where to put data (Cell Biology Xeon)
+## Where to put data - Cluster (2)
+
+* Your group may have its own dedicated storage area
+
+* Check your quota in the dashboard
+
+* **Refer to Scientific Computing for further information**
+
+---
+
+## Where to put data - Cell Biology Xeon
 
 * `~` (home directory) -  config files and scripts
 

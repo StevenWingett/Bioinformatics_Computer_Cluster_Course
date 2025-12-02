@@ -159,7 +159,7 @@ The links should be generated outside the file_list folder, in separate folders 
 3. To what groups do you belong (the name of the required Linux command is quite intuitive)?  To what groups does the person who is running the course belong?  If you can't work out how to do this, then look in the `man` pages.
 
 ### b. 
-1. Write a single-line Bash command that takes the contents of the file letters.txt, sorts them alphabetically and then writes them to a new file named `sorted.txt`.
+1. Write a single-line Bash command that takes the contents of the file `letters.txt`, sorts them alphabetically and then writes them to a new file named `sorted.txt`.
 
 ### c. 
 1. Write a Bash command to download the file: https://raw.githubusercontent.com/StevenWingett/Bioinformatics_Computer_Cluster_Course/refs/heads/main/README.md

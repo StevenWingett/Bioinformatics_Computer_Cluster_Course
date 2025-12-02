@@ -76,10 +76,12 @@ Version
 
 1.    
 `srun --pty bash`
+
 `exit`
 
 2.
 `srun -c 4 --mem=5G --pty bash`
+
 `exit` 
 
 #### d
@@ -111,15 +113,17 @@ Version
 
 #### *f
 
+`python3 make_fasta_files.py`
+
 Create script `array_job.slurm`, containing:
 
-      #!/bin/bash
-      #SBATCH --job-name=arrayjob_calc_gc
-      #SBATCH --ntasks=1
-      #SBATCH --cpus-per-task=1
-      #SBATCH --array=1-10
+    #!/bin/bash
+    #SBATCH --job-name=arrayjob_calc_gc
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=1
+    #SBATCH --array=1-10
 
-      SAMPLE_ID=$((SLURM_ARRAY_TASK_ID))
-      echo $SAMPLE_ID
-      python3 calc_gc.py sample.$SAMPLE_ID.fa.gz
+    SAMPLE_ID=$((SLURM_ARRAY_TASK_ID))
+    echo $SAMPLE_ID
+    python3 calc_gc.py sample.$SAMPLE_ID.fa.gz
 
