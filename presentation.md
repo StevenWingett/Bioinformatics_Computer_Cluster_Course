@@ -63,10 +63,12 @@ theme: uncover
 ---
 
 ## Accessing the cluster - Mac
-* On a Mac open the terminal to connect to head node  (either hal, hex or max): 
+* On a Mac open the terminal
+* Shell -> New Tab -> Homebrew (good colour scheme)
+*  Connect to head node  (either hal, hex or max): 
 `ssh –Y username@hal`
 * Enter your cluster password 
-* Connect to **atg** first if connecting from outside
+* Connect to **atg** first if connecting from outside (Scientific Computing need to set up access)
 
 <img align="right" height="150" src="assets/mac_terminal_icon.png">
 
@@ -286,15 +288,15 @@ theme: uncover
 
 ## Demo Linux commands and the filesystem
 
-    ls
-    pwd
-    cd 
-    cp
-    mv
-    mkdir
-    rmdir
-    rm
-    history
+    * ls (-l)
+    * pwd
+    * cd  (. .. - ~)
+    * cp  (-r)
+    * mv  (move and rename)
+    * mkdir
+    * rmdir
+    * rm (-f -r)
+    * * arrows/history/autocomplete/ CTRL A + CTRL E
 
 ---
 
@@ -317,15 +319,15 @@ theme: uncover
 ---
 
 ## Demo the Reading and writing files
-
-    cat
-    head
-    tail
-    more
-    nano
-    gzip
-    zcat
-    gunzip
+    
+    * cat
+    * head  (wonderland.txt, numeric flags)
+    * tail
+    * more
+    * nano  (demo with / without filename)
+    * gzip
+    * zcat
+    * gunzip
 
 ---
 
@@ -536,13 +538,36 @@ table {
 * Where to get help
 
 ---
-## Homework! 
+
+# Homework! ;-)
+
 * Download and install Visual Studio Code: https://code.visualstudio.com
+  
 * Access the cluster via Visual Studio Code
+  
 * Create and edit files using Visual Studio Code
+  
 * Try accessing the cluster from outside the LMB via **atg**: https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=ssh-x2go
-;-)
+
 ---
+
+# Interlude: Visual Studio Code [demo] 
+  * Microsoft Text editor
+  * Windows / Mac / Linux
+  * Edit remote files (even via atg)
+  * Built-in terminal
+  * View webpages
+  * Transfer files
+  * Free
+  
+---
+
+
+* https://code.visualstudio.com
+
+<img src="assets/vscode_screenshot.png" alt="VS Code Screenshot" height="500">
+  
+---  
 
 # Part II
 ## Using the Cluter Compute Nodes (hours 4-8)
@@ -815,24 +840,6 @@ Run as:
   
 ---
 
-## Visual Studio Code [demo] 
-  * Microsoft Text editor
-  * Windows / Mac / Linux
-  * Edit remote files (even via atg)
-  * Built-in terminal
-  * View webpages
-  * Transfer files
-  * Free
----
-
-## Visual Studio Code (2) [demo]
-
-* https://code.visualstudio.com
-
-<img src="assets/vscode_screenshot.png" alt="VS Code Screenshot" height="450">
-  
----  
-
 ## R Studio Server
 
 * Web interface
@@ -896,6 +903,12 @@ Run as:
 * Single Cell RNA-seq (Parse)
 * Taxonomy Profiling
 * NGS data downloading Data
+
+---
+
+## NGS Bionformatics Pipelines (2)
+
+* Online tutorial: https://www.youtube.com/watch?v=PPEneJfFsOI
 
 ---
 

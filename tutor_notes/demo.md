@@ -1,9 +1,12 @@
+**Bring a departmental laptop - just in case it is needed on the day**
+
+
 **Demo Linux commands and the filesystem**
 * ls (-l)
 * pwd
-* cd  (demo . .. - ~)
+* cd  (. .. - ~)
 * cp  (-r)
-* mv   (move and rename)
+* mv  (move and rename)
 * mkdir
 * rmdir
 * rm (-f -r)

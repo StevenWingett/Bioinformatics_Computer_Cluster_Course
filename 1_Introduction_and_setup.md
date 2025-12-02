@@ -94,6 +94,8 @@ As mentioned previously, the first thing you need to do is get an account on the
 
 https://bb8.mrc-lmb.cam.ac.uk/userdash/slurm.cgi
 
+When there, create a Slurm account for yourself.
+
 The descriptions below describe how to access the compute cluster when working physically on-site, at the LMB.  For remote access (outside the LMB intranet), you will first need to connect to the **atg server** – look at the Scientific Computing intranet pages for details on this.
 
 Generally, people will be using PCs running Windows or Macs running macOS.  These different setups require different methods to access the cluster (we assume people running Linux already know how to connect).
@@ -116,7 +118,11 @@ Open the terminal window. Do this by double-clicking the terminal icon (a black 
 
 Figure 2 Mac terminal icon
 
-The terminal window should now have opened.  To tell your Mac to connect to the cluster, enter the following command:
+The terminal window should now have opened. The terminal has several in-built colour schemes.  The default "Basic" colour scheme is not ideal, for it does not use colour highlighting.  Therefore, the "Homebrew" colour scheme is preferable and can be accessed via the toolbar menu in the terminal window:
+
+Shell -> New Tab -> Homebrew
+
+To tell your Mac to connect to the cluster, enter the following command:
 
     ssh -Y hal
 
