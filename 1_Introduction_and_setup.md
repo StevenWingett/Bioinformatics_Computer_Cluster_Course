@@ -74,7 +74,7 @@ The course has three parts.  The first introduces the concept of a “compute cl
 
 # Cluster Computing
 ## What is a compute (or computer) cluster?
-A compute cluster is a set of computers that work together so that they can be regarded as a single entity. These inter-connected computers (known as nodes) run software to coordinate the running of programs across the system.  The diagram below gives an overview of a compute cluster. 
+A compute cluster is a set of computers that work together so that they can be regarded as a single entity. These inter-connected computers (known as nodes, a sometime blades) run software to coordinate the running of programs across the system.  The diagram below gives an overview of a compute cluster. 
 
  ![Figure 1 - Compute cluster schematic](assets/cluster_computing_schematic.png)
 Figure 1 - Compute cluster schematic

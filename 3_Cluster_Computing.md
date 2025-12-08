@@ -112,14 +112,14 @@ All scripts you write should start with the line: `#!/bin/bash`.  This makes it 
 
 The second line is the command you wish to run, which if you remember from before will print “Hello World!” to the screen.
 
-To execute this Bash script on the head node, type:
+To execute this Bash script **on a head node**, type:
 
     bash test.sh
     Hello World!
 
 (Although we are discussing how to submit jobs to the cluster in this section, it is certainly worth knowing that Bash commands can be written to files in this way and subsequently run.  Doing this can save users a lot of time entering the same commands over-and-over again into the command line.)
 
-So, this has had the same effect as simply entering the echo Hello World! on the command line.  Now, in this example, we pass this script to the `sbatch` command to submit the job to a compute node.
+So, this has had the same effect as simply entering the echo Hello World! on the command line.  Now, in this example, we pass this script to the `sbatch` command to submit the job **from a head node to a compute node**.
 
     sbatch test.sh 
     Submitted batch job 2444919
@@ -164,8 +164,12 @@ Passing a bash script to `sbatch` is one way to run a non-interactive job on the
     #SBATCH --job-name=test_job
     #SBATCH --cpus-per-task=c
     #SBATCH --mem=2G
-    #SBATCH --mail-type=ALL
-    #SBATCH --mail-user=$USER@mrc-lmb.cam.ac.uk
+    #SBATCH --mail-user=john_smith@mrc-lmb.cam.ac.uk
+    #SBATCH --mem=30G
+
+    # Bash command
+    module load R/4.5.1
+    Rscript norm_dist_1_billion.R
     
     # Bash commands
     echo Hello World!
@@ -174,13 +178,15 @@ The first line of the script tells the cluster to use the bash shell.  The lines
 
 1. the shell we wish to use
  
-2. the sbatch parameters  
+2. the `sbatch` parameters  
  
-2) the contents of the bash script.  
+3) the contents of the bash script.  
    
-To run the slurm script, enter:
+To run the slurm script, enter **on the head node**:
 
     sbatch test.slurm
+
+**Please note that the variable `$USER` will not be interpreted inside a Slurm script, and so you will need to enter your actual LMB email address.**
 
 ### A note on exit codes
 At various points when using the cluster, you may see the term "exit code" reported.  What does this mean?  
@@ -344,6 +350,30 @@ Visual Studio Code allows users to connect to the cluster (even from outside the
 
 The software can be downloaded from:
 https://code.visualstudio.com/
+
+We shall not discuss how to use VS Code in detail here, and in any case, the manufacturers of the software produce a good training video at: https://code.visualstudio.com/docs/introvideos/basics
+
+To connect to the software to the cluster, you will also need to install the extension "Remote - SSH" from the VS Code marketplace.  Click on the marketplace icon in the left-hand side menu to do this.
+
+You will also need to specify your login credentials to access the server.  The best way to do this is to access the Command Palette (<kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux) and then select `Remote-SSH: Open SSH Configuration File...`  Then, from the drop-down menu, select the configuration file that is located in your home directory.  Then enter the setup listed below (replacing "your_username" with your actual cluster username):
+
+    Host hal_on_site
+        HostName hal
+        User your_username
+
+    Host hal_external
+        HostName hal
+        User your_username
+        IdentityFile ~/.ssh/hal
+        ProxyCommand ssh -q -W %h:%p atg.mrc-lmb.cam.ac.uk
+
+This is the setup for accessing the cluster from inside the LMB network, and from outside via `atg`
+
+Having setup your login credentials, you can access the cluster by activating the command palette once more and then selecting:
+
+`Remote-SSH: Connect current window to host...`
+
+Then choose the relevant host and enter your password / verification ID.
 
 ## R Studio Server
 It is possible to run R Studio on the cluster via a web interface.  Open your internet browser (e.g. Google Chrome) and then go to:

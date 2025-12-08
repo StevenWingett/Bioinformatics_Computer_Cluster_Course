@@ -540,12 +540,6 @@ table {
 ---
 
 # Homework! ;-)
-
-* Download and install Visual Studio Code: https://code.visualstudio.com
-  
-* Access the cluster via Visual Studio Code
-  
-* Create and edit files using Visual Studio Code
   
 * Try accessing the cluster from outside the LMB via **atg**: https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=ssh-x2go
 
@@ -568,6 +562,31 @@ table {
 <img src="assets/vscode_screenshot.png" alt="VS Code Screenshot" height="500">
   
 ---  
+
+* Command palette
+  
+* <kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac)
+  
+* <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux)
+
+* `Remote-SSH: Open SSH Configuration File...`
+
+      Host hal_on_site
+          HostName hal
+          User your_username
+
+      Host hal_external
+          HostName hal
+          User your_username
+          IdentityFile ~/.ssh/hal
+          ProxyCommand ssh -q -W %h:%p atg.mrc-lmb.cam.ac.uk
+---
+
+* `Remote-SSH: Connect current window to host...`
+  
+* https://code.visualstudio.com/docs/introvideos/basics
+
+---
 
 # Part II
 ## Using the Cluter Compute Nodes (hours 4-8)
@@ -650,7 +669,7 @@ table {
       echo Sleeping!
       sleep 100
 
-* Execute script:
+* Execute script **on a head node**:
   
       bash test.sh
       Sleeping
@@ -659,7 +678,7 @@ table {
 
 ## Submitted jobs (2) [demo]
 
-* Submit script to queue:
+* Submit script to queue **on a head node**:
   `sbatch test.sh`
 
 ---
@@ -701,19 +720,19 @@ table {
 ---
 
 ## Submitted jobs (5) [demo]
-Slurm scripts:
+Slurm scripts (actual email needed):
 
     #!/bin/bash
     #SBATCH --job-name=test_job
     #SBATCH --cpus-per-task=1
     #SBATCH --mem=2G
     #SBATCH --mail-type=ALL
-    #SBATCH --mail-user=$USER@mrc-lmb.cam.ac.uk
+    #SBATCH --mail-user=john_smith@mrc-lmb.cam.ac.uk
     
     # Bash commands
     echo Hello World!
 
-Run as:
+Run **on a head node**:
 `sbatch test.slurm`
 
 ---

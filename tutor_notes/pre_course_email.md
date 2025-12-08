@@ -8,6 +8,8 @@ https://bb8.mrc-lmb.cam.ac.uk/userdash
 
 Log in with your LMB credentials, then click the "slurm" link in the "Additional" section and click the confirmation button.
 
+Also, check in this section that the "Shell" is: "/bin/bash".  If it is not, then please email Scientific Computing and ask them to change your default shell to "Bash". 
+
 **Software**
 
 Please bring your own laptop to the course, which should be running a recent version of Windows or macOS.  Please install recent versions of the following software before attending the course:
@@ -18,9 +20,13 @@ FileZilla Client - https://filezilla-project.org/
 
 Putty: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
+Visual Studio Code: https://code.visualstudio.com
+  
 *macOS:*
 
 FileZilla Client - https://filezilla-project.org/
+
+Visual Studio Code: https://code.visualstudio.com
 
 **Network Access**
 

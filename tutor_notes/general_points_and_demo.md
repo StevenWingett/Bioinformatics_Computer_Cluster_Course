@@ -27,3 +27,6 @@
 * Text editor
 * Terminal
 * FTP
+
+
+** Leave at least half an hour after participants have attempted Exercise 6 to wrap up the course **
