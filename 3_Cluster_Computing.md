@@ -162,10 +162,9 @@ Passing a bash script to `sbatch` is one way to run a non-interactive job on the
 
     #!/bin/bash
     #SBATCH --job-name=test_job
-    #SBATCH --cpus-per-task=c
+    #SBATCH --cpus-per-task=1
     #SBATCH --mem=2G
     #SBATCH --mail-user=john_smith@mrc-lmb.cam.ac.uk
-    #SBATCH --mem=30G
 
     # Bash command
     module load R/4.5.1
