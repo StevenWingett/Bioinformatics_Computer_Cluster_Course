@@ -3,7 +3,8 @@
 # Course: Running Bioinformatics Software on a Linux Computer Cluster
 
 ## Licence
-This manual is © 2025, Steven Wingett
+
+This manual is © 2026, Steven Wingett
 
 This manual is distributed under the creative commons Attribution-Non-Commercial-Share Alike 2.0 licence. This means that you are free:
 
@@ -32,12 +33,15 @@ http://creativecommons.org/licenses/by-nc-sa/2.0/uk/legalcode
 <hr>
 
 # Linux
+
 ## Getting to grips with Linux
+
 Unlike Macs (which run macOS) or PCs (which run Windows), our compute cluster runs a Linux operating system.  There are many different distributions of Linux, with each having different strengths.  For example, the well-known operating system Android, optimised for mobile devices, is based on a version of Linux.  The LMB compute cluster now mainly uses **AlmaLinux** (after recently transitioning away from Scientific Linux).  AlmaLinux is open-source and free to use.
 
 This operating system may seem unfamiliar at first, since it does not receive input from the user via a mouse.  Instead, the user types instructions into what is known as the **command line**.  Although this may seem a needlessly complicated and old-fashioned way of doing things, with a little experience a user can achieve complex tasks relatively easily with just a few simple commands.  In fact, despite being a little less intuitive, the command line is actually often a more convenient and powerful way of interacting with a computer, which is why it is favoured by computational biologists and bioinformaticians.  
 
 ### Shells
+
 When a user enters a command, it is read by a **command line interpreter**, a type of program known as a **shell**.  A shell therefore allows a user to launch software, but it also provides additional functionality such as keeping a history of commands executed, enabling customised settings to be set up permanently using start-up scripts, as well as providing a simple programming language to automate jobs.  
 
 To quickly check your shell is working, type `date` in the command line and then press <kbd>Enter</kbd>.  The current date and time should then be displayed.
@@ -47,7 +51,7 @@ To quickly check your shell is working, type `date` in the command line and then
 There are many different shells available, of which **Bash** is arguably the best known.  
 
 To check which shell you are currently using, type:
-    
+
     echo $SHELL
 
 If the output ends with the word "bash" then you do not need to change the shell.  However, if something else is reported instead (probably “tcsh”), then you will need to **contact Scientific Computing to change your default shell**.  However, you can temporarily run a bash shell inside your current shell by typing:
@@ -57,6 +61,7 @@ If the output ends with the word "bash" then you do not need to change the shell
 This will expire when you next log out.
 
 ### Introducing the Linux commands (ls)
+
 When a valid command is interpreted by the shell it will execute a program.  For example, the command `ls` will launch software that lists files and folders (the latter are also known as directories).  The action of a command may be modified by what are termed **flags**, **options** and **arguments**.  Below summarises the general structure of a command.
 
     command [-flag(s)] [-option(s) [value]] [argument(s)]
@@ -67,6 +72,7 @@ So, the command `ls` displays the files and folders in the current working direc
     directory1  file1.txt  file2.txt  file3.txt
 
 #### Flags
+
 The `ls` command’s operation can be modified with the addition of a flag.  Some flags will be whole words, while others will be single letters.
 
 For example, to obtain more information on the files and folders being listed, use the `-l` flag.
@@ -89,7 +95,8 @@ It is also possible to combine multiple flags.  The additional flag `--human-rea
 
 It is possible to abbreviate some flags (when the abbreviation does not create ambiguity). For example, the flag `--human-readable` can be abbreviated to `-h`.  Furthermore, such single-character flags can be combined to reduce typing: `ls -l -h` is equivalent to `ls -lh`.
 
-#### Options 
+#### Options
+
 In contrast, Linux commands may take options, which are similar to flags, but take values.
 
     ls -l --sort=size
@@ -100,6 +107,7 @@ In contrast, Linux commands may take options, which are similar to flags, but ta
     -rw-rw-r-- 1 swingett swingett    0 Jul 15 15:57 file1.txt
 
 #### Arguments
+
 And a command may take values.  Here the command will print only files with the names `file1.txt` and `file.3.txt`.  The values `file2.txt` and `file3.txt` are passed directly to the list command.
 
     ls -l file2.txt file3.txt
@@ -109,6 +117,7 @@ And a command may take values.  Here the command will print only files with the 
 This might seem a little esoteric at the moment, but the take-home message is that commands are passed to the cluster using the command line.  The action of these commands can be modified by flags, values passed to options and/or arguments.
 
 #### Introducing the Linux filesystem
+
 You no doubt are already familiar with the concept of filesystems when using Macs or PCs: computer files typically sit within a directory or within a series of nested directories.  This also applies to Linux systems, where the directory structure is represented using a line of plain text and in which each folder name has a forward slash (`/`) appended.
 
 In the example below, the `file1.txt` resides in a folder named `jsmith`, which in turn is located in a folder named `home`, which is found in a folder named `lmb`.  These nested folder structures can be complex and much longer than this, but the same concept applies.  Also, you should note that at the start of the line of text is a forward slash (`/`).  This denotes the **root directory**, which is the top-most directory in the Linux filesystem hierarchy i.e. all files and folders ultimately sit within the root directory.
@@ -116,6 +125,7 @@ In the example below, the `file1.txt` resides in a folder named `jsmith`, which 
     /lmb/home/jsmith/file1.txt
 
 #### Relative vs absolute paths
+
 The path listed above is what is termed as an absolute path, which means it contains the complete file hierarchy listing.  There is in contrast what is known as a relative path that lists the position of a file or folder relative to the current working directory.
 
 Suppose your current working directory was `/lmb/home/jsmith`, and you wished to reference a file at location `/lmb/home/pjones/file2.txt`.  You could use the previous absolute path, but another way would be to use the relative path: `../pjones/file2.txt`.  The double dots (`..`) mean go "up one level" in the file system hierarchy. 
@@ -127,6 +137,7 @@ The symbol tilde (`~`) references the home directory, so `~/folderA/file5.txt` r
 You might be wondering why you would choose to use a relative path.  There are two main reasons: firstly, relative pathnames are shorter which saves on typing and reduces the risk of introducing errors.  Secondly, you may not always know the absolute link to a file.  To illustrate the point, suppose you deployed software for public use.  Your software comprises multiple files and those files need to communicate with one another.  But how would this be possible if the software is running on someone else’s computer?  You won’t know in advance the file structure of that device and the location to which your deployed code will be copied.  To get around this you can make use of a relative path, in which only a file’s position relative to another is required and not the absolute path.
 
 #### Naming files
+
 The best way to name files is to use only alphanumeric characters, the underscore symbol and the dot. The following filename contains all of these and is acceptable: 
 
     my_file1.txt
@@ -142,6 +153,7 @@ You may not be aware, but there are hidden files on a Linux filesystem.  Hidden 
 These are typically configuration files or log files.  If you run the `ls` command, hidden files will not be returned (hence the term: hidden).  However, you can add the `--all` flag to display hidden files i.e. `ls --all`.
 
 ### Using commands to navigate and manipulate the file system
+
 Now that we have introduced Linux commands and the filesystem, we can put them together and navigate around the computer and start making directories and moving files (analogous to what can be achieved with a mouse and pointer when using PCs or Macs).  
 
 We’ve already introduced the `ls` command to list files and folders, but here is a list of some of the other most commonly used commands to move around the filesystem.
@@ -248,6 +260,7 @@ Once the file is displayed to the screen, press <kbd>Enter</kbd> to move through
 Again, there are many flags and options that can be applied to give additional functionality to `more`.  There is also a related program named `less` which has additional functionality when reading text files.  See which text viewer most suits your needs.
 
 #### The nano text editor
+
 There are many ways to edit a file in Linux.  The operating system is shipped with a text editor called "Vi", but it is not the most intuitive software for novices and so we recommend using **"nano"** – already installed on the cluster – which marks a good compromise between wide-ranging functionality, yet is still relatively lightweight and can be run in a terminal window.
 
 Simply type `nano` on the command line and the software will start and display a screen similar to that shown below.  You can now start writing text in this window and then to save your text simply press <kbd>CTRL</kbd> + <kbd>O</kbd>.  When using `nano`, option menus and prompts will appear at the bottom of the window (please note that the `^` character in a menu denotes the <kbd>CTRL</kbd> button).  
@@ -265,6 +278,7 @@ If you want to create a new, empty file, then simply specify the name of this ne
     nano new_file.txt
 
 #### Compressing and uncompressing files
+
 Much of the NGS data that you will process and generate will be in text format.  However, storing data in this way requires an unnecessary amount of memory.  When reasonably possible, all large text files should be compressed.  This is most commonly achieved on Linux using `gzip`:
 
     gzip file1.txt file2.txt file3.txt
@@ -276,6 +290,7 @@ To decompress the file, use the `gunzip` command:
     gunzip file1.txt.gz file2.txt.gz file3.txt.gz
 
 ##### Viewing Compressed files
+
 It is possible to read the contents of gzipped file without decompressing first.  To do this use the `zcat` command:
 
     zcat file.txt.gz
@@ -309,6 +324,7 @@ The pipe `|` is a way of taking the output from one command and passing it direc
 This is particularly useful since decompressing a large file can take a considerable amount of time.  If you wanted to just view the first few pages of text then piping `zcat` output to more is a much better alternative.
 
 #### Searching files with `grep`
+
 You are no doubt aware that it is possible to find user-specified words and phrases in text editors (such as Notepad).  Well, it is also possible in Linux using the `grep` command.  Simply pass your search term and the name of the text file you wish to search to the `grep` command.  All the lines containing that search term will be returned.
 
 For example, the following will return all the lines of text containing the word “organoid” in the text file `thesis.txt`.
@@ -318,6 +334,7 @@ For example, the following will return all the lines of text containing the word
 As with other Linux commands, the mode of action of `grep` can be modified using flags, to refine your searching.
 
 #### Getting Help
+
 The command line might feel quite alien to the complete novice, but there are built-in features to help you get to grips with these commands.
 
 1) Execute `whatis` to explain what a command does.  For example, to learn more about the gzip command:
@@ -333,6 +350,7 @@ The command line might feel quite alien to the complete novice, but there are bu
 4) Always have your trusty cheat sheet to hand!
 
 #### Wildcards
+
 For the Linux commands we have been looking at so far, which take filenames as arguments, we have been passing individual or several specific filenames as arguments.  While this is acceptable for a small number of files, it may not always be practicable.  However, Linux makes use of built-in wildcards to make this easier.  A wildcard is a way of symbolically representing characters.
 
 The asterisk symbol `*` matches **none or more characters**.  So, suppose you have text files in a directory that are named after the countries in the UK (i.e. `england.txt`, `northern_ireland.txt`, `scotland.txt`, `wales.txt`).
@@ -355,6 +373,7 @@ The character class is also useful.  It matches any of the single alphanumeric c
 Be aware that placing non-alphanumeric characters in the list can change its mode of action, so please read up on this if you wish to know more.
 
 #### Links to files
+
 You are probably already familiar with the concept of shortcuts on Windows systems, or aliases on Macs.  This is where we create a link in one location to reference a file somewhere else.  For example, we may have an MS Word document that is buried somewhere on our filesystem, but we would like to be able to access this file directly from the Desktop.  However, we don’t want to move the file itself to the Desktop.  A way to do this is is create a (**shortcut** (or **alias**) to the file of interest.  If the link is accessed, then the target file is opened.
 
 Well, Linux has something similar called a **symbolic link**.  Symbolic links are created with the command:
@@ -370,6 +389,7 @@ It is also possible to link to multiple files in one command by specifying the c
     ln -s /target_folder/*.txt .
 
 #### File permissions
+
 In a previous example which demonstrated the command `ls -l`, the system returned the list of files in the current directory, along with additional information.  This is known as **long format**.
 
 Explanation of long format:
@@ -403,10 +423,13 @@ Everyone else can:
 It is possible to check to which groups which you belong using the command: `groups`.  It is also possible to change the read/write/execute permissions of a file with the command: `chmod`.
 
 #### Variables
+
 Similar to programming languages such as Python and R, the Bash shell allows users to create and read system-defined variables (these stores information in a fashion akin to algebra in which letters are used to represent numbers).  The variable `$USER` stores your username.
 
 #### Other useful commands
+
 ##### `echo`
+
 The command `echo` takes text and prints it to the terminal, or this output can be redirected to files or other commands.  It will also interpret variables.  For example, try:
 
     echo Hello $USER
@@ -414,18 +437,23 @@ The command `echo` takes text and prints it to the terminal, or this output can 
 Notice that your username is displayed, rather than printing literally “$USER”.
 
 ##### `sort`
+
 This command sorts lines of text.
 
 ##### `curl`
+
 This command is used for transferring data to and from a server.
 
 ##### `dos2unix` / `mac2unix`
+
 This is a useful piece of software to install on a Linux system for there is, unfortunately, an inconsistency between Linux and Windows / Mac systems with regard to how textfile line endings are interpreted.  Consequently, text files generated on Windows / Mac machines may not be processed correctly when running on Linux.  The dos2unix / mac2unix commands correct this discrepancy by modifying such line-endings.  Note: this command edits and overwrites the original the input file.
 
 #### Running Jobs
+
 This next section introduces commands that are useful for long-running jobs and gives guidance on how to monitor commands that are running.
 
 ##### `$PATH`
+
 To run an executable file, you need to provide the full path (filesystem link) to that file e.g. `/path/to/executable_file.py`.  However, when running software such as `ls` and `cp` (remember these commands are actually programs) you will not have had to provide a full path, for simply the name of the program will suffice.
 
 Why is this?  Well, the folder that contains these programs is specified in the `$PATH` variable.  To see the folders contained in the `$PATH` variable (each individual folder is separated by a colon in the output):
@@ -440,19 +468,23 @@ Use the `which` command to find the location of a piece of software found in a P
 The command will also report if the software is not found in the `$PATH`.  It is common to add external software (i.e. software not part of the Linux distribution) to the path.
 
 ##### `ps`
+
 This commands displays information about your current active processes.  This is a good way to see the jobs you have running
 
 ##### `top`
+
 This command is similar to `ps` in that it provides information on running processes, however unlike `ps`, it produces a continually updated display. To exit the display press the key <kbd>Q</kbd>.  Also, this command will display all processes currently running, but to display just your jobs type your username:
 
     top -u $USER
 
 ##### `nohup`
+
 Suppose you have started an important and long-running command on your system but then you need to log off which would cause your job to terminate.  This problem can be overcome with `nohup` (meaning no hang-up), which allows your job to keep running, even if you logout.  For example, to apply no hang-up to a copying job:
 
     nohup cp -r /path/to/data/ . 
 
 ##### Backgrounding
+
 You may have noticed that once you start a job, you cannot enter anything in the command line until it completes.  This can be overcome by backgrounding the process by appending an ampersand (`&`) to the command:
 
     nohup cp -r /path/to/data/ . &
@@ -460,6 +492,7 @@ You may have noticed that once you start a job, you cannot enter anything in the
 Alternatively, currently running jobs can be stopped (or effectively suspended) with <kbd>CTRL</kbd> + <kbd>Z</kbd>.  The command `bg` can then be used to background the job.  In contrast, the command `fg` will move a job from the background to the foreground.
 
 ##### `kill`
+
 Suppose you have started a long-running process, but realise you made a mistake and want the process to end.  To do that, look up the process "id" (PID) using `ps` or `top`.  Then end the process (or multiple processes) with the kill command.  The example below ends processes 3101 and 3102:
 
     kill 3101 3102
@@ -473,9 +506,12 @@ The `-9` flag should only be used if the command `kill` fails to terminate the s
 It is also possible to `kill` a job running in the foreground with <kbd>CTRL</kbd> + <kbd>C</kbd>.
 
 ##### `exit`
+
 The exit command is used to end a Linux session.
 
 #### Additional tips
-Make use of Linux cheat sheets such as the one distributed with this course.  They are useful to have to hand and serve as an excellent aide-memoire when writing Linux commands.  An example of an introductory Linux cheat sheet can be downloaded from [here](https://github.com/santosh373/Linux-Basics/blob/master/linux%20cheat%20sheet.pdf). 
+
+Make use of Linux cheat sheets such as the one distributed with this course.  They are useful to have to hand and serve as an excellent aide-memoire when writing Linux commands.  An example of an introductory Linux cheat sheet can be downloaded from [here](https://github.com/santosh373/Linux-Basics/blob/master/linux%20cheat%20sheet.pdf).
 
   If that doesn’t help with a specific task, then searching around on Linux discussion groups or using Google/ChatGTP etc. are effective way to find out what you need to know.  But do make sure that you validate online sources with canonical documentation.
+  
