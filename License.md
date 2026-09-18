@@ -1,6 +1,6 @@
 ![alt text](assets/lmb_logo.png)
 
-<hr>
+---
 
 * [Introduction & Setup](1_Introduction_and_setup.md)
 * [Linux – using the Linux operating system and the command line](2_Linux.md)
@@ -8,7 +8,7 @@
 * [Course Exercises](exercises.md)
 * [License](./License.md)
 
-<hr>
+---
 
 
 # Licence
