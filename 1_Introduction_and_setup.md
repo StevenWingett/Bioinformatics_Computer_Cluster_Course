@@ -6,7 +6,7 @@
 * [Linux – using the Linux operating system and the command line](2_Linux.md)
 * [Cluster Computing – how to submit jobs to a compute cluster](3_Cluster_Computing.md)
 * [Course Exercises](exercises.md)
-* [License](./License.md)
+* [License](License.md)
 
 ---
 
@@ -60,7 +60,7 @@ The course has three parts.  The first introduces the concept of a “compute cl
 
 A compute cluster is a set of computers that work together so that they can be regarded as a single entity. These inter-connected computers (known as nodes, or sometimes blades) run software to coordinate the running of programs across the system.  The diagram below gives an overview of a compute cluster.
 
- ![Figure 1 - Compute cluster schematic](assets/cluster_computing_schematic.png)
+ ![Figure 1: Compute cluster schematic](assets/cluster_computing_schematic.png)
 Figure 1 - Compute cluster schematic
 
 This setup enables the processing of data simultaneously across multiple nodes to speed up running times.  The LMB has a particularly powerful computing cluster comprising (at the time of writing) 130 CPU nodes with 112 hyper-threaded cores.  Each of these nodes has access to 754GB of RAM.  What this means is that the cluster may theoretically perform 130 x 112 = 14,560 processes simultaneously.  This is significant, for the extent to which a job may be subdivided and "parallelised" will greatly reduce the required processing time.  In practice, for the sake of fairness to everyone, a single user will not be able to use all the allotted nodes at once, but nevertheless taking advantage of the parallelisation capabilities of a computer cluster should substantially reduce processing times.  To put this in perspective, it is typical for a new MacBook Pro to have only 4 cores installed.  (The cluster also has installed specialist GPU and machine learning nodes, but we shall not be using them on this course.)
@@ -91,22 +91,19 @@ Ensure that the software Putty is installed on your computer (it can be download
 Once you open Putty, you should see a window similar to that displayed below.  Enter your cluster username with `@hal` appended in the Host Name box.  For example, if your username is jsmith, then enter `jsmith@hal`.  Leave the Port set to `22`.  Click "Open" to access the cluster.
 
 ![Putty](assets/putty_1.png)
-
-Figure 2 Putty
+Figure 2: Putty
 
 If you would like to view images directly from the cluster, you will need to enable X11 forwarding before connecting.  In the left-hand side pane select Connection -> SSH -> X11 and then check the Enable X11 forwarding box.
 
 ![Putty X11 forwarding](assets/putty_2.png)
-
-Figure 3 Putty X11 forwarding
+Figure 3: Putty X11 forwarding
 
 ### Cluster access using a Mac
 
 Open the terminal window. Do this by double-clicking the terminal icon (a black square with the >_ symbol in the top left corner).  Alternatively, press <kbd>cmd</kbd> + <kbd>space</kbd> simultaneously and then type "terminal" in the Spotlight Search bar.
 
 <img src="assets/mac_terminal_icon.png" width="300" alt="My Image Description">
-
-Figure 4 Mac terminal icon
+Figure 4: Mac terminal icon
 
 The terminal window should now have opened. The terminal has several in-built colour schemes.  The default "Basic" colour scheme is not ideal, for it does not use colour highlighting.  Therefore, the **"Homebrew"** colour scheme is preferable and can be accessed via the toolbar menu in the terminal window:
 
@@ -121,7 +118,6 @@ To tell your Mac to connect to the cluster, enter the following command:
 Then enter your cluster password (which should be the same as for your email address). When you log in, a message will be displayed in the terminal window – usually informing you when you last logged in.
 
 ![Command_line_view](assets/command_line.png)
-
 Figure 5: The command line
 
 You will mostly see at the bottom of the text what is know as the **command prompt**, e.g.: `[username@hal ~]$`.
@@ -133,7 +129,6 @@ This lists your username, the name of the machine you have logged in to and your
 It is often necessary to upload files to or download files from the LMB cluster to your local machine.  There are several ways to do this, but we recommend using the application FileZilla Client.  It is widely used, distributed as free software and has an intuitive drag and drop interface.  It can be downloaded from <https://filezilla-project.org> in either a Windows- or macOS-compatible format.
 
 ![FileZilla](assets/filezilla.png)
-
 Figure 6: FileZilla
 
 On opening the software, you should enter your login credentials in the toolbar near the top of the screen.  In addition to your Username and Password, you need to enter the Host - which is `hal`, and a Port – which is `22`.
@@ -148,4 +143,4 @@ While it is clearly much smaller than the Cluster - indeed, it could be thought 
 
 Please let us know if you would like to have an account on the Cell Biology Bioinformatics Machine.  It can be accessed in a similar fashion to accessing the cluster, but using the intranet address: `sean-pc-10.lmb.internal`.
 
-Please note that data stored on Xeon is <b><u>NOT BACKED UP</u></b>.  If you accidentally delete your data, or if one of the system administrators deletes your data, or if the drive malfunctions, your <b><u>DATA WILL BE PERMANENTLY LOST</b></u>.  Please ensure that your data us backed-up elsewhere.
+Please note that data stored on Xeon is <b><u>NOT BACKED UP</u></b>.  If you accidentally delete your data, or if one of the system administrators deletes your data, or if the drive malfunctions, your <b><u>DATA WILL BE PERMANENTLY LOST</u></b>.  Please ensure that your data us backed-up elsewhere.

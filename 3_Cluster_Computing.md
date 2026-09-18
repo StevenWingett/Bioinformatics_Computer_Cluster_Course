@@ -6,7 +6,7 @@
 * [Linux – using the Linux operating system and the command line](2_Linux.md)
 * [Cluster Computing – how to submit jobs to a compute cluster](3_Cluster_Computing.md)
 * [Course Exercises](exercises.md)
-* [License](./License.md)
+* [License](License.md)
 
 ---
 
@@ -33,7 +33,7 @@ The Slurm files are located on the LMB cluster at `/usr/bin/` where the Linux co
 Earlier in the course we introduced the Linux command `top` which lists the job currently running on the user’s current node.  Well, `squeue` is similar, for it reports the jobs that have been added by Slurm to the scheduling queue.  The command lists both running and pending jobs, as shown in the example below.
 
 ![Slurm queue](assets/slurm_queue.png)
-Figure 1 - Slurm scheduling queue
+Figure 1: Slurm scheduling queue
 
 The table below explains the different columns.
 
@@ -351,7 +351,6 @@ If you find yourself using the cluster more and more, it may be worth your while
 Visual Studio Code allows users to connect to the cluster (even from outside the intranet via `atg`) to edit and view files.  It can also be used to transfer files between the cluster and your local machine.  It also has its own terminal window, for executing commands.
 
 ![VS_Code](assets/vscode_screenshot.png)
-
 Figure 2: VS Code
 
 The software can be downloaded from:
@@ -395,7 +394,6 @@ Alternatively, it is possible to run R Studio on the Cell Biology Workstation (X
 Log-in using your Cell Biology Xeon credentials.
 
 ![VS_Code](assets/r_studio_server_screenshot.png)
-
 Figure 3: R Studio Server
 
 ## Jupyter Hub Server
@@ -406,7 +404,6 @@ At present there is no support for Jupyter on the LMB Cluster, but JupyterHub se
 We run a course, which is free to all LMB staff and researchers, teaching how to use JupyterHub.  If you would like to know more about this software then we suggest you sign up at the next opportunity, but in the meantime please feel free to look at the course materials, which are available online at: <https://github.com/StevenWingett/data-analysis-with-python-course>
 
 ![Jupyter_Lab](assets/jupyter_lab_screenshot.png)
-
 Figure 4: JupyterHub
 
 ## Software locations

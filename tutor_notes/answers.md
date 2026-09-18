@@ -1,7 +1,11 @@
 # Answers
+
 ## Getting to grips with Linux
+
 ### Exercise 4
+
 #### a
+
 `date > date.txt`
 
 `date >> date.txt`
@@ -9,63 +13,71 @@
 Version
 
 #### b
-1.    `grep Scotland uk_counties.csv > scotland_counties.csv`
-   
-2.    `grep -v Scotland uk_counties.csv > other_counties.csv`
 
-3.    `head -39 uk_counties.csv | tail -13`
+1. `grep Scotland uk_counties.csv > scotland_counties.csv`
 
-#### c 
+2. `grep -v Scotland uk_counties.csv > other_counties.csv`
+
+3. `head -39 uk_counties.csv | tail -13`
+
+#### c
+
 `mkdir TSV_links TXT_links`
 
-1.    `cd TSV_links`
-      `ln -s ../files_list/*.tsv .`
-       
-2.    `cd ../TXT_links`
-      `ln -s ../files_list/[BC]*.txt .`
+1. `cd TSV_links`
+   `ln -s ../files_list/*.tsv .`
 
+2. `cd ../TXT_links`
+   `ln -s ../files_list/[BC]*.txt .`
 
 ### Exercise 5
+
 #### a
+
 1.    `echo Steven >> add_name1.txt`
 
 2.    `echo Steven >> /usr/bin/who` – Permission denied
 
       `ls -l /usr/bin/who`
 
-3.    `groups`
-   
-`groups [username]`
+3. `groups`
+
+   `groups [username]`
 
 #### b
+
 `sort letters.txt > sorted.txt`
 
 #### c
+
 `curl -O https://raw.githubusercontent.com/StevenWingett/Bioinformatics_Computer_Cluster_Course/refs/heads/main/README.md`
 
 #### d
-1.    `echo $USER`
 
-2.    `ps `
+1. `echo $USER`
 
-`top `
+2. `ps`
 
-`top -u $USER`
+   `top`
 
-3.    `which curl`
+   `top -u $USER`
 
-      `echo $PATH`
+3. `which curl`
 
-4.    `sleep 10`
+   `echo $PATH`
 
-5.    `sleep 10`  CTRL + C
+4. `sleep 10`
 
-6.    `sleep 60 &`
+5. `sleep 10`  CTRL + C
 
+6. `sleep 60 &`
 
 ## Slurm
+
 ### Exercise 6
+
 #### a
+
 `module avail`
 
 `module load R`
@@ -74,15 +86,13 @@ Version
 
 #### c
 
-1.    
-`srun --pty bash`
+1. `srun --pty bash`
 
-`exit`
+   `exit`
 
-2.
-`srun -c 4 --mem=5G --pty bash`
-
-`exit` 
+2. `srun -c 4 --mem=5G --pty bash`
+   
+   `exit` 
 
 #### d
 
@@ -126,4 +136,3 @@ Create script `array_job.slurm`, containing:
     SAMPLE_ID=$((SLURM_ARRAY_TASK_ID))
     echo $SAMPLE_ID
     python3 calc_gc.py sample.$SAMPLE_ID.fa.gz
-

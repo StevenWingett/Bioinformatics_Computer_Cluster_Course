@@ -5,11 +5,13 @@ theme: uncover
 ---
 
 ![width:500px](assets/lmb_logo.png)
+
 # Running Bioinformatics Software on a Linux Computer Cluster
 
 ---
 
 ## Course aims
+
 * Understanding the Computer Cluster setup
 * Learning command line Linux
 * Navigating the cluster
@@ -18,33 +20,36 @@ theme: uncover
 ---
 
 ## Prerequisites
-* You will need to be registered to gain access to the cluster 
 
+* You will need to be registered to gain access to the cluster
 * Windows systems software:
-    * FileZilla Client - https://filezilla-project.org
-    * Putty: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
-
+  * FileZilla Client - <https://filezilla-project.org>
+  * Putty: <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>
 * macOS software:
-    * FileZilla Client - https://filezilla-project.org
+  * FileZilla Client - <https://filezilla-project.org>
   
 ---
 
 # Part I
+
 ## Getting started on the cluster (hours 1-4)
 
 ---
 
 # Cluster Computing
+
 ## What it is and how to access the LMB cluster 
 
 ---
 
 ## What is a compute cluster?
+
 ![width:900px](assets/cluster_computing_schematic.png)
 
 ---
 
 ## LMB compute cluster specifications
+
 * 130 nodes (on CPU partition)
 * 754 GB RAM
 * 112 (HT) cores
@@ -54,6 +59,7 @@ theme: uncover
 ---
 
 ## LMB compute cluster specifications
+
 * Huge data storage (`/cephfs2`: 7.1PB)
 * (Almost) never turned off
 * Specialist software manages long-running jobs
@@ -63,9 +69,10 @@ theme: uncover
 ---
 
 ## Accessing the cluster - Mac
+
 * On a Mac open the terminal
 * Shell -> New Tab -> Homebrew (good colour scheme)
-*  Connect to head node  (either hal, hex or max): 
+*  Connect to head node  (either hal, hex or max):
 `ssh –Y username@hal`
 * Enter your cluster password 
 * Connect to **atg** first if connecting from outside (Scientific Computing need to set up access)
@@ -91,9 +98,9 @@ theme: uncover
 
 ## Transferring files
 
-* FileZilla Client: https://filezilla-project.org 
+* FileZilla Client: <https://filezilla-project.org>
 * Free and available for Windows and macOS
-* Normal logon credentials, and 
+* Normal logon credentials, and:
   Host: `hal`
   Port: `22`
 <img align="right" height="200" src="assets/FileZilla_logo.svg">
@@ -101,6 +108,7 @@ theme: uncover
 ---
 
 ## Transferring files (2)
+
 <img align="right" height="500" src="assets/filezilla.png">
 
 ---
@@ -108,11 +116,8 @@ theme: uncover
 ## Cell Biology Bioinformatics Machine - Xeon
 
 * Analogous to a single cluster node
-  
 * 21TB of data storage, 80CPUs and 97GB RAM  
-
 * Maintained by the Cell Biology Division
-
 * Software can be installed as per users' requirements
 
 ---
@@ -121,9 +126,9 @@ theme: uncover
 
 * Let us know if you would like an account (and you are a memember of the Cell Biology Division)
 
-*  `sean-pc-10.lmb.internal` 
+* `sean-pc-10.lmb.internal`
 
-*  **NOT BACKED UP!!!**
+* **NOT BACKED UP!!!**
 
 ---
 
@@ -132,35 +137,39 @@ theme: uncover
 ---
 
 ## Getting to grips with Linux
+
 ### Introducing the command line
 
 ---
 
 ## Getting to grips with Linux
+
 * Similar to Windows and macOS, Linux is an operating system
 * Free and open source
 * Different types of Linux e.g. Android
 * The LMB cluster uses AlmaLinux
-* Big difference : you need to use the command line
+* Big difference: you need to use the command line
 * Not so intuitive, but more powerful
 
 ---
  ## The Bash Shell
 
- * Shells – command line interface interpreter programs
- 
- * We recommend using Bash - arguably the best known
- 
- * This is now the LMB cluster default (but didn't used to be)
+* Shells – command line interface interpreter programs
 
- * Ask scientific computing to make it your default
+* We recommend using Bash - arguably the best known
+
+* This is now the LMB cluster default (but didn't used to be)
+
+* Ask scientific computing to make it your default
   
- * Otherwise, temporarily specify the bash shell with: `bash`
- 
+* Otherwise, temporarily specify the bash shell with: `bash`
+
 ---
 
 ## Introducing Linux commands
+
 * Each command is actually a program
+  
 * Modified by flags, options and arguments
 
       command [-flag(s)] [-option(s) [value]] [argument(s)]
@@ -173,7 +182,9 @@ theme: uncover
     directory1  file1.txt  file2.txt  file3.txt
 
 ---
+
 ## Introducing Linux commands – (`ls` with flag)
+
 <br>
 
 `command [-flag(s)]`
@@ -191,6 +202,7 @@ theme: uncover
 ---
 
 ## Introducing Linux commands – (`ls` with flags)
+
 <br>
 
 `command [-flag(s)]`
@@ -226,6 +238,7 @@ theme: uncover
 ---
 
 ## Introducing Linux commands – (`ls` with flags)
+
 <br>
 
 `command [-flag(s)]`
@@ -243,6 +256,7 @@ theme: uncover
 ---
 
 ## Introducing Linux commands – (`ls` with option)
+
 <br>
 
 `command [-flag(s)] [-option(s) [value]]`
@@ -318,7 +332,7 @@ theme: uncover
 
 ---
 
-## Demo the Reading and writing files
+## Demo reading and writing files
     
     * cat
     * head  (wonderland.txt, numeric flags)
@@ -371,7 +385,7 @@ Can use redirects with other command (i.e. not just `cat`)
 * Example: `england.txt`, `northern_ireland.txt`, `scotland.txt`, `wales.txt`
 
 * Asterisk matches none or more characters: 
-        
+
       ls *land.txt
       england.txt  northern_ireland.txt  scotland.txt
 
@@ -429,6 +443,7 @@ Can use redirects with other command (i.e. not just `cat`)
 ---
 
 ## File permissions
+
 <style scoped>
 table {
   font-size: 20px;
@@ -514,6 +529,7 @@ table {
 ---
 
 ## Part 1 - Recap
+
 * Cluster architecture
 * Logging in to the cluster
 * Using Linux and command line shells
@@ -528,6 +544,7 @@ table {
 ---
 
 ## Part 1 - Recap (2)
+
 * File permissions
 * Downloading
 * Variables
@@ -541,23 +558,23 @@ table {
 
 # Homework! ;-)
   
-* Try accessing the cluster from outside the LMB via **atg**: https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=ssh-x2go
+* Try accessing the cluster from outside the LMB via **atg**: <https://www.mrc-lmb.cam.ac.uk/scicomp/index.php?id=ssh-x2go>
 
 ---
 
 # Interlude: Visual Studio Code [demo] 
-  * Microsoft Text editor
-  * Windows / Mac / Linux
-  * Edit remote files (even via atg)
-  * Built-in terminal
-  * View webpages
-  * Transfer files
-  * Free
+
+* Microsoft Text editor
+* Windows / Mac / Linux
+* Edit remote files (even via atg)
+* Built-in terminal
+* View webpages
+* Transfer files
+* Free
   
 ---
 
-
-* https://code.visualstudio.com
+* <https://code.visualstudio.com>
 
 <img src="assets/vscode_screenshot.png" alt="VS Code Screenshot" height="500">
   
@@ -633,6 +650,7 @@ table {
 ---
 
 ## Slurm – checking status (2) [demo]
+
 * `sqsummary` – CPU node state
 
 * `sinfo` – partition node information
@@ -642,6 +660,7 @@ table {
 ---
 
 ## Interactive vs submitted jobs
+
 * Interactive jobs: run short operations that complete quickly while you wait, then check the results and perform another calculation if required
 
 * Submitted jobs: long-running jobs that do not require user intervention
@@ -703,7 +722,7 @@ table {
 | -c [number of cores]                | Number of cores on a node to reserve for the job [default: 1] |
 | --mem=[RAM]G                        | GB of RAM to reserve for the job [default: 5]                 |
 | --mail-type=ALL                     | Send email updates on job progress                            |
-| --mail-user=$USER@mrc-lmb.cam.ac.uk | Recipient’s email address                                     |
+| --mail-user=$USER@mrclmb.ac.uk      | Recipient’s email address                                     |
 
 ---
 
@@ -775,6 +794,7 @@ Run **on a head node**:
 ---
 
 ## Exercise 6
+
 ### Using the cluster “as a cluster”
 
 ---
@@ -785,11 +805,11 @@ Run **on a head node**:
 
 * `/cephfs` & `/cephfs2` - very large data storage / suitable location for processing data.
 
-* `/scratch` - suitable location for processing data, **BUT FILES ARE AUTOMATICALLY DELETED - DON'T STORE FILES HERE!**  
+* `/scratch` - suitable location for processing data
+  * **FILES ARE AUTOMATICALLY DELETED - DON'T STORE FILES HERE!** 
+  * Nextflow / nf-core pipeline don't run reliably here
 
 * `/istore` or `/isilon` - a place to store data
-
-
 
 ---
 
@@ -904,14 +924,14 @@ Run **on a head node**:
   
 * Add to PATH?
 
-* `software` group 
+* `software` group
   
 ---
 
 ## Singularity containers
 * Enable software and dependencies to be bundled into one file  
   
-*  Most effective way to distribute versioned bioinformatics software 
+*  Most effective way to distribute versioned bioinformatics software
 
 * On the cluster, containers can only be run from:  `/public/singularity/`.
 
@@ -923,11 +943,12 @@ Run **on a head node**:
 
 ## NGS Bionformatics Pipelines
 
-* NGS QC 
-* ATAC-seq 
-* ChIP-seq 
-* Cut and Run/Tag 
-* RNA-seq 
+* NGS QC
+* ATAC-seq
+* ChIP-seq
+* Cut and Run/Tag
+* RNA-seq
+* Differential abundance
 * Single Cell RNA-seq (10x)
 * Single Cell RNA-seq (Parse)
 * Taxonomy Profiling
@@ -937,7 +958,11 @@ Run **on a head node**:
 
 ## NGS Bionformatics Pipelines (2)
 
-* Online tutorial: https://www.youtube.com/watch?v=PPEneJfFsOI
+* Online tutorial: <https://www.youtube.com/watch?v=PPEneJfFsOI>
+
+* Course material: <https://github.com/StevenWingett/lmb_pipelines_course>
+
+![width:250px](assets/lmb_pipelines_course_qr-code.png)
 
 ---
 
@@ -958,6 +983,7 @@ Run **on a head node**:
 * Thanks for listening!!!
 
 ---
+
 ## Course Online
 
 ![width:400px](assets/qr-code.png)

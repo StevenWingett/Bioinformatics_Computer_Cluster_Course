@@ -6,7 +6,7 @@
 * [Linux – using the Linux operating system and the command line](2_Linux.md)
 * [Cluster Computing – how to submit jobs to a compute cluster](3_Cluster_Computing.md)
 * [Course Exercises](exercises.md)
-* [License](./License.md)
+* [License](License.md)
 
 ---
 
@@ -27,7 +27,6 @@ When a user enters a command, it is read by a **command line interpreter**, a ty
 To quickly check your shell is working, type `date` in the command line and then press <kbd>Enter</kbd>.  The current date and time should then be displayed.
 
 ![command_line_date](assets/command_line_date.png)
-
 Figure 1: The command line
 
 There are many different shells available, of which **Bash** is arguably the best known.  
