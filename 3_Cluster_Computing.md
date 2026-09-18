@@ -1,6 +1,6 @@
 ![alt text](assets/lmb_logo.png)
 
-<hr>
+---
 
 * [Introduction & Setup](1_Introduction_and_setup.md)
 * [Linux – using the Linux operating system and the command line](2_Linux.md)
@@ -8,7 +8,7 @@
 * [Course Exercises](exercises.md)
 * [License](./License.md)
 
-<hr>
+---
 
 # Slurm
 
@@ -18,12 +18,13 @@ By this point in the course, you have logged in to a head node and then executed
 
 Enabling head nodes to communicate with compute nodes and ensuring all these nodes can communicate with storage arrays, while simultaneously allowing different users to interact with the system while keeping track of all the users' jobs as they are passed from node to node is far from trivial.  Fortunately, there are specialist software tools for managing these tasks on computer clusters.  The LMB cluster uses one such workload manager known as **Slurm**.  In this section we shall introduce Slurm and give an overview of how to execute jobs on compute nodes.  
 
-[Bioinformatic pipelines that link software tools in sequential workflows will not be described here, but instead are detailed in another course that discusses Nextflow and nf-core - see https://stevenwingett.github.io/lmb_pipelines_course/]
+(Bioinformatic pipelines that link software tools in sequential workflows will not be described here, but instead are detailed in another course that discusses Nextflow and nf-core - see <https://stevenwingett.github.io/lmb_pipelines_course/>)
 
 ## Using Slurm
+
 The Slurm files are located on the LMB cluster at `/usr/bin/` where the Linux command line programs are also kept.  This means that Slurm commands should already be in your PATH and be ready to use.  We shall now cover the main Slurm commands you will need.
 
-(Further help regarding these commands can be obtained from the Linux manual – `man`.)
+(Further help regarding these commands can be obtained from the Linux manual: `man`.)
 
 ### Checking the state of the cluster
 
@@ -32,34 +33,38 @@ The Slurm files are located on the LMB cluster at `/usr/bin/` where the Linux co
 Earlier in the course we introduced the Linux command `top` which lists the job currently running on the user’s current node.  Well, `squeue` is similar, for it reports the jobs that have been added by Slurm to the scheduling queue.  The command lists both running and pending jobs, as shown in the example below.
 
 ![Slurm queue](assets/slurm_queue.png)
-Figure 6 - Slurm scheduling queue
+Figure 1 - Slurm scheduling queue
 
 The table below explains the different columns.
 
-| Header    | Description                                |
-|-----------|--------------------------------------------|  
+| Header    | Description                                 |
+|-----------|---------------------------------------------|  
 | JOBID     | Incrementing numerical IDs for cluster jobs |
-| PARTITION | A partition is a logical division of a hard disk that is treated as a separate unit by operating systems and file systems.  On the LMB Cluster there are cpu, gpu and ml partitions.  The cpu partition is the default and what we shall be using.  The gpu partition is optimised for graphics applications and the ml partition is optimised for machine learning.
-| NAME     | The name of a submitted job.               |
-| USER     | User who submitted the job.                | 
-| ST       | Status of the job i.e. how the job is progressing. Common status reports include: PD -job pending and waiting for resource allocation; R - job allocated to a node and running.|
-| TIME     | Length of time a job has been running      |
-| NODES	   | Number of nodes used for a job             |
-| NODELIST | The name of the nodes being used for a job. LMB compute cluster nodes begin with the letters fmg, followed by a numerical value.                                        |
+| PARTITION | A partition is a logical division of a hard disk that is treated as a separate unit by operating systems and file systems.  On the LMB Cluster there are cpu, gpu and ml partitions.  The cpu partition is the default and what we shall be using.  The gpu partition is optimised for graphics applications and the ml partition is optimised for machine learning.   |
+| NAME      | The name of a submitted job.                |
+| USER      | User who submitted the job.                 |
+| ST        | Status of the job i.e. how the job is progressing. Common status reports include: PD -job pending and waiting for resource allocation; R - job allocated to a node and running.    |
+| TIME      | Length of time a job has been running       |
+| NODES     | Number of nodes used for a job              |
+| NODELIST  | The name of the nodes being used for a job. LMB compute cluster nodes begin with the letters fmg, followed by a numerical value.|
 
 You may wish to view all the jobs running on the cluster, but more frequently you will want to view just your jobs.  To do that, enter on the command line:
 
     squeue -u $USER
 
-`sqsummary`
+#### `sqsummary`
+
 This is another useful command that gives a summary of the CPU node state.  It summarises how many CPUs each user is using and the percentage of currently free nodes.
 
-`sinfo`
-is used to view partition and node information for a system running Slurm.
+#### `sinfo`
 
-`qinfo`
+This used to view partition and node information for a system running Slurm.
+
+#### `qinfo`
+
 When connected to the LMB intranet, go to the page listed below to view an overview of the current state of the cluster.  The webpage runs the `qinfo` command and gives a breakdown of all the nodes being used, what jobs are running and which users are running them.
-http://nagios2/qinfo/
+
+<http://nagios2/qinfo/>
 
 ## Running jobs
 
@@ -89,7 +94,7 @@ Type exit to leave the compute node and return to the head node.
 
 #### Using a bash script
 
-Non-interactive jobs are submitted from the head node to the Slurm scheduler using the `sbatch` command.  `sbatch` takes as an argument a script that contains the Bash commands you wish to run.  Shown below is the contents of a simple bash script named test.sh:
+Non-interactive jobs are submitted from the head node to the Slurm scheduler using the `sbatch` command.  `sbatch` takes as an argument a script that contains the Bash commands you wish to run.  Shown below is the contents of a simple bash script named `test.sh`:
 
     #!/bin/bash
     echo Hello World!
@@ -122,14 +127,13 @@ So, that is how we submit jobs to the cluster:
 
 There are a few extra options that should be considered when submitting jobs using `sbatch`:
 
-| Command Flag         | Function                                 |
------------------------|------------------------------------------|
-| -J [jobname]         | specify an easily identifiable jobname   |
-| -c [number of cores] | number of cores on a node to reserve for the job [default: 1]                                              |
-|--mem=[RAM]G          | GB of RAM to reserve for the job [default: 5]                                                      |
-| --mail-type=ALL      | send email updates on the job’s progress |
-| --mail-user=$USER@mrclmb.ac.uk | recipient’s email address |
-
+| Command Flag                   | Function                                                      |
+| ------------------------------ | ------------------------------------------------------------- |
+| -J [jobname]                   | specify an easily identifiable jobname                        |
+| -c [number of cores]           | number of cores on a node to reserve for the job [default: 1] |
+|--mem=[RAM]G                    | GB of RAM to reserve for the job [default: 5]                 |
+| --mail-type=ALL                | send email updates on the job’s progress                      |
+| --mail-user=$USER@mrclmb.ac.uk | recipient’s email address                                     |
 
 So, you could re-submit the command with these options:
 
@@ -139,11 +143,11 @@ This will submit the job as before but request 2 cores and 2G of RAM and send st
 
 [This command is long, but it is possible to set up an alias in your `~/.bashrc` configuration file so you don’t need to type it out in full every time.  We shan’t discuss this here in more detail, but please let us know if you would like more assistance with this.]
 
-This leads to the question: what are appropriate amounts of memory and CPUs to request?  Well, this is not a straight-forward question to answer.  Some jobs are clearly more memory intensive that others, but quantifying that in advance is not easy to do.  Under reserve the memory allocation or CPUs and the job may crash or take an inordinate amount of time to finish.  In contrast: request too much and you will be denying other users valuable compute resources.  Moreover, the workload management on the cluster is such that a job requiring a large amount of compute resources may wait much longer in the queue before processing even starts.  So, paradoxically, requesting a large amount of resources can lead to a job taking longer to complete!
+**It is also possible to specify what type of node you wish to use for a job.  For example, to use the GPU nodes: `--partition=gpu`.**
+
+This leads to the question: **what are appropriate amounts of memory and CPUs to request?**  Well, this is not a straight-forward question to answer.  Some jobs are clearly more memory intensive that others, but quantifying that in advance is not easy to do.  Under reserve the memory allocation or CPUs and the job may crash or take an inordinate amount of time to finish.  In contrast: request too much and you will be denying other users valuable compute resources.  Moreover, the workload management on the cluster is such that a job requiring a large amount of compute resources may wait much longer in the queue before processing even starts.  So, paradoxically, requesting a large amount of resources can lead to a job taking longer to complete!
 
 Perhaps the simplest and most convenient way to make these calculations is to check the resources used by already completed jobs and use that as a benchmark for the future.  Obtaining these metrics on already completed jobs can be achieved with the `sacct` command.
-
-It is also possible to specify what type of node you wish to use for a job.  For example, to use the GPU nodes: `--partition=gpu`.
 
 #### Using a Slurm script
 
@@ -202,7 +206,7 @@ To kill running jobs use `scancel`:
 
 Let us suppose you have a several or many related tasks that you wish to perform: for example, process numerous different files with the same software tool.
 
-A convenient way to do this would be to use a Slurm job array.  To do this, you need to specify the terms of your job array in a Slurm script and submit this script to the cluster via `sbatch`.  We shan't cover this in the course, but for more details on this go to:
+A convenient way to do this would be to use a **Slurm job array**.  To do this, you need to specify the terms of your job array in a Slurm script and submit this script to the cluster via `sbatch`.  We shan't cover this in the course, but for more details on this go to:
 
 <https://slurm.schedmd.com/job_array.html>
 
@@ -234,13 +238,13 @@ There are 5 main areas where people can store files on the cluster
 
 3. `/cephfs2` - very large data storage (5.7PB - total for all users). A suitable location for processing data.
 
-4. `/scratch` - very large data storage (1.1PB - total for all users). A suitable location for processing data.  Please note: **FILES ARE AUTOMATICALLY DELETED FROM HERE AFTER A SET PERIOD OF TIME - DON'T STORE FILES HERE!**  Process data here and then copy the results to another location.
+4. `/scratch` - very large data storage (1.1PB - total for all users). A suitable location for processing data.  Please note: **FILES ARE AUTOMATICALLY DELETED FROM HERE AFTER A SET PERIOD OF TIME - DON'T STORE FILES HERE!**  Process data here and then copy the results to another location.  **The scratch filesystem is not compatible with running Nextflow / nf-core pipelinse.  Try running these in `/cephfs` or `/cephfs2.`**
 
 5. `/istore` or `/isilon` - a place to store data
 
 **PLEASE REFER TO IT/SCIENTIFIC COMPUTING FOR GUIDANCE ON WHERE TO STORE DATA SAFELY.**
 
-**<span style="color:green">Do you have sequencing data?  The Cell Biology Division has a dedicated storage location for FASTQ sequencing files.  Please let us know if you wish to deposit data here.<span style="color:green">**
+<b><span style="color:green">Do you have sequencing data?  The Cell Biology Division has a dedicated storage location for FASTQ sequencing files.  Please let us know if you wish to deposit data here.<span style="color:green"></b>
 
 ### Checking current storage
 
@@ -249,14 +253,14 @@ Although drives on the cluster have massive storage capacities, they can fill up
     df -H | grep [drive name]
 
 **Your current usage can be checked at:**
-**https://bb8.mrc-lmb.cam.ac.uk/userdash/userdash.cgi**
+**<https://bb8.mrc-lmb.cam.ac.uk/userdash/userdash.cgi>**
 
 For more details on storage locations, please refer to Scientific Computing:
 <https://www.mrc-lmb.cam.ac.uk/scicomp-new/index.php?id=data-storage>
 
-The Scientific Computing webpages also provide instructions on how to create a folder for yourself in `/cephs` etc.
+**The Scientific Computing webpages also provide instructions on how to create a folder for yourself in `/cephs` etc.**
 
-## Transferring files to and from the cluster
+## Transferring files to and from the cluster using the command line
 
 This section could have been included in the part of the course that introduces Linux.  However, we decided to include it here, after first discussing where files should be stored on the cluster.  The commands mentioned here are applicable to the Cell Biology Workstation and other Linux set-ups.
 
@@ -348,10 +352,12 @@ Visual Studio Code allows users to connect to the cluster (even from outside the
 
 ![VS_Code](assets/vscode_screenshot.png)
 
-The software can be downloaded from:
-https://code.visualstudio.com/
+Figure 2: VS Code
 
-We shall not discuss how to use VS Code in detail here, and in any case, the manufacturers of the software produce a good training video at: https://code.visualstudio.com/docs/introvideos/basics
+The software can be downloaded from:
+<https://code.visualstudio.com/>
+
+We shall not discuss how to use VS Code in detail here, and in any case, the manufacturers of the software produce a good training video at: <https://code.visualstudio.com/docs/introvideos/basics>
 
 To connect to the software to the cluster, you will also need to install the extension "Remote - SSH" from the VS Code marketplace.  Click on the marketplace icon in the left-hand side menu to do this.
 
@@ -390,16 +396,20 @@ Log-in using your Cell Biology Xeon credentials.
 
 ![VS_Code](assets/r_studio_server_screenshot.png)
 
+Figure 3: R Studio Server
+
 ## Jupyter Hub Server
 The **Jupyter Notebook** is an intuitive web-based application that scores in the area of research science, for it allows programmers to create and share documents that contain live code, equations, plots and formatted descriptive text.
 
 At present there is no support for Jupyter on the LMB Cluster, but JupyterHub server is installed on the Cell Biology Bioinformatics Machine (Xeon).  Please let us know if you wish to use JupyterHub on the workstation and we will set you up with an account.
 
-We run a course, which is free to all LMB staff and researchers, teaching how to use JupyterHub.  If you would like to know more about this software then we suggest you sign up at the next opportunity, but in the meantime please feel free to look at the course materials, which are available online at: https://github.com/StevenWingett/data-analysis-with-python-course
+We run a course, which is free to all LMB staff and researchers, teaching how to use JupyterHub.  If you would like to know more about this software then we suggest you sign up at the next opportunity, but in the meantime please feel free to look at the course materials, which are available online at: <https://github.com/StevenWingett/data-analysis-with-python-course>
 
 ![Jupyter_Lab](assets/jupyter_lab_screenshot.png)
 
-## Software locations 
+Figure 4: JupyterHub
+
+## Software locations
 
 Numerous bioinformatics executable files have been deposited at:
 `/public/genomics/soft/bin`.  
@@ -428,15 +438,16 @@ We currently have the following pipelines installed for:
 * ATAC-seq - assesses genome-wide chromatin accessibility
 * ChIP-seq - identify DNA-protein interactions
 * Cut and Run/Tag - identify DNA-protein interactions
+* Differential abundace - identify statitically different changes between datasets e.g. using DEseq2 for RNA-seq data
 * RNA-seq - detection and quantitative analysis of RNA
 * Single Cell RNA-seq (10x) - detection and quantitative analysis of RNA at single cell resolution using 10x technology
 * Single Cell RNA-seq (Parse) - detection and quantitative analysis of RNA at single cell resolution using Parse Evercode technology
 * Taxonomy Profiling - taxonomic classification of the origin of FASTQ reads
 * Download Data - download NGS datasets (FASTQ files and metadata) from online repositories
 
-For more details on these pipelines, please go to the following intranet link: http://intranet.lmb.internal/scientific-facilities/high-throughput-sequencing
+For more details on these pipelines, please go to the following intranet link: <http://intranet.lmb.internal/scientific-facilities/high-throughput-sequencing>
 
-We have tried to make the running of the pipelines easier by creating the intranet site [Guide-Piper](http://guidepiper), which helps you build the cluter command you need to process your datasets.
+We have tried to make the running of the pipelines easier by creating the intranet site [Guide-Piper](http://guidepiper), which helps you build the cluster command you need to process your datasets.
 
 ## Further assistance
 

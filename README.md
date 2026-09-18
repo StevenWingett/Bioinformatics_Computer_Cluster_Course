@@ -14,3 +14,5 @@ The course slides (presentation.md) and other materials are available in the Git
 The individual sections of the course may be run separately, depending on the requirements of the course participants.
 
 Also, for terms of use, please refer to the course [License](./License.md)
+
+*This manual/course is © 2026, Steven Wingett*

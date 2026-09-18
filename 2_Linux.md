@@ -1,6 +1,6 @@
 ![alt text](assets/lmb_logo.png)
 
-<hr>
+---
 
 * [Introduction & Setup](1_Introduction_and_setup.md)
 * [Linux – using the Linux operating system and the command line](2_Linux.md)
@@ -8,23 +8,27 @@
 * [Course Exercises](exercises.md)
 * [License](./License.md)
 
-<hr>
+---
 
 # Linux
 
 ## Getting to grips with Linux
 
-Unlike Macs (which run macOS) or PCs (which run Windows), our compute cluster runs a Linux operating system.  There are many different distributions of Linux, with each having different strengths.  For example, the well-known operating system Android, optimised for mobile devices, is based on a version of Linux.  The LMB compute cluster now mainly uses **AlmaLinux** (after recently transitioning away from Scientific Linux).  AlmaLinux is open-source and free to use.
+Unlike Macs (which run macOS) or PCs (which run Windows), our compute cluster runs a Linux operating system.  There are many different distributions of Linux, with each having different strengths.  For example, the well-known operating system Android, optimised for mobile devices, is based on a version of Linux.  The LMB compute cluster uses **AlmaLinux**, which is open-source and free to use.
 
 This operating system may seem unfamiliar at first, since it does not receive input from the user via a mouse.  Instead, the user types instructions into what is known as the **command line**.  Although this may seem a needlessly complicated and old-fashioned way of doing things, with a little experience a user can achieve complex tasks relatively easily with just a few simple commands.  In fact, despite being a little less intuitive, the command line is actually often a more convenient and powerful way of interacting with a computer, which is why it is favoured by computational biologists and bioinformaticians.  
 
 ### Shells
 
-When a user enters a command, it is read by a **command line interpreter**, a type of program known as a **shell**.  A shell therefore allows a user to launch software, but it also provides additional functionality such as keeping a history of commands executed, enabling customised settings to be set up permanently using start-up scripts, as well as providing a simple programming language to automate jobs.  
+When a user enters a command, it is read by a **command line interpreter**, a type of program known as a **shell**.  A shell therefore allows a user to launch software, but it also provides additional functionality such as keeping a history of commands executed, enabling customised settings to be set up permanently using start-up scripts, as well as providing a simple programming language to automate jobs. 
+
+(Incidentally, a shell is called a shell because it is the outermost layer of the operating system.)
 
 To quickly check your shell is working, type `date` in the command line and then press <kbd>Enter</kbd>.  The current date and time should then be displayed.
 
 ![command_line_date](assets/command_line_date.png)
+
+Figure 1: The command line
 
 There are many different shells available, of which **Bash** is arguably the best known.  
 
@@ -106,17 +110,17 @@ In the example below, the `file1.txt` resides in a folder named `jsmith`, which 
 
 The path listed above is what is termed as an absolute path, which means it contains the complete file hierarchy listing.  There is in contrast what is known as a relative path that lists the position of a file or folder relative to the current working directory.
 
-Suppose your current working directory was `/lmb/home/jsmith`, and you wished to reference a file at location `/lmb/home/pjones/file2.txt`.  You could use the previous absolute path, but another way would be to use the relative path: `../pjones/file2.txt`.  The double dots (`..`) mean go "up one level" in the file system hierarchy. 
+Suppose your **current working directory** (where you are) was `/lmb/home/jsmith`, and you wished to reference a file at location `/lmb/home/pjones/file2.txt`.  You could use the previous absolute path, but another way would be to use the relative path: `../pjones/file2.txt`.  The double dots (`..`) mean go "up one level" in the file system hierarchy.
 
 Similarly, the single dot (`.`) refers to the current working directory.  Consequently, the path `./file4.txt` references a file in the current working directory.
 
-The symbol tilde (`~`) references the home directory, so `~/folderA/file5.txt` refers to a file which is in `folderA`, which itself is in your Home directory.
+The symbol tilde (`~`) references the home directory, so `~/folderA/file5.txt` refers to a file which is in `folderA`, which itself is in your **Home** directory.
 
-You might be wondering why you would choose to use a relative path.  There are two main reasons: firstly, relative pathnames are shorter which saves on typing and reduces the risk of introducing errors.  Secondly, you may not always know the absolute link to a file.  To illustrate the point, suppose you deployed software for public use.  Your software comprises multiple files and those files need to communicate with one another.  But how would this be possible if the software is running on someone else’s computer?  You won’t know in advance the file structure of that device and the location to which your deployed code will be copied.  To get around this you can make use of a relative path, in which only a file’s position relative to another is required and not the absolute path.
+You might be wondering why you would choose to use a relative path.  Well, there are two main reasons: firstly, relative pathnames are shorter which saves on typing and reduces the risk of introducing errors.  Secondly, you may not always know the absolute link to a file.  To illustrate the point, suppose you deployed software for public use.  Your software comprises multiple files and those files need to communicate with one another.  But how would this be possible if the software is running on someone else’s computer?  You won’t know in advance the file structure of that device and the location to which your deployed code will be copied.  To get around this you can make use of a relative path, in which only a file’s position relative to another is required and not the absolute path.
 
 #### Naming files
 
-The best way to name files is to use only alphanumeric characters, the underscore symbol and the dot. The following filename contains all of these and is acceptable: 
+The best way to name files is to use only alphanumeric characters, the underscore symbol and the dot. The following filename contains all of these and is acceptable:
 
     my_file1.txt
 
@@ -134,9 +138,10 @@ These are typically configuration files or log files.  If you run the `ls` comma
 
 Now that we have introduced Linux commands and the filesystem, we can put them together and navigate around the computer and start making directories and moving files (analogous to what can be achieved with a mouse and pointer when using PCs or Macs).  
 
-We’ve already introduced the `ls` command to list files and folders, but here is a list of some of the other most commonly used commands to move around the filesystem.
+We’ve already introduced the `ls` command to list files and folders, but now let's introduce some of the other most commonly used **commands to navigate around the filesystem**.
 
-`pwd` (print working directory)
+#### `pwd` (print working directory)
+
 This command prints the current working directory of the user.  This might sound a strange concept, but the user can be viewed as having a “location” in the system file structure.  `pwd` reports back the user’s position.
 
     pwd
@@ -144,31 +149,37 @@ This command prints the current working directory of the user.  This might sound
 
 It is possible to move to other locations, as described later.
 
-`cd` (change directory)	
+#### `cd` (change directory)
+
 This changes the user’s current working directory. Specify the directory you wish to move to after the command.  The following command changed the current working directory to `data1`:
 
     cd /lmb/data1
 
 There are several useful shortcuts when moving between directories:
-move to previous directory: `cd –`
-move to your home directory: `cd` or `cd ~`
-move “up” a level in the file structure hierarchy `cd ..`
 
-`cp` copy
+* move to previous directory: `cd –`
+
+* move to your home directory: `cd` or `cd ~`
+
+* move “up” a level in the file structure hierarchy `cd ..`
+
+#### `cp` copy
+
 This command enables the user to copy a file from one location to another.  Below is a simple copy command that copies `file.txt` to a new file named `file_copy.txt`.  (Note that two files sitting in the same folder can’t have the same name, and so the new file needs a different name from the input file.)
 
     cp file.txt file_copy.txt
 
-In the examples below, `file1.txt` is copied to a new folder (note that the filename is optional as the destination location):
+In the examples below, `file.txt` is copied to a new folder.  In the first example the copied file will be named `file_copy.txt`.  In the second example, the copied file will be named the same as the original file i.e. `file.txt`.
 
-    cp file1.txt /data_folder/file1.txt
+    cp file.txt /data_folder/file_copy.txt
     cp file1.txt /data_folder
 
 It is also possible to copy directories and their contents.  This requires a **recursive** copy using the `-r` flag:
 
     cp -r directory1/ directory_copy/
 
-`mv` (move)
+#### `mv` (move)
+
 This allows the user to move files and folders from one location to another.  In the example below the file `file.txt` is moved to the `new_location` folder:
 
     mv file.txt /lmb/data/new_location
@@ -177,17 +188,20 @@ Maybe a little surprisingly, the `mv` command can be used to rename a file:
 
     mv original_name.txt new_name.txt
 
-`mkdir` (make directory)
+#### `mkdir` (make directory)
+
 To make a new directory or directory use the `mkdir` command.  The command below makes three new directories:
 
     mkdir new_directory1 new_directory2 new_directory3
 
-`rmdir` (remove directory)
+#### `rmdir` (remove directory)
+
 To remove an **empty directory** use the `rmdir` command:
 
     rmdir directory1 directory2 /data/directory3 
 
-`rm` (remove)
+#### `rm` (remove)
+
 To remove a file or files use the rm command:
 
     rm file1.txt file2.txt /data/file3.txt
@@ -196,12 +210,13 @@ Do this recursively to delete directories that are not empty (along with all of 
 
     rm -r directory1 directory2 /data/directory3 
 
-Most Linux systems will delete files immediately following a user’s request.  However, to prevent people accidentally deleting files, the cluster has been set up to require keyboard confirmation for every individual file that is to be deleted.  This can be a time consuming process if many files need to be removed simultaneously.  To stop the system requiring the additional confirmation, append the `-f` flag to the remove command. 
+Most Linux systems will delete files immediately following a user’s request.  However, to prevent people accidentally deleting files, the cluster has been set up to require keyboard confirmation for every individual file that is to be deleted.  This can be a time consuming process if many files need to be removed simultaneously.  To stop the system requiring the additional confirmation, append the `-f` flag to the remove command.
 
 **<u>Warning!</u>
 Unlike Windows and MacOS, the command line version of Linux on the cluster does not have a Recycle Bin, which means that once a file has been deleted it is gone forever! So be extra careful when deleting files as it is easy to specify the wrong location and potentially lose many hours of valuable work.**
 
 ### Linux tries to help you!
+
 It’s easy to lose track of what you have been doing when typing successive rounds of text into the command line.  However, by typing `history` you can see a list of the recent commands executed. Alternatively, press the &uarr; or &darr; arrows to navigate through your recent history.
 
 Furthermore, by typing <kbd>CTRL</kbd> + <kbd>R</kbd> and then typing a command of interest, the Bash shell will report the closest matching command from your history.
@@ -211,10 +226,11 @@ Also, typing long commands and filenames and file structures can be quite diffic
 To use autocomplete, start typing your command and then pressing <kbd>TAB</kbd> or double-pressing <kbd>TAB</kbd> to autocomplete/display suggestions.  This may take a bit of getting used to, so it is worth spending time practising with this feature to get it working optimally.
 
 #### Reading and writing files
+
 In this context we are talking exclusively about text files, or compressed text files.  Linux has a number of simple programs to allow the user to view, write to and edit files.
 
 `cat` (concatenate)
-To view the contents of a text file, use the concatenate command.  (The name of this command may not make much sense now, but hopefully will later on). 
+To view the contents of a text file, use the concatenate command.  (The name of this command may not make much sense now, but hopefully will later on).
 
     cat file.txt
 
@@ -243,10 +259,10 @@ There are many ways to edit a file in Linux.  The operating system is shipped wi
 
 Simply type `nano` on the command line and the software will start and display a screen similar to that shown below.  You can now start writing text in this window and then to save your text simply press <kbd>CTRL</kbd> + <kbd>O</kbd>.  When using `nano`, option menus and prompts will appear at the bottom of the window (please note that the `^` character in a menu denotes the <kbd>CTRL</kbd> button).  
 
-To exit the program type <kbd>CTRL</kbd> + <kbd>X</kbd>. 
+To exit the program type <kbd>CTRL</kbd> + <kbd>X</kbd>.
 
 ![Nano text editor](assets/nano.png)
- 
+
 To open and view/edit a text file that already exists simply pass the name of the file you wish to open to nano:
 
     nano file.txt
@@ -260,10 +276,10 @@ If you want to create a new, empty file, then simply specify the name of this ne
 Much of the NGS data that you will process and generate will be in text format.  However, storing data in this way requires an unnecessary amount of memory.  When reasonably possible, all large text files should be compressed.  This is most commonly achieved on Linux using `gzip`:
 
     gzip file1.txt file2.txt file3.txt
- 
+
 This will create files named `file1.txt.gz` etc. (the `.gz` file extension denotes that the file has been compressed).  This gzipping process is related to the zipping, which is commonly performed on Mac and PCs.
 
-To decompress the file, use the `gunzip` command:
+To decompress a file, use the `gunzip` command:
 
     gunzip file1.txt.gz file2.txt.gz file3.txt.gz
 
@@ -289,13 +305,15 @@ Here the contents of `file1.txt` is read and written to `file1_copy.txt` (which 
 
 This process is known as **concatenation**, which is why this command is named `cat`.
 
-It is also possible to append contents to a file using the double arrow redirect.  The contents of `file4.txt` could therefore be appended to the end of `combined.txt`:
+It is also possible to **append** contents to a file using the double arrow redirect.  The contents of `file4.txt` could therefore be appended to the end of `combined.txt`:
 
     cat file4.txt >> combined.txt
 
+(In the above example, if we had used a single angle bracket to redirect the data to the file, then the output file would have been overwritten. The use of double angle brackets results in the data being appended. )
+
 **Pipe (`|`)**
 
-The pipe `|` is a way of taking the output from one command and passing it directly to another command.  For example, by piping `zcat` output to the `more` command, it is possible read directly a gzipped file without decompressing it first
+The pipe `|` is a way of taking the output from one command and passing it directly to another command.  For example, by piping `zcat` output to the `more` command, it is possible read directly a gzipped file without decompressing it first.
 
     zcat file.txt.gz | more
 
@@ -336,7 +354,7 @@ The asterisk symbol `*` matches **none or more characters**.  So, suppose you ha
     ls *land.txt
     england.txt  northern_ireland.txt  scotland.txt
 
-(Matching none might sound like a strange idea, but if you think about it, if this were not the case then look-up terms such as `*england.txt` would fail to match.)
+(Matching "none" might sound like a strange idea, but if you think about it, if this were not the case then look-up terms such as `*england.txt` would fail to match.)
 
 The wildcard question mark `?` matches exactly one character:
 
@@ -352,7 +370,7 @@ Be aware that placing non-alphanumeric characters in the list can change its mod
 
 #### Links to files
 
-You are probably already familiar with the concept of shortcuts on Windows systems, or aliases on Macs.  This is where we create a link in one location to reference a file somewhere else.  For example, we may have an MS Word document that is buried somewhere on our filesystem, but we would like to be able to access this file directly from the Desktop.  However, we don’t want to move the file itself to the Desktop.  A way to do this is is create a (**shortcut** (or **alias**) to the file of interest.  If the link is accessed, then the target file is opened.
+You are probably already familiar with the concept of shortcuts on Windows systems, or aliases on Macs.  This is where we create a link in one location to reference a file somewhere else.  For example, we may have an MS Word document that is buried somewhere on our filesystem, but we would like to be able to access this file directly from the Desktop.  However, we don’t want to move the file itself to the Desktop.  A way to do this is is create a (**shortcut** or **alias**) to the file of interest.  If the link is accessed, then the target file is opened.
 
 Well, Linux has something similar called a **symbolic link**.  Symbolic links are created with the command:
 
@@ -373,17 +391,17 @@ In a previous example which demonstrated the command `ls -l`, the system returne
 Explanation of long format:
 
 ![File permissions](assets/file_permissions.png)
- 
-| Column Number	| Description |
-| ------------- | ----------- |
-| 1	            | File type (- file / d directory / l link) 
-| 2	            | Permission string (user / group / everyone) |
-| 3	            | Number of hard links |
-| 4	            | Owner name |
-| 5	            | Owner group |
-| 6	            | File size in bytes |
-| 7	            | Modification time |
-| 8	            | File name |
+
+| Column Number | Description                                 |
+| ------------- | ------------------------------------------- |
+| 1             | File type (- file / d directory / l link)   |
+| 2             | Permission string (user / group / everyone) |
+| 3             | Number of hard links                        |
+| 4             | Owner name                                  |
+| 5             | Owner group                                 |
+| 6             | File size in bytes                          |
+| 7             | Modification time                           |
+| 8             | File name                                   |
 
 This means that the owner of the file is `zeus`.  The file belongs to the group `gods`.
 
@@ -445,14 +463,19 @@ Use the `which` command to find the location of a piece of software found in a P
 
 The command will also report if the software is not found in the `$PATH`.  It is common to add external software (i.e. software not part of the Linux distribution) to the path.
 
+#### `jobs`
+
+Lists your current system jobs.
+
 ##### `ps`
 
-This commands displays information about your current active processes.  This is a good way to see the jobs you have running
+This commands displays information about your current active processes.  This is another good way to see the jobs you have running
 
 ##### `top`
 
-This command is similar to `ps` in that it provides information on running processes, however unlike `ps`, it produces a continually updated display. To exit the display press the key <kbd>Q</kbd>.  Also, this command will display all processes currently running, but to display just your jobs type your username:
+This command is similar to `ps` in that it provides information on running processes, however unlike `ps`, it produces a continually updated display. To exit the display press the key <kbd>Q</kbd>.  Also, this command will display all processes currently running, but to display just your jobs type your username (or use the `$USER `variable):
 
+    top -u your_username
     top -u $USER
 
 ##### `nohup`
@@ -491,5 +514,5 @@ The exit command is used to end a Linux session.
 
 Make use of Linux cheat sheets such as the one distributed with this course.  They are useful to have to hand and serve as an excellent aide-memoire when writing Linux commands.  An example of an introductory Linux cheat sheet can be downloaded from [here](https://github.com/santosh373/Linux-Basics/blob/master/linux%20cheat%20sheet.pdf).
 
-  If that doesn’t help with a specific task, then searching around on Linux discussion groups or using Google/ChatGTP etc. are effective way to find out what you need to know.  But do make sure that you validate online sources with canonical documentation.
+  If that doesn’t help with a specific task, then searching around on Linux discussion groups or using Google/ChatGTP etc. are effective way to find out what you need to know.  **But do make sure that you validate online sources with canonical documentation and that you understand what code is doing before you execute it using the command line.**
   
