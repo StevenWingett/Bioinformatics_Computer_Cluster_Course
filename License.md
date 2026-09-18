@@ -10,7 +10,6 @@
 
 ---
 
-
 # Licence
 
 This manual is © 2026, Steven Wingett
