@@ -37,9 +37,7 @@ Please feel free to contact me should you have any queries regarding the course.
 
 ---
 
-If you wish to learn more about the course before signing-up, then please view the course content and slides at:
-
-<https://stevenwingett.github.io/Bioinformatics_Computer_Cluster_Course/>
+If you wish to learn more about the course before signing-up, then please view the course content and slides by clicking [here.](https://stevenwingett.github.io/Bioinformatics_Computer_Cluster_Course/)
 
 ---
 
