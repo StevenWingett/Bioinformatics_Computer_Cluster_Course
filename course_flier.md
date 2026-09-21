@@ -4,7 +4,7 @@
 
 This introductory course will equip you with the essential skills required for navigating Linux environments and efficiently running software on high-performance computing (HPC) clusters.
 
- ![Compute cluster schematic](../assets/cluster_computing_schematic.png)
+ ![Compute cluster schematic](./assets/cluster_computing_schematic.png)
 
 ---
 
@@ -29,7 +29,7 @@ A laptop, which should be running a recent version of Windows or macOS and can c
 
 Upcoming courses are listed at:
 
-<http://sean-pc-7.lmb.internal/cb/course/>
+<http://sean-pc-7.lmb.internal/cb/course/comp>
 
 Places will be allocated on a first-come, first-served basis. The course is open only to people currently working or studying at the LMB.
 
