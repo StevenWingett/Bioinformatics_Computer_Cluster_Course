@@ -1,37 +1,50 @@
-<b><u>Getting started with Bioinformatics using Linux Systems and the Computer Cluster</b></u>
+# Running Bioinformatics Software on a Linux Computer Cluster
 
-<b><u>Aim</b></u>
+## Aim
 
-This **introductory course** is designed to equip you with essential skills for navigating Linux environments and efficiently running software on high-performance computing (HPC) clusters.
+This introductory course will equip you with the essential skills required for navigating Linux environments and efficiently running software on high-performance computing (HPC) clusters.
 
-<b><u>Content overview</b></u>
+ ![Compute cluster schematic](../assets/cluster_computing_schematic.png)
+
+---
+
+## Content overview
 
 The course has 3 parts:
-•	Introduction to Linux – learn basic commands, file system navigation and scripting 
-•	Overview of the LMB Computer Cluster – description of the setup and how to access the system
-•	Working with HPC Clusters – understand job scheduling, resource management and parallel computing
 
-<b><u>Expected knowledge</b></u>
+* Introduction to Linux – learn basic commands, file system navigation and scripting
 
-The course is aimed at the **absolute beginner** and no advanced computing skills are required, but participants are expected to be able to use everyday software found on a modern desktop or laptop computer.
+* Overview of the LMB Computer Cluster – description of the setup and how to access the system
 
-<b><u>What to bring</b></u>
+* Working with HPC Clusters – understand job scheduling, resource management and parallel computing
+Expected knowledge
 
-A laptop, which should be running a recent version of Windows or macOS and **can connect to the LMB's intranet**.
- 
-<b><u>When and where</b></u>
+The course is aimed at the **absolute beginner** and no advanced computing skills are required.
 
-The course will last for 2 x 4 hours and take place on:
+## What to bring
 
-**13:00 – 17:00, Monday 7th April 2025 (Communal Room 2N260)**
+A laptop, which should be running a recent version of Windows or macOS and can connect to the LMB's intranet.
 
-**13:00 – 17:00, Tuesday 8th April 2025 (Communal Room 2N260)**
- 
-Please feel free to contact **Steven Wingett (email@email)** should you have any queries regarding the course.  Also, this is the first time we have run the course in this form and so we shall be looking for feedback from participants about how to improve the content for the future.
+## How do I sign up?
 
-<b>Please sign up here:
-http://cell-bio-internal.lmb.internal/python/sign_up/6/</b>
+Upcoming courses are listed at:
 
-There are 10 places available which will be allocated on a first-come, first-served basis.  The course is open only to people currently working or studying at the LMB.
+<http://sean-pc-7.lmb.internal/cb/course/>
 
-*(If you wish to look at the course content before signing up, or indeed would prefer to undertake the course in your own time, then please visit the intranet page: http://intranet.lmb.internal/support-services/human-resources/training/scientific-training/ and click on the “Bioinformatics on the Computer Cluster” drop-down menu.)*
+Places will be allocated on a first-come, first-served basis. The course is open only to people currently working or studying at the LMB.
+
+Please feel free to contact me should you have any queries regarding the course.
+
+---
+
+If you wish to learn more about the course before signing-up, then please view the course content and slides at:
+
+<https://stevenwingett.github.io/Bioinformatics_Computer_Cluster_Course/>
+
+---
+
+**Interested in using Bioinformatics Pipelines?**
+
+If you are already familiar with using the cluster and would like to learn more about the bioinformatics pipelines we have set up at the LMB, then this related course may be of interest to you:
+
+<https://stevenwingett.github.io/lmb_pipelines_course/>
