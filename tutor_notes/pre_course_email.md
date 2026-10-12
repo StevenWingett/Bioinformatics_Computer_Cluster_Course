@@ -30,7 +30,7 @@ Visual Studio Code: https://code.visualstudio.com
 
 **Network Access**
 
-Please make sure you bring a machine that can already connect to the LMB intranet via wi-fi (not the “Guest” network).
+Please make sure you bring a machine that can already connect to the LMB intranet via wi-fi (not the “Guest” network or via the proxy-server).
 
 If you can login and view the following page using wi-fi then you have access: https://bb8.mrc-lmb.cam.ac.uk/userdash
 
