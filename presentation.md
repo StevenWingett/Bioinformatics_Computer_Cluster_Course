@@ -919,13 +919,30 @@ Run **on a head node**:
 
 ---
 
-## Software locations 
+## Software locations
+
+* Software you need may be pre-installed
+  
 * `/public/genomics/soft/bin`
   
 * Add to PATH?
 
 * `software` group
   
+---
+
+## Other software
+
+* Often you can run software without admin installation
+
+* Download binary files
+
+* Download source file and make binary version
+
+* Python / conda / mamba / **pixi** environments
+
+* No success - contact Scientific Computing
+
 ---
 
 ## Singularity containers
