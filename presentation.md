@@ -150,6 +150,7 @@ theme: uncover
 * The LMB cluster uses AlmaLinux
 * Big difference: you need to use the command line
 * Not so intuitive, but more powerful
+<img align="right" height="170" src="assets/tux.jpeg">
 
 ---
  ## The Bash Shell
@@ -302,7 +303,7 @@ theme: uncover
 
 ## Demo Linux commands and the filesystem
 
-    * ls (-l)
+    * ls (-l) and ls to path : folder/subfolder
     * pwd
     * cd  (. .. - ~)
     * cp  (-r)
@@ -690,7 +691,7 @@ table {
 
 * Execute script **on a head node**:
   
-      bash test.sh
+      bash sleep.sh
       Sleeping
 
 ---
@@ -698,7 +699,7 @@ table {
 ## Submitted jobs (2) [demo]
 
 * Submit script to queue **on a head node**:
-  `sbatch test.sh`
+  `sbatch sleep.sh`
 
 ---
 
@@ -738,7 +739,7 @@ table {
 
 ---
 
-## Submitted jobs (5) [demo]
+## Submitted jobs (5)
 Slurm scripts (actual email needed):
 
     #!/bin/bash
@@ -752,7 +753,7 @@ Slurm scripts (actual email needed):
     echo Hello World!
 
 Run **on a head node**:
-`sbatch test.slurm`
+`sbatch hello.slurm`
 
 ---
 ## Job arrays

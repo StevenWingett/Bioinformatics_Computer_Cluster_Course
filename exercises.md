@@ -75,9 +75,11 @@ Has anything happened?
 
 2. Delete the folder `Exercise_2` with the command `rmdir`.
 
-3. Did that work?  If not, why not, and find a way to delete `Exercise_2` (look in the manual about recursive deletions).
+3. Did that work?  If not, why not, and find a way to delete `Exercise_2`.
 
-4. Display the recent Bash commands you have entered.
+4. Using the Up/Down arrows, display the recent Bash commands you have entered.
+
+5. What does the command `history` do?
 
 ## Exercise 3
 
@@ -87,13 +89,12 @@ Has anything happened?
 
 Let’s open the archive file we copied from your local machine to the cluster:
 
-`tar xvzfp [course_title].tar.gz`
+`tar -xvzfp course_data.tar.gz`
 
-(Use the **actual filename** when running this command i.e. not "[course_title]".)
 
 Apparently, certain web browser setting cause the archive to unzipped upon downloading.  If your archive on the cluster ends with the file extension `.tar` instead of `.tar.gz`, then execute the following command:
 
-`tar xvfp [course_title].tar`
+`tar -xvfp course_data.tar.gz`
 
 (The `tar` command is useful, as it allows multiple files and the associated file hierarchy to be stored within a single archive file.  You don’t need to understand this command at the moment.)
 
@@ -123,13 +124,15 @@ Go to the `Exercise_3` folder and then explore the `MAZE` folder.  Use `cd` to m
 
 1. What does the command `date` do?
 
-2. Try this command and redirect the output to a file named `date.txt`. 
+2. Try this command and redirect the output to a file named `date.txt`.
 
 3. Now try the command again, but this append the output to `date.txt`.
 
-4. View the contents of date.txt.
+4. View the contents of `date.txt`.
 
-5. What is the result of adding the flag `--version` to `date`? 
+5. What is the result of adding the flag `--version` to `date`?
+
+6. How does the command `cal` compare to `cal -y`?
 
 ### b
 
@@ -141,13 +144,13 @@ Go to the `Exercise_3` folder and then explore the `MAZE` folder.  Use `cd` to m
 
 ### c
 
-Using a single wildcard, create symbolic links to files in the `files_list` folder that meet the following criteria:
+Using wildcards, create symbolic links to files in the `files_list` folder, as described below:
 
-1. end with the file extension `.tsv`.
+1. create links to files whose name end with the file extension `.tsv` - place these links in a folder named `TSV_links`.
 
-2. start with `B` or `C` and end with the file extension `.txt`.
+2. create links to files whose name start with `B` or `C` and end with the file extension `.txt` - place these links in a folder named `TXT_links`
 
-The links should be generated outside the file_list folder, in separate folders named `TSV_links` and `TXT_links`.
+
 
 ## Exercise 5
 

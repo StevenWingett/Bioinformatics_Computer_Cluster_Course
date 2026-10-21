@@ -10,7 +10,9 @@
 
 `date >> date.txt`
 
-Version
+Displays Version
+
+Displays month vs year
 
 #### b
 
