@@ -408,12 +408,29 @@ Figure 4: JupyterHub
 
 ## Software locations
 
-Numerous bioinformatics executable files have been deposited at:
+The software you need may already be available to you upon logging in, or by importing the relevant module.  If not, please be aware that numerous bioinformatics executable files have been deposited at:
+
 `/public/genomics/soft/bin`.  
 
 Please take a look here to see if the bioinformatics software you need is already installed.  It might be worth your time to add this location to your `PATH` by editing your `.bashrc` configuration file.  
 
 While anyone is free to run software stored here, you need to be a member of the `software` group to place files in this folder.
+
+It may be that the software you need can simply be downloaded and run (either in the form of a script or a binary file).  Alternatively, the software may need compiling prior to running.
+
+(Please note: Python and R both allow you to install libraries and modules for yourself, without the need for cluster administration rights.)
+
+Sometimes you may need to create a virtual environment to run your chosen software.  You can create [Python virtual environments](https://docs.python.org/3/library/venv.html).  
+
+To create more complex virtual environments for a multiplicity of software, you can try:
+
+* [Pixi](https://pixi.prefix.dev/latest/) - this is our preferred option owing to its reliability and speed 
+
+* [Conda](https://docs.conda.io/projects/conda/en/latest/index.html)
+
+* [Mamba](https://mamba.readthedocs.io/en/latest/index.html)
+
+If you still have no success getting your software installed, then contact Scientific Computing
 
 ## Singularity containers
 
