@@ -151,7 +151,6 @@ Using wildcards, create symbolic links to files in the `files_list` folder, as d
 2. create links to files whose name start with `B` or `C` and end with the file extension `.txt` - place these links in a folder named `TXT_links`
 
 
-
 ## Exercise 5
 
 ### a
@@ -203,7 +202,7 @@ Look at the available modules for the latest version of R.  Import this latest v
 
 2. Look at the `sqsummary` command.  What percentage of CPUs are currently available?
 
-3. Look at the `sinfo` command.
+3. Look at the `sinfo` command.  Can you work out what this means?
 
 4. Look at `qinfo` webpage: http://nagios2/qinfo/
 
@@ -213,7 +212,7 @@ Are most of the CPU nodes in use?  Are any nodes listed as “down”?  Which us
 
 1. Log in to a compute node, try some commands and then exit the compute node.
 
-2.  Log in to a compute node, but this time reserve 4 cores and 5GB RAM.
+2. Log in to a compute node, but this time reserve 4 cores and 5GB RAM.
 
 ### d
 
@@ -234,16 +233,16 @@ Check how much RAM was actually used by this job.
 
 ### e
 
-Let's run the R script `norm_dist_1_billion.R` once again as a non-interactive job using a Slurm script.  Also, in the R script, import R version 4.5.1 module prior to running the R script.
+Let's run the R script `norm_dist_1_billion.R` once again as a non-interactive job using a Slurm script.  Also, in the Slurm script, import R version 4.5.1 module prior to running the R script.
 
 ### *f (optional challenge question)*
 
-*This question is intended to introduce you to the concept of **SLURM arrays** and involves searching online to work out the answer.*  
+*This question is intended to introduce you to the concept of **Slurm arrays** and involves searching online to work out the answer.*  
 
-You have been given 10 DNA FASTA files.  Since these are human samples, the GC content should be around 41%.  However, a sample swap has occurred, meaning that one of the samples actually conatains E. coli DNA, which has a GC content of around 51%.
+You have been given 10 DNA FASTA files.  Since these are human samples, the GC content should be around 41%.  However, a sample swap has occurred, meaning that one of the samples actually contains E. coli DNA, which has a GC content of around 51%.
 
-You have also been given a Python script that calculates the GC content of a FASTA file.  You could run this file sequentially on the all 10 files, but instead you should try to process all the FASTA files simultaneously by making use of a SLURM array.
+You have also been given a Python script that calculates the GC content of FASTA files.  You could run this file sequentially on the all 10 files, but instead you should try to process all the FASTA files simultaneously by making use of a Slurm array.
 
-Firstly, we need to make the data.  To do this, run the python script `make_fasta_files.py`.
+Firstly, we need to make the data.  To do this, run the Python script `make_fasta_files.py`.
 
 That should have generated 10 FASTA files.  Now use the script `calc_gc.py` **in a SLURM array** to determine the GC content of each sample.

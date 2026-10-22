@@ -583,9 +583,11 @@ table {
 
 * Command palette
   
-* <kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac)
+    * Dropdown menu: View -> Command Palette
   
-* <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux)
+    * <kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac)
+  
+    * <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux)
 
 * `Remote-SSH: Open SSH Configuration File...`
 
@@ -650,7 +652,7 @@ table {
 
 ---
 
-## Slurm – checking status (2) [demo]
+## Slurm – checking status (2)
 
 * `sqsummary` – CPU node state
 
@@ -707,7 +709,7 @@ table {
 
 * More options:
 
-      sbatch -J test_job -c 2 --mail-type=ALL --mail-user=$USER@mrc-lmb.cam.ac.uk --mem=2G test.sh
+      sbatch -J test_job -c 2 --mail-type=ALL --mail-user=$USER@mrclmb.ac.uk --mem=2G test.sh
 
  <br>
 
@@ -727,7 +729,7 @@ table {
 
 ---
 
-## Submitted jobs (4) [demo]
+## Submitted jobs (4)
 
 * `sacct -j [job id]`
 
@@ -747,7 +749,7 @@ Slurm scripts (actual email needed):
     #SBATCH --cpus-per-task=1
     #SBATCH --mem=2G
     #SBATCH --mail-type=ALL
-    #SBATCH --mail-user=john_smith@mrc-lmb.cam.ac.uk
+    #SBATCH --mail-user=john_smith@mrclmb.ac.uk
     
     # Bash commands
     echo Hello World!
@@ -760,7 +762,7 @@ Run **on a head node**:
 
 * Process many related tasks simultaneously
 
-* Specify the job array in a Slurm script 
+* Specify the job array in a Slurm script
 
 * Submit using  `sbatch`
 
@@ -800,21 +802,21 @@ Run **on a head node**:
 
 ---
 
-## Where to put data - Cluster
+## Where to put data - cluster
 
 * `~` (home directory) -  config files and scripts
 
 * `/cephfs` & `/cephfs2` - very large data storage / suitable location for processing data.
 
 * `/scratch` - suitable location for processing data
-  * **FILES ARE AUTOMATICALLY DELETED - DON'T STORE FILES HERE!** 
-  * Nextflow / nf-core pipeline don't run reliably here
+  * **FILES ARE AUTOMATICALLY DELETED - DON'T STORE FILES HERE!**
+  * But, Nextflow / nf-core pipelines don't run reliably here!
 
 * `/istore` or `/isilon` - a place to store data
 
 ---
 
-## Where to put data - Cluster (2)
+## Where to put data - cluster (2)
 
 * Your group may have its own dedicated storage area
 
@@ -830,10 +832,10 @@ Run **on a head node**:
 
 * Create a named folder in `/data1`, `/data2` or `/data3/scratch` to store data files
 
-* Much smaller storage compacity as compared to the Cluster (terrabytes)
+* Much smaller storage capacity as compared to the Cluster (terrabytes)
 
 ---
-## Transferring Files (SCP)
+## Transferring files (SCP)
 
 * To/From the cluster To/From another machine via the **intranet**
         
@@ -844,7 +846,7 @@ Run **on a head node**:
 * Perform a **recursive copy** for folders: `-r`
 
 ---
-## Transferring Files (SFTP/FTP)
+## Transferring files (SFTP/FTP)
 
 * To/From the cluster To/From another machine via the *internet*
 
@@ -858,7 +860,7 @@ Run **on a head node**:
 
 ---
 
-## Transferring Files (SFTP/FTP) (2)
+## Transferring files (SFTP/FTP) (2)
 
 * `ftp [hostname]`
 
@@ -938,7 +940,7 @@ Run **on a head node**:
 
 * Download binary files
 
-* Download source file and make binary version
+* Download source files and make a binary version
 
 * Python / conda / mamba / **pixi** environments
 
@@ -949,7 +951,7 @@ Run **on a head node**:
 ## Singularity containers
 * Enable software and dependencies to be bundled into one file  
   
-*  Most effective way to distribute versioned bioinformatics software
+* Most effective way to distribute versioned bioinformatics software
 
 * On the cluster, containers can only be run from:  `/public/singularity/`.
 
@@ -959,22 +961,23 @@ Run **on a head node**:
 
 ---
 
-## NGS Bionformatics Pipelines
+## NGS bionformatics pipelines
 
-* NGS QC
-* ATAC-seq
-* ChIP-seq
-* Cut and Run/Tag
-* RNA-seq
-* Differential abundance
-* Single Cell RNA-seq (10x)
-* Single Cell RNA-seq (Parse)
-* Taxonomy Profiling
-* NGS data downloading Data
+* See **GUIde Piper** (intranet <http://guidepiper>)
+  * NGS QC
+  * ATAC-seq
+  * ChIP-seq
+  * Cut and Run/Tag
+  * RNA-seq
+  * Differential abundance
+  * Single Cell RNA-seq (10x)
+  * Single Cell RNA-seq (Parse)
+  * Taxonomy Profiling
+  * NGS data downloading Data
 
 ---
 
-## NGS Bionformatics Pipelines (2)
+## NGS bionformatics pipelines (2)
 
 * Online tutorial: <https://www.youtube.com/watch?v=PPEneJfFsOI>
 
@@ -988,7 +991,7 @@ Run **on a head node**:
 
 * Linux / Bash
 
-* Cell Biolgy Xeon Workstation
+* Cell Biology Xeon Workstation
 
 * Compute cluster and its architecture
 
@@ -1002,8 +1005,8 @@ Run **on a head node**:
 
 ---
 
-## Course Online
+## Course online
 
 ![width:400px](assets/qr-code.png)
 
-`https://stevenwingett.github.io/Bioinformatics_Computer_Cluster_Course`
+<https://stevenwingett.github.io/Bioinformatics_Computer_Cluster_Course>

@@ -51,6 +51,8 @@
   `bash sleep.sh`
 
 * Modules:
+
+Don't actually import R, since this is an exercise
   
     `module avail`
 

@@ -101,19 +101,21 @@ Displays month vs year
       #!/bin/bash
       Rscript norm_dist_1_billion.R
 
-`sbatch -J Rscript_job -c 1 --mail-type=ALL --mail-user=$USER@mrc-lmb.cam.ac.uk --mem=3G norm_dist.sh`
+`sbatch -J Rscript_job -c 1 --mail-type=ALL --mail-user=$USER@mrclmb.ac.uk --mem=3G norm_dist.sh`
 
-`sbatch -J Rscript_job -c 1 --mail-type=ALL --mail-user=$USER@mrc-lmb.cam.ac.uk --mem=30G norm_dist.sh`
+`sbatch -J Rscript_job -c 1 --mail-type=ALL --mail-user=$USER@mrclmb.ac.uk --mem=30G norm_dist.sh`
 
 `sacct --format=jobID%20,CPUTime,MaxRSS -j [job id]`
 
 #### e
 
+Edit the script to include your literal username, since `$USER` written in a Slurm script will not be interpolated.
+
     #!/bin/bash
     #SBATCH --job-name=Rscript_job
     #SBATCH --cpus-per-task=1
     #SBATCH --mail-type=ALL
-    #SBATCH --mail-user=$USER@mrc-lmb.cam.ac.uk
+    #SBATCH --mail-user=[add_username_here]@mrclmb.ac.uk
     #SBATCH --mem=30G
 
     # Bash command
@@ -131,9 +133,10 @@ Create script `array_job.slurm`, containing:
 
     #!/bin/bash
     #SBATCH --job-name=arrayjob_calc_gc
-    #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=1
     #SBATCH --array=1-10
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=[add_username_here]@mrclmb.ac.uk
 
     SAMPLE_ID=$((SLURM_ARRAY_TASK_ID))
     echo $SAMPLE_ID

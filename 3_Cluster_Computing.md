@@ -157,7 +157,7 @@ Passing a bash script to `sbatch` is one way to run a non-interactive job on the
     #SBATCH --job-name=test_job
     #SBATCH --cpus-per-task=1
     #SBATCH --mem=2G
-    #SBATCH --mail-user=john_smith@mrc-lmb.cam.ac.uk
+    #SBATCH --mail-user=john_smith@mrclmb.ac.uk
 
     # Bash command
     module load R/4.5.1
@@ -360,7 +360,7 @@ We shall not discuss how to use VS Code in detail here, and in any case, the man
 
 To connect to the software to the cluster, you will also need to install the extension "Remote - SSH" from the VS Code marketplace.  Click on the marketplace icon in the left-hand side menu to do this.
 
-You will also need to specify your login credentials to access the server.  The best way to do this is to access the Command Palette (<kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux) and then select `Remote-SSH: Open SSH Configuration File...`  Then, from the drop-down menu, select the configuration file that is located in your home directory.  Then enter the setup listed below (replacing "your_username" with your actual cluster username):
+You will also need to specify your login credentials to access the server.  The best way to do this is to access the Command Palette (<kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux) and then select `Remote-SSH: Open SSH Configuration File...`  (The Command Palette can also be accessed via the drop-down menu: View -> Command Palette.)  Then, from the drop-down menu, select the configuration file that is located in your home directory.  Then enter the setup listed below (replacing "your_username" with your actual cluster username):
 
     Host hal_on_site
         HostName hal
