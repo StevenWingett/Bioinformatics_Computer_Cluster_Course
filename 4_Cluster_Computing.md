@@ -4,9 +4,10 @@
 
 * [Introduction & Setup](1_Introduction_and_setup.md)
 * [Linux – using the Linux operating system and the command line](2_Linux.md)
-* [Cluster Computing – how to submit jobs to a compute cluster](3_Cluster_Computing.md)
+* [Data and Software – where to store files and how to run software](3_Data_and_Software.md)
+* [Cluster Computing – how to submit jobs to a compute cluster](4_Cluster_Computing.md)
 * [Course Exercises](exercises.md)
-* [License](License.md)
+* [License](./License.md)
 
 ---
 
@@ -206,10 +207,25 @@ To kill running jobs use `scancel`:
 
 Let us suppose you have a several or many related tasks that you wish to perform: for example, process numerous different files with the same software tool.
 
-A convenient way to do this would be to use a **Slurm job array**.  To do this, you need to specify the terms of your job array in a Slurm script and submit this script to the cluster via `sbatch`.  We shan't cover this in the course, but for more details on this go to:
+A convenient way to do this would be to use a **Slurm job array**.  To do this, you need to specify the terms of your job array in a Slurm script and submit this script to the cluster via `sbatch`.  
+
+A way to do this is to name you input file so that they contain interger ids (e.g. file.1.txt, file.2.txt, ..., file.10.txt).  Then specify the size of the array in the Slurm script, which should correspond to the number of input files e.g.: `#SBATCH --array=1-10`.
+
+Then, "link" the Slurm array ids to the filenames in the Slurm script: `SAMPLE_ID=$((SLURM_ARRAY_TASK_ID))`.
+
+So, the following code:
+
+    #!/bin/bash
+    #SBATCH --array=1-10
+
+    SAMPLE_ID=$((SLURM_ARRAY_TASK_ID))
+    cat file.$SAMPLE_ID.txt
+
+will print to standard out the contents of each file (file.1.txt, file.2.txt, ..., file.10.txt).  Importantly, each `cat` statement will be submitted as a separate job to the scheduler.  There is no obvious advantage to using a Slurm array in this way, but if instead of `cat` we were performing some computationally intensive task, then processing the files in parallel may make substantial time savings.
+
+For more details, go to:
 
 <https://slurm.schedmd.com/job_array.html>
-
 
 ## Further assistance
 

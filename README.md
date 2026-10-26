@@ -4,10 +4,11 @@
 
 This course is intended to teach the basics of using a compute cluster.  Although the material refers to the system architecture established at the MRC-LMB (in Cambridge, UK), the general concepts are applicable to a multiplicity of different setups. The course comprises 4 sections:
 
-1. [Introduction and setup](1_Introduction_and_setup.md)
+1. [Introduction & Setup](1_Introduction_and_setup.md)
 2. [Linux – using the Linux operating system and the command line](2_Linux.md)
-3. [Cluster computing – how to submit jobs to a compute cluster](3_Cluster_Computing.md)
-4. [Course Exercises](exercises.md)
+3. [Data and Software – where to store files and how to run software](3_Data_and_Software.md)
+4. [Cluster Computing – how to submit jobs to a compute cluster](4_Cluster_Computing.md)
+5. [Course Exercises](exercises.md)
 
 The course slides (presentation.md) and other materials are available in the GitHub repository.  (The slides were rendered using [MARP](https://marp.app).)
 

@@ -4,9 +4,10 @@
 
 * [Introduction & Setup](1_Introduction_and_setup.md)
 * [Linux – using the Linux operating system and the command line](2_Linux.md)
-* [Cluster Computing – how to submit jobs to a compute cluster](3_Cluster_Computing.md)
+* [Data and Software – where to store files and how to run software](3_Data_and_Software.md)
+* [Cluster Computing – how to submit jobs to a compute cluster](4_Cluster_Computing.md)
 * [Course Exercises](exercises.md)
-* [License](License.md)
+* [License](./License.md)
 
 ---
 
