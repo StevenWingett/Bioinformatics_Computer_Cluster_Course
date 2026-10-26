@@ -490,8 +490,6 @@ table {
 
 * Order lines with `sort`
 
-* Transfer data with `curl`
-
 * Fix line endings with `dos2unix` and `mac2unix`
 
 ---
