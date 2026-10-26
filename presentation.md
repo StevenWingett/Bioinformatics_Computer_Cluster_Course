@@ -397,7 +397,7 @@ Can use redirects with other command (i.e. not just `cat`)
 
 ---
 
-## Wildcards 2
+## Wildcards (2)
 
 * Character class matches any of the single alphanumeric characters in the list:
 
@@ -945,11 +945,24 @@ Run **on a head node**:
 
 * Process many related tasks simultaneously
 
-* Specify the job array in a Slurm script
+* Specify array size in Slurm script:
 
+* Place array id input filenames e.g. file.1.txt, file.2.txt, ...
+  
 * Submit using  `sbatch`
 
 * https://slurm.schedmd.com/job_array.html
+
+---
+
+## Job arrays (2)
+
+Example code:
+
+    #SBATCH --array=1-10
+    
+    SAMPLE_ID=$((SLURM_ARRAY_TASK_ID))
+    echo $SAMPLE_ID
 
 ---
 
@@ -979,7 +992,7 @@ Run **on a head node**:
 
 * Use it or lose it!
 
-* Read the course documentation again 
+* Read the course documentation again
 
 * Run a script on the cluster
 

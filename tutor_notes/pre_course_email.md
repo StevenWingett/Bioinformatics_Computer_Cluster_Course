@@ -8,7 +8,7 @@ https://bb8.mrc-lmb.cam.ac.uk/userdash
 
 Log in with your LMB credentials, then click the "slurm" link in the "Additional" section and click the confirmation button.
 
-Also, check in this section that the "Shell" is: "/bin/bash".  If it is not, then please email Scientific Computing and ask them to change your default shell to "Bash". 
+Also, check in this section that the "Shell" is: "/bin/bash".  If it is not, then please email Scientific Computing and inform them that you are about to undertake the Cluster Course and ask them to change your default shell to "Bash".  Please also ask them to confirm that you have a bashrc script, that cluster modules can be loaded and the sqsummary works.
 
 **Software**
 

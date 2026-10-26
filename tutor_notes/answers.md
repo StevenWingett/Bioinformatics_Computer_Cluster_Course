@@ -98,17 +98,6 @@ Displays month vs year
 
 #### d
 
-      #!/bin/bash
-      Rscript norm_dist_1_billion.R
-
-`sbatch -J Rscript_job -c 1 --mail-type=ALL --mail-user=$USER@mrclmb.ac.uk --mem=3G norm_dist.sh`
-
-`sbatch -J Rscript_job -c 1 --mail-type=ALL --mail-user=$USER@mrclmb.ac.uk --mem=30G norm_dist.sh`
-
-`sacct --format=jobID%20,CPUTime,MaxRSS -j [job id]`
-
-#### e
-
 Edit the script to include your literal username, since `$USER` written in a Slurm script will not be interpolated.
 
     #!/bin/bash
@@ -125,7 +114,7 @@ Edit the script to include your literal username, since `$USER` written in a Slu
 
 `sbatch norm_dist.slurm`
 
-#### *f
+#### *e
 
 `python3 make_fasta_files.py`
 

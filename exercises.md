@@ -223,7 +223,7 @@ Let's run the R script `norm_dist_1_billion.R` by submitting the job to the clus
 
 This R script randomly generates 1 billion data values from a Normal Distribution.  The results are then plotted as a histogram.
 
-Firstly, make a bash script named `norm_dist.sh` which contains the command:
+Firstly, make a bash script named `norm_dist.slurm` which contains the command:
 
 `Rscript norm_dist_1_billion.R`
 
@@ -235,13 +235,11 @@ Did the job succeed?  If not, try again but increase the RAM allocation to 30Gb.
 
 Check how much RAM was actually used by this job.
 
+If you wanted the Slurm script to use a specific version of R using the cluster modules, how would you achieve this?  You don't need to do this, just think about what you would need to do.
+
 ### e
 
-Let's run the R script `norm_dist_1_billion.R` once again as a non-interactive job using a Slurm script.  Also, in the Slurm script, import R version 4.5.1 module prior to running the R script.
-
-### *f (optional challenge question)*
-
-*This question is intended to introduce you to the concept of **Slurm arrays** and involves searching online to work out the answer.*  
+This question is intended to introduce you to the concept of **Slurm arrays**.
 
 You have been given 10 DNA FASTA files.  Since these are human samples, the GC content should be around 41%.  However, a sample swap has occurred, meaning that one of the samples actually contains E. coli DNA, which has a GC content of around 51%.
 
