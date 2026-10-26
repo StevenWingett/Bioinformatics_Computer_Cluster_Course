@@ -57,7 +57,11 @@ Note: your home directory will be your username (e.g. `/lmb/home/jsmith`).
 
     touch file1.txt
 
-Has anything happened?
+    Has anything happened?
+
+4. What is the following command doing?
+   
+    `ls ../../`
 
 ### c
 
@@ -150,7 +154,6 @@ Using wildcards, create symbolic links to files in the `files_list` folder, as d
 
 2. create links to files whose name start with `B` or `C` and end with the file extension `.txt` - place these links in a folder named `TXT_links`
 
-
 ## Exercise 5
 
 ### a
@@ -221,7 +224,8 @@ Let's run the R script `norm_dist_1_billion.R` by submitting the job to the clus
 This R script randomly generates 1 billion data values from a Normal Distribution.  The results are then plotted as a histogram.
 
 Firstly, make a bash script named `norm_dist.sh` which contains the command:
-`Rscript norm_dist_1_billion.R`.
+
+`Rscript norm_dist_1_billion.R`
 
 (Don't forget the link to the Bash Shell at the top of the file!)
 

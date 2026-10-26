@@ -563,7 +563,257 @@ table {
 
 ---
 
-# Interlude: Visual Studio Code [demo] 
+# Part II
+## (hours 4-8)
+
+---
+
+## Data management
+
+### File transfers and storage
+
+---
+
+## Where to put data - cluster
+
+* `~` (home directory) -  config files and scripts
+
+* `/cephfs` & `/cephfs2` - very large data storage / suitable location for processing data.
+
+* `/scratch` - suitable location for processing data
+  * **FILES ARE AUTOMATICALLY DELETED - DON'T STORE FILES HERE!**
+  * But, Nextflow / nf-core pipelines don't run reliably here!
+
+* `/istore` or `/isilon` - a place to store data
+
+---
+
+## Where to put data - cluster (2)
+
+* Your group may have its own dedicated storage area
+
+* Check your quota in the dashboard
+
+* **Refer to Scientific Computing for further information**
+
+---
+
+## Where to put data - Cell Biology Xeon
+
+* `~` (home directory) -  config files and scripts
+
+* Create a named folder in `/data1`, `/data2` or `/data3/scratch` to store data files
+
+* Much smaller storage capacity as compared to the Cluster (terrabytes)
+
+---
+
+## NGS Data Storage - Cell Biology
+
+* Custom-built storage archive
+
+* Stores and backs-up raw files and metadata
+
+* <http://sean-pc-7.lmb.internal/seq/>
+
+* Currently available to Cell Biology
+
+---
+
+## Transferring files (SCP)
+
+* To/From the cluster To/From another machine via the **intranet**
+        
+* `scp user@host:[target_to_download] [destination_path]`  
+  
+* `scp [target_to_upload] user@host:[destination_path]`
+
+* Perform a **recursive copy** for folders: `-r`
+
+---
+
+## Downloading files from the web onto the cluster directly
+
+* `curl` almost always installed on Linux:
+
+* `curl -O https:/myweb/address/file.txt`
+
+* `wget` not available on some systems, but is installed on the LMB cluster
+
+* `wget https:/myweb/address/file.txt`
+
+---
+
+## Transferring files (SFTP/FTP)
+
+* To/From the cluster To/From another machine via the *internet*
+
+* Linux command line equivalent of FileZilla
+
+* `sftp [hostname]`
+
+* `mget -r [files_to_download]`
+
+* `mput -r [files_to_download]`
+
+---
+
+## Transferring files (SFTP/FTP) (2)
+
+* `ftp [hostname]`
+
+* `bin`
+
+* `prompt`
+
+* LMB FTP: `/ftp/pub/`
+  
+* LMB FTP: `ftp.mrc-lmb.cam.ac.uk`
+
+* 'anonymous' with no password
+
+---
+
+## Software
+
+### What is available and how to install
+
+---
+
+## Software locations
+
+* Software you need may be pre-installed
+  
+* `/public/genomics/soft/bin`
+  
+* Add to PATH?
+
+* `software` group
+  
+---
+
+## Modules [demo]
+
+* Import specific software versions
+
+* To list available module:
+
+  `module avail`
+
+* To use a module:
+  `module load [module name]`
+
+---
+
+## Other software
+
+* Often you can run software without admin installation
+
+* Download binary files
+
+* Download source files and make a binary version
+
+* Python / conda / mamba / **pixi** environments
+
+* No success - contact Scientific Computing
+
+---
+
+## Singularity containers
+
+* Enable software and dependencies to be bundled into one file  
+  
+* Most effective way to distribute versioned bioinformatics software
+
+* On the cluster, containers can only be run from:  `/public/singularity/`
+
+* Add files to that folder: `singularity` group
+
+* Also installed on Xeon, where containers can be run from any location
+
+---
+
+## Screen
+
+* Interactive, but run in background (needed for SFTP)
+
+* `screen -S [screen_name]`
+
+* <kbd>CTRL</kbd> + <kbd>A</kbd> and then press <kbd>D</kbd>
+
+* `screen -ls`
+
+* `screen -r [ID_number]`
+
+* `exit`
+  
+---
+
+## NGS bionformatics pipelines
+
+* See **GUIde Piper** (intranet <http://guidepiper>)
+  * NGS QC
+  * ATAC-seq
+  * ChIP-seq
+  * Cut and Run/Tag
+  * RNA-seq
+  * Differential abundance
+  * Single Cell RNA-seq (10x)
+  * Single Cell RNA-seq (Parse)
+  * Taxonomy Profiling
+  * NGS data downloading Data
+
+---
+
+## NGS bionformatics pipelines (2)
+
+* Online tutorial: <https://www.youtube.com/watch?v=PPEneJfFsOI>
+
+* Course material: <https://github.com/StevenWingett/lmb_pipelines_course>
+
+![width:250px](assets/lmb_pipelines_course_qr-code.png)
+
+---
+
+## R Studio Server
+
+* Web interface
+
+* http://hal:8788
+
+* http://sean-pc-10.lmb.internal:8787
+
+![width:1300px](assets/r_studio_server_screenshot.png)
+
+---
+
+## Jupyter Hub Server
+* Jupyter Notebook - create and share documents that contain live code, equations, plots and descriptive text
+
+![width:800px](assets/jupyter_lab_screenshot.png)
+
+---
+
+## Jupyter Hub Server (2)
+* Not supported on the Cluster
+
+* Installed on the Cell Biology Workstation (Xeon)
+
+* We can set you up with an account
+
+* Course: https://github.com/StevenWingett/data-analysis-with-python-course
+
+---
+
+# Rendering Images
+
+* View images requires XQuartz (Mac) or VcXsrv (Windows)
+
+* Not so responsive – maybe transfer to local machine first?
+
+---
+
+# Visual Studio Code
 
 * Microsoft Text editor
 * Windows / Mac / Linux
@@ -579,37 +829,11 @@ table {
 
 <img src="assets/vscode_screenshot.png" alt="VS Code Screenshot" height="500">
   
----  
-
-* Command palette
-  
-    * Dropdown menu: View -> Command Palette
-  
-    * <kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac)
-  
-    * <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux)
-
-* `Remote-SSH: Open SSH Configuration File...`
-
-      Host hal_on_site
-          HostName hal
-          User your_username
-
-      Host hal_external
-          HostName hal
-          User your_username
-          IdentityFile ~/.ssh/hal
-          ProxyCommand ssh -q -W %h:%p atg.mrc-lmb.cam.ac.uk
 ---
 
-* `Remote-SSH: Connect current window to host...`
-  
-* https://code.visualstudio.com/docs/introvideos/basics
+## Using the cluster as a cluster
 
----
-
-# Part II
-## Using the Cluter Compute Nodes (hours 4-8)
+### Introducing Slurm
 
 ---
 
@@ -654,9 +878,9 @@ table {
 
 ## Slurm – checking status (2)
 
-* `sqsummary` – CPU node state
+* `sqsummary` – CPU node state (if shell config okay!)
 
-* `sinfo` – partition node information
+* `sinfo` – partition node information 
 
 * `qinfo` – interactive webpage: http://nagios2/qinfo/
 
@@ -677,59 +901,35 @@ table {
   
 * Prompt change: `username@fmb376`
 
+* Leave compute node: `exit`
+
 * There are options: `srun -c 8 --pty bash`
 
 ---
 
-## Submitted jobs [demo]
+## Submitted jobs
 
-* Job runs without further user input
+Create Slurm scripts in Nano:
 
-* Write Bash script:
-  
-      #!/bin/bash
-      echo Sleeping!
-      sleep 100
+    #!/bin/bash
+    #SBATCH --job-name=test_job
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem=2G
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=john.smith@mrclmb.ac.uk
+    
+    # Bash commands
+    sleep 60
+    echo Hello World!
 
-* Execute script **on a head node**:
-  
-      bash sleep.sh
-      Sleeping
-
----
-
-## Submitted jobs (2) [demo]
-
-* Submit script to queue **on a head node**:
-  `sbatch sleep.sh`
+Run **on a head node**:
+`sbatch hello.slurm`
 
 ---
 
-## Submitted jobs (3)
+## Submitted jobs (2)
 
-* More options:
-
-      sbatch -J test_job -c 2 --mail-type=ALL --mail-user=$USER@mrclmb.ac.uk --mem=2G test.sh
-
- <br>
-
-<style scoped>
-table {
-  font-size: 20px;
-}
-</style>
-
-| Command                             | Function                                                      |
-|-------------------------------------|---------------------------------------------------------------|
-| -J [jobname]                        | Specify an easily identifiable jobname                        |
-| -c [number of cores]                | Number of cores on a node to reserve for the job [default: 1] |
-| --mem=[RAM]G                        | GB of RAM to reserve for the job [default: 5]                 |
-| --mail-type=ALL                     | Send email updates on job progress                            |
-| --mail-user=$USER@mrclmb.ac.uk      | Recipient’s email address                                     |
-
----
-
-## Submitted jobs (4)
+* Exit code 0 in email - job worked!
 
 * `sacct -j [job id]`
 
@@ -741,23 +941,6 @@ table {
 
 ---
 
-## Submitted jobs (5)
-Slurm scripts (actual email needed):
-
-    #!/bin/bash
-    #SBATCH --job-name=test_job
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem=2G
-    #SBATCH --mail-type=ALL
-    #SBATCH --mail-user=john_smith@mrclmb.ac.uk
-    
-    # Bash commands
-    echo Hello World!
-
-Run **on a head node**:
-`sbatch hello.slurm`
-
----
 ## Job arrays
 
 * Process many related tasks simultaneously
@@ -770,236 +953,37 @@ Run **on a head node**:
 
 ---
 
-## Modules [demo]
-
-* Import specific software versions
-
-* To list available module:
-
-  `module avail`
-
-* To use a module:
-  `module load [module name]`
-
----
-
-# Additional points
-
-* Exit codes – 0 means success!
-
-* View images requires XQuartz (Mac) or VcXsrv (Windows)
-
-* Not so responsive – maybe transfer to local machine first?
-
-* More details:
-   https://www.mrc-lmb.cam.ac.uk/scicomp
-
----
-
 ## Exercise 6
 
 ### Using the cluster “as a cluster”
 
 ---
 
-## Where to put data - cluster
-
-* `~` (home directory) -  config files and scripts
-
-* `/cephfs` & `/cephfs2` - very large data storage / suitable location for processing data.
-
-* `/scratch` - suitable location for processing data
-  * **FILES ARE AUTOMATICALLY DELETED - DON'T STORE FILES HERE!**
-  * But, Nextflow / nf-core pipelines don't run reliably here!
-
-* `/istore` or `/isilon` - a place to store data
-
----
-
-## Where to put data - cluster (2)
-
-* Your group may have its own dedicated storage area
-
-* Check your quota in the dashboard
-
-* **Refer to Scientific Computing for further information**
-
----
-
-## Where to put data - Cell Biology Xeon
-
-* `~` (home directory) -  config files and scripts
-
-* Create a named folder in `/data1`, `/data2` or `/data3/scratch` to store data files
-
-* Much smaller storage capacity as compared to the Cluster (terrabytes)
-
----
-## Transferring files (SCP)
-
-* To/From the cluster To/From another machine via the **intranet**
-        
-* `scp user@host:[target_to_download] [destination_path]`  
-  
-* `scp [target_to_upload] user@host:[destination_path]`
-
-* Perform a **recursive copy** for folders: `-r`
-
----
-## Transferring files (SFTP/FTP)
-
-* To/From the cluster To/From another machine via the *internet*
-
-* Linux command line equivalent of FileZilla
-
-* `sftp [hostname]`
-
-* `mget -r [files_to_download]`
-
-* `mput -r [files_to_download]`
-
----
-
-## Transferring files (SFTP/FTP) (2)
-
-* `ftp [hostname]`
-
-* `bin`
-
-* `prompt`
-
-* LMB FTP: `/ftp/pub/`
-  
-* LMB FTP: `ftp.mrc-lmb.cam.ac.uk`
-
-* 'anonymous' with no password
-
----
-
-## Screen
-
-* Interactive, but run in background (needed for SFTP)
-
-* `screen -S [screen_name]`
-
-* <kbd>CTRL</kbd> + <kbd>A</kbd> and then press <kbd>D</kbd>
-
-* `screen -ls`
-
-* `screen -r [ID_number]`
-
-* `exit`
-  
----
-
-## R Studio Server
-
-* Web interface
-
-* http://hal:8788
-
-* http://sean-pc-10.lmb.internal:8787
-
-![width:1300px](assets/r_studio_server_screenshot.png)
-
----
-
-## Jupyter Hub Server
-* Jupyter Notebook - create and share documents that contain live code, equations, plots and descriptive text
-
-![width:800px](assets/jupyter_lab_screenshot.png)
-
----
-
-## Jupyter Hub Server (2)
-* Not supported on the Cluster
-
-* Installed on the Cell Biology Workstation (Xeon)
-
-* We can set you up with an account
-
-* Course: https://github.com/StevenWingett/data-analysis-with-python-course
-
----
-
-## Software locations
-
-* Software you need may be pre-installed
-  
-* `/public/genomics/soft/bin`
-  
-* Add to PATH?
-
-* `software` group
-  
----
-
-## Other software
-
-* Often you can run software without admin installation
-
-* Download binary files
-
-* Download source files and make a binary version
-
-* Python / conda / mamba / **pixi** environments
-
-* No success - contact Scientific Computing
-
----
-
-## Singularity containers
-* Enable software and dependencies to be bundled into one file  
-  
-* Most effective way to distribute versioned bioinformatics software
-
-* On the cluster, containers can only be run from:  `/public/singularity/`.
-
-* Add files to that folder: `singularity` group 
-
-* Also installed on Xeon, where containers can be run from any location
-
----
-
-## NGS bionformatics pipelines
-
-* See **GUIde Piper** (intranet <http://guidepiper>)
-  * NGS QC
-  * ATAC-seq
-  * ChIP-seq
-  * Cut and Run/Tag
-  * RNA-seq
-  * Differential abundance
-  * Single Cell RNA-seq (10x)
-  * Single Cell RNA-seq (Parse)
-  * Taxonomy Profiling
-  * NGS data downloading Data
-
----
-
-## NGS bionformatics pipelines (2)
-
-* Online tutorial: <https://www.youtube.com/watch?v=PPEneJfFsOI>
-
-* Course material: <https://github.com/StevenWingett/lmb_pipelines_course>
-
-![width:250px](assets/lmb_pipelines_course_qr-code.png)
-
----
-
 ## Summary
+
+* Compute cluster and its architecture
 
 * Linux / Bash
 
 * Cell Biology Xeon Workstation
 
-* Compute cluster and its architecture
-
 * Slurm
 
 * R Studio Server / JupyterHub / Visual Studio Code
 
+---
+
+## After the course
+
 * Find a reason to have a go in the coming weeks
+
+* Use it or lose it!
+
+* Read the course documentation again 
+
+* Run a script on the cluster
+
+* Install and try VSCode
 
 * Thanks for listening!!!
 
